@@ -2,3 +2,24 @@ FOR WEBCHAT PROGRAM
 USE JQUERY2.X
 USE BOOTSTRAP3.4
 USE FREE FLAT-UI
+
+2016/01/20 增加jquery插件用于对微信浏览器环境及微信身份、权限进行验证
+$.webchatCongfig.checkWXBrowser({
+	default:true,
+	sucFunction:function(){
+		console.log("suc")
+	},
+	//errFunction can be null
+	errFunction:function(){
+		console.log("err")
+	}
+});
+$.webchatCongfig.regInformation({
+	regSuccess:function(openID,userInfo){
+		alert(openID);
+	},
+	//signSuccess can be null
+	signSuccess:function(res){
+		alert(res);//signSuc  OR  signErr
+	}
+});
