@@ -1,0 +1,27 @@
+body{
+	background-color: darkseagreen;
+}
+.regist{
+	text-align: center;
+	margin-top: 40px;
+}
+.regist p{
+	color: white
+}
+.regist h3{
+	color: white;
+}
+.regist b{
+	font-size: 1.5em;
+}
+.regist img{
+	width: 30%;
+}
+.registForm{
+	display: none;
+	text-align: left;
+	padding:15px;
+	background-color: white;
+	margin: 15px;
+	border-radius: 10px;
+}

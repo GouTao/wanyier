@@ -1,0 +1,25 @@
+body{
+	background-color: #FF7F50;
+}
+.userReg{
+	text-align: center;
+	padding-top: 50px;
+}
+.userReg h3{
+	color: white;
+}
+.userReg b{
+	font-size:1.72em;
+}
+.userReg h4{
+	margin-top: 25px;
+	width: 100%;
+	color: white;
+	font-weight: bold;
+	font-size: 1.5em;
+}
+.userReg img{
+	margin-top: 25px;
+	width: 30%;
+	max-width: 200px;
+}

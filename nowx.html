@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>玩艺儿</title>
+		<!-- main css -->
+		<link rel="stylesheet" href="FlatUI/css/vendor/bootstrap/css/bootstrap.min.css" />
+		<link rel="shortcut icon" href="FlatUI/img/icons/png/Clipboard.png"/>
+		<link rel="stylesheet" href="FlatUI/css/animate.css" />
+		<!-- user css -->
+		<link rel="stylesheet" href="css/css.css" />
+		<link rel="stylesheet" href="css/module/nowx.css" />
+	</head>
+	<body>
+		<div class="nowx mid">
+			<h4>好遗憾...</h4>
+			<img src="img/pitty.png" />
+			<h4>微信专享页面</h4>
+			<br />
+			<p>微信扫描下方二维码</p>
+			<p>关注<b>"玩艺儿"</b>公众号</p>
+			<img src="img/qr.jpg" id="qr"/>
+		</div>
+		
+				<!-- main js -->
+		<script type="text/javascript" src="FlatUI/js/vendor/jquery.min.js" ></script>
+		<script type="text/javascript" src="FlatUI/js/flat-ui.min.js" ></script>
+		<script>
+			$(document).ready(function(){
+				setTimeout(function(){
+					$("#qr").css("display","inline");
+					$("#qr").addClass("animated fadeIn");
+				},500);
+			})
+		</script>
+	</body>
+</html>
