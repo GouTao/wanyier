@@ -7,14 +7,40 @@ body{
 }
 .footer{
 	width: 100%;
-	height: 60px;
+	height: 50px;
 	position: fixed;
 	bottom: 0px;
 	border-top: 1px solid #cccccc;
 }
-.footer table{
+table{
 	width: 100%;
 	text-align: center;
-	height: 60px;
+	height: auto;
+}
+.nav td{
+	padding: 5px;
+}
+.imgBtn{
+	width: 60%;
+	height: auto;
+	max-width: 40px;
+}
+.btnDown{
+	display: none;
+}
+.active .btnUp{
+	display: none;
+}
+.active .btnDown{
+	display: inline;
 }
 
+
+@media only screen and (min-height: 600px) {
+	.footer{
+		height: 60px;
+	}
+	.footer table tr td{
+		padding: 10px;
+	}
+}

@@ -10,7 +10,7 @@
 		<link rel="stylesheet" href="FlatUI/css/animate.css" />
 		<!-- user css -->
 		<link rel="stylesheet" href="css/css.css" />
-		<link rel="stylesheet" href="css/reg.css" />
+		<link rel="stylesheet" href="css/module/reg.css" />
 	</head>
 	<body>
 		<!--
@@ -37,16 +37,46 @@
         -->
 		<div class="footer">
 			<table>
-				<tr>
-					<td>1</td>
-					<td>1</td>
-					<td>1</td>
-					<td>1</td>
+				<tr class="nav" id="navBar" >
+					<td class="active" target="page1">
+						<img src="img/icon.png" class="imgBtn btnUp"/>
+						<img src="img/iconActive.png" class="imgBtn btnDown"/>
+					</td>
+					<td target="page2">
+						<img src="img/icon.png" class="imgBtn btnUp"/>
+						<img src="img/iconActive.png" class="imgBtn btnDown"/>
+					</td>
+					<td target="page3">
+						<img src="img/icon.png" class="imgBtn btnUp"/>
+						<img src="img/iconActive.png" class="imgBtn btnDown"/>
+					</td>
+					<td target="page4">
+						<img src="img/icon.png" class="imgBtn btnUp"/>
+						<img src="img/iconActive.png" class="imgBtn btnDown"/>
+					</td>
 				</tr>
 			</table>
 		</div>
 		<!-- main js -->
 		<script type="text/javascript" src="FlatUI/js/vendor/jquery.min.js" ></script>
 		<script type="text/javascript" src="FlatUI/js/flat-ui.min.js" ></script>
+		
+		<script>
+			//for test
+			$(document).ready(function(){
+				$('#navBar td').on('click',function(e){
+					if($(e.currentTarget).hasClass('active')){
+						return
+					}
+					else{
+						$('#navBar td').each(function(){
+							$(this).removeClass('active');
+						})
+						$(e.currentTarget).addClass('active');
+						console.log($(e.currentTarget).attr('target'))
+					}
+				})
+			})
+		</script>
 	</body>
 </html>
