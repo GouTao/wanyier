@@ -26,3 +26,4 @@ $.webchatCongfig.regInformation({
 		alert(res);//signSuc  OR  signErr
 	}
 });
+

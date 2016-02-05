@@ -1,0 +1,47 @@
+.tagContent{
+	text-align: center;
+	border-bottom: 1px solid #cccccc;
+	margin-bottom: 10px;
+	padding-bottom: 10px;
+}
+.tagContent h4{
+	text-align: left;
+}
+.tag{
+
+	border-radius: 5px;
+	background-color: rgb(240,240,240);
+	border: 2px solid #999999;
+	text-align:center;
+	color: #999999;
+	padding: 5px 10px;
+	margin: 5px;
+	display: inline-block;
+	font-weight: 500;
+}
+.tag:active{
+	opacity: 0.5;
+}
+.imgBtnContent{
+	padding: 0;
+}
+.imgBtnContent h4{
+	padding-left: 15px;
+}
+.link{
+	width: 100%;
+	margin-bottom:10px
+}
+@media only screen and (min-width: 970px){
+	.tagContent{
+		border-bottom: none;
+	}
+	.tagContent h4{
+		width: 90%;
+		border-bottom: 1px solid #cccccc;
+		padding-bottom: 10px;
+	}
+	.tagContent{
+		position: fixed;
+	}
+}

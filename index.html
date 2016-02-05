@@ -9,26 +9,56 @@
 		<link rel="shortcut icon" href="FlatUI/img/icons/png/Clipboard.png"/>
 		<link rel="stylesheet" href="FlatUI/css/animate.css" />
 		<!-- user css -->
-		<link rel="stylesheet" href="css/css.css" />
+		<link rel="stylesheet" href="css/basiccss.css" />
 		<link rel="stylesheet" href="css/module/reg.css" />
+		<link rel="stylesheet" href="css/module/page1.css"/>
 	</head>
 	<body>
 		<!--
         	作者：457754603@qq.com
-        	时间：2016-01-23
-        	描述：身份验证界面
+        	时间：2016-02-05
+        	描述：顶部
         -->
-		<div class="userReg mid">
-			<h3>欢迎来到<b>"玩艺儿"</b></h3>
-			<h4 class="animated infinite fadeIn">身份验证中</h4>
-			<img src="FlatUI/img/icons/png/Pensils.png" class="animated infinite  rotate"/>
-		</div><!-- /身份验证 -->
+		<div class="header">
+			<h3>玩艺儿<small>—艺术玩家圈子</small></h3>
+			<div id="messageBtn">
+				<img src="img/message.png" class="nomsg"/>
+				<img src="img/message_new.png" class="msg"/>
+			</div>
+		</div>
+		<div class="gap"></div>
 		
 		<!--
         	作者：457754603@qq.com
         	时间：2016-01-23
         	描述：主体
         -->
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-05
+        	描述：第一页
+        -->
+        <div class="page" id="page1">
+        	<div class="container">
+       			<div class="row col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-3 tagContent">
+       				<h4>热门标签</h4>
+       				<p class="tag">测试asd</p>
+       				<p class="tag">测试fsa</p>
+       				<p class="tag">测试dsada</p>
+       				<p class="tag">测试aaad</p>
+       				<p class="tag">测试d</p>
+       				<p class="tag">测试ge2</p>
+       				<p class="tag">测试1</p>
+       				<p class="tag">测试145</p>
+       			</div>
+        		<div class="row col-md-6 col-md-offset-4 col-lg-4 col-lg-offset-5 imgBtnContent">
+        			<h4>艺术分类</h4>
+        			<img src="img/link1.jpg" class="link"/>
+        			<img src="img/link2.jpg" class="link"/>
+        			<img src="img/link3.jpeg" class="link"/>
+        		</div>
+        	</div>
+        </div>
         
         <!--
         	作者：457754603@qq.com
@@ -57,6 +87,24 @@
 				</tr>
 			</table>
 		</div>
+		
+		<!--
+        	作者：457754603@qq.com
+        	时间：2016-01-23
+        	描述：身份验证界面
+        -->
+        <style>
+        	.userReg{
+        		display: none;
+        	}
+        </style>
+        <div class="gap"></div>
+		<div class="userReg mid">
+			<h3>欢迎来到<b>"玩艺儿"</b></h3>
+			<h4 class="animated infinite fadeIn">身份验证中</h4>
+			<img src="FlatUI/img/icons/png/Pensils.png" class="animated infinite  rotate"/>
+		</div><!-- /身份验证 -->
+		
 		<!-- main js -->
 		<script type="text/javascript" src="FlatUI/js/vendor/jquery.min.js" ></script>
 		<script type="text/javascript" src="FlatUI/js/flat-ui.min.js" ></script>
@@ -76,6 +124,10 @@
 						console.log($(e.currentTarget).attr('target'))
 					}
 				})
+				
+				setTimeout(function(){
+					$("#messageBtn").addClass('newMsg')
+				},2000);
 			})
 		</script>
 	</body>
