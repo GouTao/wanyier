@@ -1,0 +1,59 @@
+#wxInfo{
+	background-color: rgb(100,100,100);
+	padding-top: 20px;
+	padding-bottom: 15px;
+	text-align: center;
+}
+#head{
+	width: 30%;
+}
+#nickName{
+	color: white;
+}
+.userInfo{
+	padding-top: 15px;
+	padding-bottom: 15px;
+	margin-top: 20px;
+	background-color: white;
+}
+.infoModule:last-child{
+	margin-bottom: 20px;
+}
+.userInfo h5{
+	font-size: 1.1em;
+	margin: 0;
+	margin-bottom: 5px;
+}
+.userInfo p{
+	margin: 0;
+	margin-bottom: 5px;
+}
+.infoHeader{
+	width: 100%;
+	padding-right: 15px;
+}
+.infoHeader:after{
+	content: "";
+	height: 0;
+	display: block;
+	clear: both;
+}
+.infoContent{
+	margin-bottom: 5px;
+	color: #999999;
+}
+#shopList{
+	margin-bottom: 0px;
+}
+#shopList li:after{
+	content: "";
+	height: 0;
+	display: block;
+	clear: both;
+}
+.courseName{
+	float: left;
+}
+.modifyCourse{
+	float: right;
+}

@@ -1,6 +1,6 @@
 .regist{
 	text-align: center;
-	margin-top: 40px;
+	margin-top: 20px;
 }
 .regist p{
 	color: #999999;
@@ -21,4 +21,14 @@
 	background-color: white;
 	margin: 15px;
 	border-radius: 10px;
+}
+.userType{
+	padding:15px;
+	background-color: white;
+	margin: 15px;
+	border-radius: 10px;
+}
+#reChoose{
+	text-align: center;
+	color: steelblue;
 }

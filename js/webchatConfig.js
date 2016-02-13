@@ -6,10 +6,15 @@
 		var pathname = window.location.href;
 		
 		function getOpenid(code,callback){
+			var sendObj=new Object;
+			sendObj.command='getOpenid';
+			sendObj.code=code;
+			var sendMsg=JSON.stringify(sendObj)
 			$.ajax({
-				url:"http://115.159.39.71:6005?command=getOpenid&code="+code,
+				url:"http://119.29.92.190:23017",
 				async:true,
 				dataType:"json",
+				data:{"data":sendMsg},
 				timeout:5000,
 				success: function(json){
 					callback.call(this,json);
@@ -21,10 +26,15 @@
 		}
 	
 		function getSignPackage(pathname,callback){
+			var sendObj=new Object;
+			sendObj.command='getSignPackage';
+			sendObj.pathname=pathname
+			var sendMsg=JSON.stringify(sendObj);
 			$.ajax({
-				url:"http://115.159.39.71:6005?command=getSignPackage&pathname="+pathname,
+				url:"http://119.29.92.190:23017",
 				async:true,
 				dataType:"json",
+				data:{'data':sendMsg},
 				timeout:5000,
 				success: function(json){
 					callback.call(this,json);

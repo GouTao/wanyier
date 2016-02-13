@@ -12,6 +12,10 @@ body{
 .container{
 	width: 100%;
 }
+hr{
+	border-top: 1px solid #CCCCCC;
+	margin: 5px;
+}
 /**********************顶部************************/
 .header{
 	width: 100%;
@@ -66,12 +70,12 @@ body{
 	z-index: 10000;
 	/*display: none;*/
 }
-table{
+.nav{
 	width: 100%;
 	text-align: center;
 	height: auto;
 }
-.nav td{
+.nav tr td{
 	padding: 5px;
 }
 .imgBtn{
@@ -89,12 +93,32 @@ table{
 	display: inline;
 }
 
+/***********************二级页面************************/
+.secend-page{
+	display: none;
+	padding-bottom: 20px;
+}
+#returnMain{
+	display: inline;
+	width: 100%;
+}
+#secend-navBar{
+	display: none;
+}
+.secendPage-form{
+	background-color: white;
+	padding: 15px;
+	border-radius: 5px;
+}
+p{
+	color: #999999;
+}
 
 @media only screen and (min-height: 600px) {
 	.footer{
 		height: 60px;
 	}
-	.footer table tr td{
+	.nav tr td{
 		padding: 10px;
 	}
 	.header{

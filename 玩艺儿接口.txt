@@ -1,0 +1,291 @@
+119.29.92.190:23017 post 封装data={}
+
+发送手机验证码
+{"command":"addCheckPhone","phoneNum":""}
+
+用户注册
+{"command":"addUser","openid":"","phoneNum":"","AuthCode":""}
+
+获取用户openid
+{"command":"getOpenid","code":""}
+
+获取signPackage(pathname为 发起请求的页面主机域名和地址)
+{"command":"getSignPackage","pathname":""}
+
+用户上传后，数据库中添加youku视频id
+{"command":"addVideo","openid":"","videoid":"","title":""}
+
+查询单个用户的视频
+{"command":"getMyVideo","openid":""}
+
+数据库地址:
+D:\Data
+
+Node地址:
+D:\node
+
+119.29.92.190:23017
+post
+封装data
+
+	发送手机验证码
+		command:addCheckPhone
+		phoneNum:(用户填写)
+	
+	绑定老师openid和手机号，并将老师state置为0（未核准）
+		command:addTeacher
+		openid:(网页获取)
+		phoneNum:(用户填写)
+		authCode:(用户填写)
+		
+	添加家庭住址
+		command:addHomeAddress
+		openid:(网页获取)
+		address:(用户填写)
+		lat:(用户手机获取)
+		lnt:(用户手机获取)
+		
+	查询老师家庭住址
+		command:getTeacherHomeAddress
+		openid:(网页获取)	
+		
+	更新老师资料
+		command:modTeacherProfile
+		openid:(网页获取)
+		userName:(用户填写)
+		desShort:(用户填写)
+		desLong:(用户填写)
+		homeAddressNum:(用户选择:通过"查询老师家庭住址"接口获取)
+		
+	根据名字模糊查询老师(后台)
+		command:getTeacherByName
+		userName:(后台用户填写)
+		
+	根据手机号精确查询老师(后台)
+		command:getTeacherByPhone
+		phoneNum:(后台用户填写)	
+		
+	核准老师,即将该老师的state置为1(后台)
+		command:modTeacherState
+		openid:(后台用户选择:通过"根据XX查询老师(后台)"接口获取)		
+
+数据库地址:
+D:\Data
+
+Node地址:
+D:\node
+
+119.29.92.190:23017
+post
+封装data
+
+获取openid
+command:getOpenid
+code:(Oauth2.0获取)
+
+获取signPackage
+command:getSignPackage
+pathname:(网页获取)
+
+发送手机验证码
+command:addCheckPhone
+phoneNum:(用户填写)
+
+绑定老师openid和手机号，并将老师state置为0（未核准）
+command:addTeacher
+openid:(网页获取)
+phoneNum:(用户填写)
+authCode:(用户填写)
+
+添加家庭住址
+command:addHomeAddress
+openid:(网页获取)
+address:(用户填写)
+lat:(用户手机获取)
+lnt:(用户手机获取)
+
+查询老师家庭住址
+command:getTeacherHomeAddress
+openid:(网页获取)	
+
+更新老师资料
+ 
+openid:(网页获取)
+userName:(用户填写)
+desShort:(用户填写)
+desLong:(用户填写)
+homeAddressNum:(用户选择:通过"查询老师家庭住址"接口获取)
+
+根据名字模糊查询老师(后台)
+command:getTeacherByName
+userName:(后台用户填写)
+
+根据手机号精确查询老师(后台)
+command:getTeacherByPhone
+phoneNum:(后台用户填写)	
+
+核准老师,即将该老师的state置为1(后台)
+command:modTeacherState
+openid:(后台用户选择:通过"根据XX查询老师(后台)"接口获取)	
+
+老师登录
+command:loginTeacher
+openid:(网页获取)
+
+119.29.92.190:23017  POST 封装data={}
+
+添加商铺地址
+{
+"command": "addShopAddress",
+"address": "",
+"lat": "【微信接口获取，这里填纬度，数字（需要用户在商铺实际地址处获取）】",
+"lnt": "【微信接口获取，这里填经度，数字】",
+"openid":""
+}
+
+
+添加商铺
+{
+"command": "addShop",
+"shopName": "",
+"openid":""
+}
+
+获取我的商铺
+{
+"command": "getMyShop",
+"openid":""
+}
+
+获取我的商铺地址
+{
+"command": "getMyShopAddress",
+"openid":""
+}
+
+修改我的商铺信息（在这里关联商铺和商铺地址，类似电商中为订单添加收货地址）
+{
+"command": "modShopProfile",
+"openid":"【自动获取】",
+"shopName": "【通过getMyShop接口获取，获取后列表，然后用户可以选择使用本接口修改，所以在该步骤时，该项自动获取】",
+"desShort": "【简介（用于在查询结果的列表中显示，前端限制20字以内）】",
+"desLong": "【详细介绍（用于点进去以后显示），前端限制200字以内】",
+"shopAddressNum":"【从getMyShopAddress接口获取，下拉菜单选择】"
+}
+
+获取待审核的商铺（后台管理功能）
+{
+"command": "getWaitShop"
+}
+
+核准商铺（后台管理功能）
+{
+"command": "modShopState",
+"id": "【通过getWaitShop接口获取】"
+}
+
+查询附近商铺（未被核准的商铺不会出现在查询结果中）
+{
+"command": "findShop",
+"lat": "【微信接口获取，这里填纬度，数字，以该位置点为中心】",
+"lnt": "【微信接口获取，这里填经度，数字】",
+"range":"【半径，数字，每0.01代表1000米】"
+}
+
+119.29.92.190 23017 POST 封装data={}
+
+添加教学
+{
+command:"addCourse",
+openid:"【授课老师（教学提供者）openid】",
+courseType:"【教学大类别：声乐，器乐，舞蹈...】",
+preciseType:"【教学细分类别：小提琴，钢琴……】",
+courseName:"【教学名称，教师填写】",
+address1:【教师家庭地址，json，格式为 {homeAddressNum : , openid : "" }，由教师相接口getMyHomeAddress获取】,
+address2:【已授权商铺地址，json，格式为 {shopAddressNum : , openid : "" }，由相关接口获取（尚未开发）】,
+price:【数字，1代表人民币1分】,
+courseLength:"【课程长度：以分钟计】",
+totalCourse:"【课程节数】",
+trail:"【试用课程id，没有则填写中文"无"】"
+}
+
+--------------------------------------
+说明：教师地址相关接口
+获取我的
+{
+command:"getMyHomeAddress",
+openid:"【教师的openid】"
+}
+--------------------------------------
+
+
+获取待审核教学（管理员接口）
+{
+command:"getWaitCourse"
+}
+
+
+--------------------------------------
+说明：获取待审核教学以后，教学信息中包含授课老师openid
+管理员可以查看
+
+相关教师的信息
+{
+command:"getTeacherInfo",
+openid:"【教师的openid】"
+}
+授课地址信息
+{
+command:"getHomeAddress",
+openid:"【教师的openid】",
+homeAddressNum:"【该教师的homeAddressNum】"
+}
+--------------------------------------
+
+
+核准教学（管理员接口）
+{
+command:"authCourse",
+courseId:"【教学的id，由getWaitCourse接口获取】",
+authState:"【数字，核准则填2，不通过则填0】"
+}
+
+119.29.92.190 23017 POST 封装data={}
+
+（用户）查找教学
+{
+command:"findCourseByType",
+preciseType:"【教学细分类别，需要跟添加的教学中，该项完全一致，在AddCourse接口的前端，preciseType应该作为固定选项出现】",
+courseName:"【教学名称，支持模糊搜索】"
+}
+
+对指定教学下单
+{
+command:"addCourseOrder",
+courseId:"【教学的 _id， 由findCourseByType接口获取，用户选择后，】",
+openid:"【用户的openid】"
+}
+
+查询我所有未支付的订单
+{
+command:"getAllMyUnpaidOrder",
+openid:"【用户的openid】"
+}
+
+获取订单支付链接
+{
+command:"createPrepayLink",
+orderId:"【订单的_id，由getAllMyUnpaidOrder接口获取，用户选择】"
+}
+--------------------------------------
+说明：该接口会返回支付链接
+格式为：
+{"result_code":"SUCCESS","code_url":"weixin://wxpay/bizpayurl?pr=9Qxafrl"}}
+前端应获取code_url并将其转化成二维码（提示用户长按二维码）或者支付按钮供用户点击
+--------------------------------------
+
+查询我所有已支付的订单
+{
+command:"getAllMyPaidOrder",
+openid:"【用户的openid】"
+}

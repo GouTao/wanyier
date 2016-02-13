@@ -27,3 +27,23 @@ $.webchatCongfig.regInformation({
 	}
 });
 
+2016/02/13
+底部导航栏滑动切换效果
+
+主页面模块框架完成，建立三个页面事件
+$("#page1").on("pageInit",function(){
+	console.log('1init')
+})
+$("#page1").on("pageShow",function(){
+	console.log('1show')
+})
+$("#page1").on("pageHide",function(){
+	console.log("1hide")
+})
+
+建立二级界面模块
+$.secendPage.to('secendPage');
+
+增加多个二级页面
+
+建立模块view按需加载（json格式方便后台修改 html格式方便加载构建）

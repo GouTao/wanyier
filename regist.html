@@ -5,11 +5,11 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<title>玩艺儿</title>
 		<!-- main css -->
-		<link rel="stylesheet" href="FlatUI/css/vendor/bootstrap/css/bootstrap.min.css" />
-		<link rel="shortcut icon" href="FlatUI/img/icons/png/Clipboard.png"/>
-		<link rel="stylesheet" href="FlatUI/css/animate.css" />
+		<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+		<link rel="shortcut icon" href="bootstrap-3.3.5-dist/Map.png"/>
+		<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/animate.css" />
 		<!-- user css -->
-		<link rel="stylesheet" href="css/css.css" />
+		<link rel="stylesheet" href="css/basiccss.css" />
 		<link rel="stylesheet" href="css/module/regist.css" />
 	</head>
 	<body>
@@ -17,8 +17,14 @@
 			<img src="FlatUI/img/icons/png/Clipboard.png"/>
 			<br />
 			<h3 class="animated fadeIn">欢迎来到<b>"玩艺儿"</b></h3>
-			<p class="animated fadeIn">正式成为玩艺儿用户前请先完成注册</p>
+			<p class="animated fadeIn" id="tip">注册成为玩艺儿正式用户</p>
+			<div class="userType">
+				<p style="text-align: left;">1.选择你的目的</p>
+				<button class="btn btn-wide btn-block btn-success" id="student">寻求服务</button>
+				<button class="btn btn-wide btn-block btn-success" id="teacher">提供服务</button>
+			</div>
 			<div role="form" class="registForm" id="regist">
+				<p id="formTitle">2.注册基本信息</p>
 				<div class="form-group">
 					<label for="tel">请填写您的手机号码</label>
 					<input type="text" class="form-control" id="tel"/>
@@ -33,12 +39,14 @@
 				<div class="form-group">
 					<button class="btn btn-success btn-block" id="registBtn">确认提交</button>
 				</div>
+				<p id="reChoose" >重新选择您的角色</p>
 			</div>
 		</div>
 			
 		<!-- main js -->
-		<script type="text/javascript" src="FlatUI/js/vendor/jquery.min.js" ></script>
-		<script type="text/javascript" src="FlatUI/js/flat-ui.min.js" ></script>
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery.min.js" ></script>
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/theAjax.js" ></script>
 		<script type="text/javascript" src="js/module/regist.js" ></script>
 	</body>
 </html>

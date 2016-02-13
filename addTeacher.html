@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>玩艺儿</title>
+		<!-- main css -->
+		<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+		<link rel="shortcut icon" href="bootstrap-3.3.5-dist/Map.png"/>
+		<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/animate.css" />
+		<!-- user css -->
+		<link rel="stylesheet" href="css/basiccss.css" />
+		<link rel="stylesheet" href="css/module/regist.css" />
+	</head>
+	<body>
+		<div class="regist mid">
+			<img src="FlatUI/img/icons/png/Clipboard.png"/>
+			<br />
+			<h3 class="animated fadeIn">欢迎来到<b>"玩艺儿"</b></h3>
+			<p class="animated fadeIn">正式成为玩艺儿用户前请先完成注册</p>
+			<div role="form" class="registForm" id="regist">
+				<div class="form-group">
+					<label for="tel">请填写您的手机号码</label>
+					<input type="text" class="form-control" id="tel"/>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-warning btn-block" id="getCodeBtn">点击获取验证码</button>
+				</div>
+				<div class="form-group">
+					<label for="regCode">填写验证码</label>
+					<input type="text" class="form-control" id="regCode"/>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success btn-block" id="registBtn">确认提交</button>
+				</div>
+			</div>
+		</div>
+			
+		<!-- main js -->
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery.min.js" ></script>
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/theAjax.js" ></script>
+		<script type="text/javascript" src="js/module/regist.js" ></script>
+	</body>
+</html>

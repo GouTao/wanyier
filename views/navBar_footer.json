@@ -1,0 +1,6 @@
+[
+	{"target":"page1","upimg":"img/icon.png","downimg":"img/iconActive.png"},
+	{"target":"page2","upimg":"img/icon.png","downimg":"img/iconActive.png"},
+	{"target":"page3","upimg":"img/icon.png","downimg":"img/iconActive.png"},
+	{"target":"page4","upimg":"img/icon.png","downimg":"img/iconActive.png"}
+]

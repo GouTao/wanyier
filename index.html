@@ -5,13 +5,15 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
 		<title>玩艺儿</title>
 		<!-- main css -->
-		<link rel="stylesheet" href="FlatUI/css/vendor/bootstrap/css/bootstrap.min.css" />
-		<link rel="shortcut icon" href="FlatUI/img/icons/png/Clipboard.png"/>
-		<link rel="stylesheet" href="FlatUI/css/animate.css" />
+		<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/bootstrap.min.css" />
+		<link rel="shortcut icon" href="bootstrap-3.3.5-dist/Map.png"/>
+		<link rel="stylesheet" href="bootstrap-3.3.5-dist/css/animate.css" />
 		<!-- user css -->
 		<link rel="stylesheet" href="css/basiccss.css" />
 		<link rel="stylesheet" href="css/module/reg.css" />
 		<link rel="stylesheet" href="css/module/page1.css"/>
+		<link rel="stylesheet" href="css/module/page2.css"/>
+		<link rel="stylesheet" href="css/module/page4.css" />
 	</head>
 	<body>
 		<!--
@@ -39,25 +41,375 @@
         	描述：第一页
         -->
         <div class="page" id="page1">
-        	<div class="container">
-       			<div class="row col-md-3 col-md-offset-1 col-lg-2 col-lg-offset-3 tagContent">
-       				<h4>热门标签</h4>
-       				<p class="tag">测试asd</p>
-       				<p class="tag">测试fsa</p>
-       				<p class="tag">测试dsada</p>
-       				<p class="tag">测试aaad</p>
-       				<p class="tag">测试d</p>
-       				<p class="tag">测试ge2</p>
-       				<p class="tag">测试1</p>
-       				<p class="tag">测试145</p>
-       			</div>
-        		<div class="row col-md-6 col-md-offset-4 col-lg-4 col-lg-offset-5 imgBtnContent">
-        			<h4>艺术分类</h4>
-        			<img src="img/link1.jpg" class="link"/>
-        			<img src="img/link2.jpg" class="link"/>
-        			<img src="img/link3.jpeg" class="link"/>
+	        	<div class="container">
+	        		<div class="row">
+	        			<div class=" col-sm-3 col-sm-offset-1 col-lg-2 col-lg-offset-3 tagContent">
+	       				<h4><img src="img/icons-png/tag-black.png"/>热门标签</h4>
+	       				<div id="tags"><!--生成tag并放置-->
+		       			</div>
+	       			</div>
+		        		<div class=" col-sm-6 col-sm-offset-4 col-lg-4 col-lg-offset-5 imgBtnContent">
+		        			<h4><img src="img/icons-png/calendar-black.png"/>艺术分类</h4>
+		        			<div id="imgLinks_page1"><!--生成url图片并放置-->
+		        			</div>
+		        		</div>
+	        		</div>
+	       			
+	        	</div>
+        </div>
+        
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-09
+        	描述：第二页
+        -->
+        <div class="page" id="page2" style="display: none;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<h4><img src="img/icons-png/search-black.png"/>搜寻课程</h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 searchCourseContent">
+						<div role="form">
+							<div class="form-group">
+								<label>按大类搜寻</label>
+								<select class="form-control">
+									<option>11</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>按细分类别搜索</label>
+								<input type="text" class="form-control"/>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-block btn-wide btn-success">搜索</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+        </div>        
+        
+        <div class="page" id="page3" style="display: none;">
+			<div class="container">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+						<h4><img src="img/icons-png/location-black.png"/>搜寻地址&nbsp;&nbsp;<button class="btn btn-sm btn-success">查询离我最近的课程活动</button></h4>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3">
+			
+					</div>
+				</div>
+			</div>
+        </div>   
+        
+        <div class="page" id="page4" style="display: none;">
+			<div class="container" >
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3" id="wxInfo">
+						<img id="head" src="FlatUI/img/icons/png/Watches.png"/>
+						<h4 id="nickName">某科学的超坦克炮</h4>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container infoModule" >
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 userInfo">
+						<div class="infoHeader">
+							<h5 style="float: left;"><img src="img/icons-png/user-black.png"/>&nbsp;<span id="name">dsada</span>-个人信息</h5>
+							<h5 style="float: right;"><a id="modifyUserInfo">[修改]</a></h5>
+						</div>
+						<hr />
+						<p><img src="img/icons-png/bullets-black.png" />&nbsp;简介:</p>
+						<p class="infoContent" id="shortDes">测试 测试 测试 测试 测试</p>
+						<p><img src="img/icons-png/grid-black.png"/>&nbsp;详情:</p>
+						<p class="infoContent" id="longDes">这是一段测试信息，这是一段测试信息，这是一段测试信息，这是一段测试信息，这是一段测试信息</p>
+						<p><img src="img/icons-png/home-black.png"/>&nbsp;地址:&nbsp;<a id="addAddress">[增加]</a></p>
+						<p class="infoContent" id="address">四川省XX市XX路XXX号XX大厦XX栋XX号</p>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container infoModule">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 userInfo">
+						<div class="infoHeader">
+							<h5 style="float: left;"><img src="img/icons-png/shop-black.png"/>&nbsp;我的商铺</h5>
+							<h5 style="float: left;"><a>[增加商铺地址]</a></h5>
+							<h5 style="float: right;"><a>[增加商铺]</a></h5>
+						</div>
+						
+						<ul class="list-group" id="shopList">
+							<li class="list-group-item">
+								<p style="float: left;">aaa</p>
+								<a style="float: right;">[修改]</a>
+							</li>
+							<li class="list-group-item">
+								<p style="float: left;">aaa</p>
+								<a style="float: right;">[修改]</a
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			
+			<div class="container infoModule">
+				<div class="row">
+					<div class="col-sm-6 col-sm-offset-3 userInfo">
+						<div class="infoHeader">
+							<h5 style="float: left;"><img src="img/icons-png/bars-black.png"/>&nbsp;我的授课</h5>
+							<h5 style="float: right;"><a>[增加]</a></h5>
+						</div>
+						
+						<ul class="list-group" id="shopList">
+							<li class="list-group-item">
+								<p class="courseName">aaa</p>
+							</li>
+							<li class="list-group-item">
+								<p class="courseName">aaafdsjkljflkjkljfklsjklfjkl</p>
+								<span class="badge" >试听课程</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+        </div>   
+        
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-12
+        	描述：二级页面
+        -->
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-13
+        	描述：修改教师个人信息
+        -->
+        <div class="secend-page" id="modifyUserInfoPage">
+        		<div class="container ">
+        			<div class="row">
+        				<div class="col-sm-6 col-sm-offset-3">
+        					<h4><img src="img/icons-png/recycle-black.png" />修改个人信息</h4>
+        					<div role="form" class="secendPage-form" id="modifyUserInfoForm">
+							<div class="form-group">
+								<label for="userName">填写姓名</label>
+								<input type="text" class="form-control" id="userName"/>
+							</div>
+							<div class="form-group">
+								<label for="desShort">填写简介</label>
+								<input type="text" class="form-control" id="desShort"/>
+							</div>
+							<div class="form-group">
+								<label for="desLong">填写详情</label>
+								<textarea type="text" class="form-control" id="desLong"></textarea>
+							</div>
+							<div class="form-group">
+								<label>选择您的住址</label>
+								<select class="form-control">
+									<option>1</option>
+									<option>1</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
+							</div>
+						</div>
+        				</div>
+        			</div>
         		</div>
-        	</div>
+        </div>
+        
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-13
+        	描述：增加老师地址
+        -->
+        <div class="secend-page" id="addAddressPage">
+        		<div class="container ">
+        			<div class="row">
+        				<div class="col-sm-6 col-sm-offset-3">
+        					<h4><img src="img/icons-png/plus-black.png"/>增加个人地址</h4>
+        					<hr />
+        					<p>*最多能添加5个地址</p>
+        					<p>*通过微信接口获取经纬度坐标，请在地址真实地点完成操作</p>
+        					<div role="form" class="secendPage-form" id="addAddressForm">
+        						<label>已有地址</label>
+        						<ul class="list-group">
+        							<li class="list-group-item">1</li>
+        							<li class="list-group-item">2</li>
+        						</ul>
+							<div class="form-group">
+								<label for="newAddress">填写新的地址</label>
+								<input type="text" class="form-control" id="newAddress"/>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-success btn-block" id="addAddressBtn">确认提交</button>
+							</div>
+						</div>
+        				</div>
+        			</div>
+        		</div>
+        </div>        
+        
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-13
+        	描述：添加新的商铺
+        -->
+        <div class="secend-page" id="addShopPage">
+        		<div class="container ">
+        			<div class="row">
+        				<div class="col-sm-6 col-sm-offset-3">
+        					<h4><img src="img/icons-png/plus-black.png"/>增加商铺</h4>
+        					<div role="form" class="secendPage-form" id="addShopForm">
+							<div class="form-group">
+								<label for="newShop">填写商铺名称</label>
+								<input type="text" class="form-control" id="newShop"/>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
+							</div>
+						</div>
+        				</div>
+        			</div>
+        		</div>
+        </div>
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-13
+        	描述：修改商铺信息
+        -->
+        <div class="secend-page" id="modifyShopPage">
+        		<div class="container ">
+        			<div class="row">
+        				<div class="col-sm-6 col-sm-offset-3">
+        					<h4><img src="img/icons-png/recycle-black.png" />修改商铺信息</h4>
+        					<div role="form" class="secendPage-form" id="modifyUserInfoForm">
+							<div class="form-group">
+								<label for="shopName">填写商铺名称</label>
+								<input type="text" class="form-control" id="shopName"/>
+							</div>
+							<div class="form-group">
+								<label for="shopDesShort">填写商铺简介</label>
+								<input type="text" class="form-control" id="shopDesShort"/>
+							</div>
+							<div class="form-group">
+								<label for="shopDesLong">填写商铺详情</label>
+								<textarea type="text" class="form-control" id="shopDesLong"></textarea>
+							</div>
+							<div class="form-group">
+								<label>选择商铺地址</label>
+								<select class="form-control">
+									<option>1</option>
+									<option>1</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
+							</div>
+						</div>
+        				</div>
+        			</div>
+        		</div>
+        </div>
+        
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-13
+        	描述：增加商铺地址
+        -->
+        <div class="secend-page" id="addShopAddressPage">
+        		<div class="container ">
+        			<div class="row">
+        				<div class="col-sm-6 col-sm-offset-3">
+        					<h4><img src="img/icons-png/plus-black.png"/>增加商铺地址</h4>
+        					<hr />
+        					<p>*通过微信接口获取经纬度坐标，请在地址真实地点完成操作</p>
+        					<div role="form" class="secendPage-form" id="addShopAddressForm">
+        						<label>已有地址</label>
+        						<ul class="list-group">
+        							<li class="list-group-item">1</li>
+        							<li class="list-group-item">2</li>
+        						</ul>
+							<div class="form-group">
+								<label for="newShopAddress">填写新的商铺地址</label>
+								<input type="text" class="form-control" id="newShopAddress"/>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-success btn-block" id="addShopAddressBtn">确认提交</button>
+							</div>
+						</div>
+        				</div>
+        			</div>
+        		</div>
+        </div>        
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-13
+        	描述：添加课程
+        -->
+         <div class="secend-page" id="addCoursePage">
+        		<div class="container ">
+        			<div class="row">
+        				<div class="col-sm-6 col-sm-offset-3">
+        					<h4><img src="img/icons-png/plus-black.png"/>添加课程</h4>
+        					<div role="form" class="secendPage-form" id="addCourseForm">
+        						<div class="form-group">
+								<label>选择课程大类</label>
+								<select class="form-control">
+									<option>1</option>
+									<option>1</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>选择课程细分类别</label>
+								<select class="form-control">
+									<option>1</option>
+									<option>1</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label for="courseName">填写课程名称</label>
+								<input type="text" class="form-control" id="courseName"/>
+							</div>
+							<div class="form-group">
+								<label for="courseLength">填写课程时长(单位:分钟)</label>
+								<input type="text" class="form-control" id="courseLength"/>
+							</div>
+							<div class="form-group">
+								<label for="totalCourse">填写课程节数</label>
+								<input type="text" class="form-control" id="totalCourse" />
+							</div>
+							<div class="form-group">
+								<label for="price">填写课程价格</label>
+								<input type="text" class="form-control" id="price" />
+							</div>
+							<div class="form-group">
+								<label>选择授课地址1(个人住址)</label>
+								<select class="form-control">
+									<option>1</option>
+									<option>1</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<label>选择授课地址2(认证商铺地址)</label>
+								<select class="form-control">
+									<option>1</option>
+									<option>1</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
+							</div>
+						</div>
+        				</div>
+        			</div>
+        		</div>
         </div>
         
         <!--
@@ -66,23 +418,13 @@
         	描述：底部工具栏
         -->
 		<div class="footer">
-			<table>
-				<tr class="nav" id="navBar" >
-					<td class="active" target="page1">
-						<img src="img/icon.png" class="imgBtn btnUp"/>
-						<img src="img/iconActive.png" class="imgBtn btnDown"/>
-					</td>
-					<td target="page2">
-						<img src="img/icon.png" class="imgBtn btnUp"/>
-						<img src="img/iconActive.png" class="imgBtn btnDown"/>
-					</td>
-					<td target="page3">
-						<img src="img/icon.png" class="imgBtn btnUp"/>
-						<img src="img/iconActive.png" class="imgBtn btnDown"/>
-					</td>
-					<td target="page4">
-						<img src="img/icon.png" class="imgBtn btnUp"/>
-						<img src="img/iconActive.png" class="imgBtn btnDown"/>
+			<table class="nav" id="navBar">	
+			</table>
+			<table class="nav" id="secend-navBar">
+				<tr>
+					<td class="navBtn" >
+						<img src="img/icon.png" class="imgBtn btnUp" id="returnToMain"/>
+						<!--<button class="btn btn-wide btn-default" id="returnMain" >返回</button>-->
 					</td>
 				</tr>
 			</table>
@@ -103,31 +445,56 @@
 			<h3>欢迎来到<b>"玩艺儿"</b></h3>
 			<h4 class="animated infinite fadeIn">身份验证中</h4>
 			<img src="FlatUI/img/icons/png/Pensils.png" class="animated infinite  rotate"/>
-		</div><!-- /身份验证 -->
+		</div><!-- /身份验证 --> 
 		
 		<!-- main js -->
-		<script type="text/javascript" src="FlatUI/js/vendor/jquery.min.js" ></script>
-		<script type="text/javascript" src="FlatUI/js/flat-ui.min.js" ></script>
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery.min.js" ></script>
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/webchatConfig.js" ></script>
+		<script type="text/javascript" src="js/surport.js" ></script>
+		<script type="text/javascript" src="js/app.js" ></script>
 		
 		<script>
-			//for test
-			$(document).ready(function(){
-				$('#navBar td').on('click',function(e){
-					if($(e.currentTarget).hasClass('active')){
-						return
-					}
-					else{
-						$('#navBar td').each(function(){
-							$(this).removeClass('active');
-						})
-						$(e.currentTarget).addClass('active');
-						console.log($(e.currentTarget).attr('target'))
-					}
-				})
-				
+			$('.header').on("headerInit",function(){
 				setTimeout(function(){
 					$("#messageBtn").addClass('newMsg')
 				},2000);
+			})
+			
+			$("#page1").on("pageInit",function(){
+				$("#tags").createTags({
+					source:"views/tags_page1.json",
+					style:'tag',
+					created:function(res){
+						console.log(res);
+					}
+				})
+				$("#imgLinks_page1").createdImgLinks({
+					source:"views/imgLinks_page1.json",
+					style:'link',
+					created:function(res){
+						console.log(res);
+					}
+				})
+				
+				$("#messageBtn").bind('click',function(){
+					$.secendPage.to('addAddressPage');
+				})
+			})
+			$("#page1").on("pageShow",function(){
+				console.log('1show')
+			})
+			$("#page1").on("pageHide",function(){
+				console.log("1hide")
+			})
+			$("#page2").on("pageInit",function(){
+				console.log("2init")
+			})
+			$("#page2").on("pageHide",function(){
+				console.log("2hide")
+			})
+			$("#page2").on("pageShow",function(){
+				console.log("2show")
 			})
 		</script>
 	</body>
