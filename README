@@ -54,5 +54,10 @@ $.secendPage.to('secend page id');
 2016/02/14
 
 二级页面之间切换 
-$.secendPage.close();
-$.secendPage.to('new secend page id')
+/*
+ * 废除方式
+ $.secendPage.close();
+ $.secendPage.to('new secend page id');
+*/
+新方式
+$.secendPage.next('new secend page id');

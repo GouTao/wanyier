@@ -145,17 +145,22 @@ $(document).ready(function(){
 	});
 });
 
+var pageRoute=[],tempSecendPage;
+
 //次级页面切换
 (function($){
 	$.secendPage=(function(){
 		this.to=function(pageID){
+			$('#returnToMain').unbind('click');
+			pageRoute=[];
 			var tempMainPage;
 			$('.page').each(function(){
 				if($(this).css("display")=='block'){
 					tempMainPage=$(this);
+					pageRoute.push(tempMainPage);
 				}
 			})
-			tempMainPage.css('display','none');
+			pageRoute[pageRoute.length-1].css('display','none');
 			$('#'+pageID).css('display','block');
 			$('#'+pageID).removeClass('animated fadeIn');
 			$('#'+pageID).addClass('animated fadeIn');
@@ -163,20 +168,43 @@ $(document).ready(function(){
 			$('#secend-navBar').css('display','table');
 			$('#secend-navBar').removeClass('animated fadeInUp');
 			$('#secend-navBar').addClass('animated fadeInUp');
+			pageRoute.push($('#'+pageID));
 			$('#returnToMain').bind('click',function(){
 				$('#'+pageID).css('display','none');
 				$('#secend-navBar').css('display','none');
-				tempMainPage.css('display','block');
-				tempMainPage.removeClass('animated fadeIn');
-				tempMainPage.addClass('animated fadeIn');
+				pageRoute[pageRoute.length-2].css('display','block');
+				pageRoute[pageRoute.length-2].removeClass('animated fadeIn');
+				pageRoute[pageRoute.length-2].addClass('animated fadeIn');
+				pageRoute.splice(0);
 				$('#navBar').css('display','table');
 				$('#navBar').removeClass('animated fadeInUp');
 				$('#navBar').addClass('animated fadeInUp');
 				$('#returnToMain').unbind('click');
 			});
 		}
-		this.close=function(){
-			$('#returnToMain').trigger('click');
+		this.next=function(pageID){
+			$('#returnToMain').unbind('click');
+			pageRoute.push($('#'+pageID));
+			console.log(pageRoute.length)
+			pageRoute[pageRoute.length-2].css('display','none');
+			$('#'+pageID).css('display','block');
+			$('#'+pageID).removeClass('animated fadeIn');
+			$('#'+pageID).addClass('animated fadeIn');
+			$('#returnToMain').bind('click',function(){
+				pageRoute[pageRoute.length-1].css('display','none');
+				pageRoute[pageRoute.length-2].css('display','block');
+				pageRoute[pageRoute.length-2].removeClass('animated fadeIn');
+				pageRoute[pageRoute.length-2].addClass('animated fadeIn');
+				pageRoute.splice(pageRoute.length-1,1);
+				if(pageRoute.length==1){
+					pageRoute=[];
+					$('#secend-navBar').css('display','none');
+					$('#navBar').css('display','table');
+					$('#navBar').removeClass('animated fadeInUp');
+					$('#navBar').addClass('animated fadeInUp');
+					$('#returnToMain').unbind('click');
+				}
+			});
 		}
 		return this;
 	})()

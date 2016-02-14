@@ -404,7 +404,7 @@
 								</select>
 							</div>
 							<div class="form-group">
-								<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
+								<button class="btn btn-success btn-block" id="addCourseBtn">确认提交</button>
 							</div>
 						</div>
         				</div>
@@ -480,9 +480,10 @@
 				$("#messageBtn").bind('click',function(){
 					$.secendPage.to('addAddressPage');
 					$("#addAddressBtn").unbind('click').bind('click',function(){
-						$.secendPage.close();
-						$.secendPage.to('addCoursePage');
-						console.log('aa')
+						$.secendPage.next('addCoursePage');
+						$("#addCourseBtn").unbind('click').bind('click',function(){
+							$.secendPage.next('addShopAddressPage');
+						})
 					})
 				})
 			})
