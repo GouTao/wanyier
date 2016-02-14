@@ -1,9 +1,10 @@
 FOR WEBCHAT PROGRAM
 USE JQUERY2.X
 USE BOOTSTRAP3.4
-USE FREE FLAT-UI
 
-2016/01/20 增加jquery插件用于对微信浏览器环境及微信身份、权限进行验证
+2016/01/20 
+
+增加jquery插件用于对微信浏览器环境及微信身份、权限进行验证
 $.webchatCongfig.checkWXBrowser({
 	//是否处于调试模式（用于其他浏览器调试）
 	default:true,
@@ -28,22 +29,30 @@ $.webchatCongfig.regInformation({
 });
 
 2016/02/13
+
 底部导航栏滑动切换效果
 
 主页面模块框架完成，建立三个页面事件
 $("#page1").on("pageInit",function(){
-	console.log('1init')
+	console.log('1init');
 })
 $("#page1").on("pageShow",function(){
-	console.log('1show')
+	console.log('1show');
 })
 $("#page1").on("pageHide",function(){
-	console.log("1hide")
+	console.log("1hide");
 })
 
 建立二级界面模块
-$.secendPage.to('secendPage');
+$.secendPage.to('secend page id');
 
 增加多个二级页面
 
 建立模块view按需加载（json格式方便后台修改 html格式方便加载构建）
+
+
+2016/02/14
+
+二级页面之间切换 
+$.secendPage.close();
+$.secendPage.to('new secend page id')

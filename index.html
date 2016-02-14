@@ -479,6 +479,11 @@
 				
 				$("#messageBtn").bind('click',function(){
 					$.secendPage.to('addAddressPage');
+					$("#addAddressBtn").unbind('click').bind('click',function(){
+						$.secendPage.close();
+						$.secendPage.to('addCoursePage');
+						console.log('aa')
+					})
 				})
 			})
 			$("#page1").on("pageShow",function(){

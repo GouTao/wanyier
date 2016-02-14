@@ -175,6 +175,9 @@ $(document).ready(function(){
 				$('#returnToMain').unbind('click');
 			});
 		}
+		this.close=function(){
+			$('#returnToMain').trigger('click');
+		}
 		return this;
 	})()
 })(jQuery);
