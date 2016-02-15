@@ -209,3 +209,16 @@ var pageRoute=[],tempSecendPage;
 		return this;
 	})()
 })(jQuery);
+
+(function($){
+	$.loading=(function(){
+		this.load=function(){
+			$('#secend-navBar tr td').addClass('active');
+		};
+		this.loaded=function(_callback){
+			$('#secend-navBar tr td').removeClass('active');
+			_callback();
+		}
+		return this;
+	})()
+})(jQuery);

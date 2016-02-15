@@ -424,7 +424,7 @@
 				<tr>
 					<td class="navBtn" >
 						<img src="img/icon.png" class="imgBtn btnUp" id="returnToMain"/>
-						<!--<button class="btn btn-wide btn-default" id="returnMain" >返回</button>-->
+						<img src="img/load.png" class="imgBtn btnDown" id="loading"/>
 					</td>
 				</tr>
 			</table>
@@ -480,7 +480,13 @@
 				$("#messageBtn").bind('click',function(){
 					$.secendPage.to('addAddressPage');
 					$("#addAddressBtn").unbind('click').bind('click',function(){
-						$.secendPage.next('addCoursePage');
+						$.loading.load();
+						setTimeout(function(){
+							$.loading.loaded(function(){
+								$.secendPage.next('addCoursePage');
+							});
+							
+						},1000);
 						$("#addCourseBtn").unbind('click').bind('click',function(){
 							$.secendPage.next('addShopAddressPage');
 						})

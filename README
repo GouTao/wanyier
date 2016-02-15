@@ -1,7 +1,9 @@
 FOR WEBCHAT PROGRAM
 USE JQUERY2.X
-USE BOOTSTRAP3.4
+USE BOOTSTRAP3.3.5
+USE ANIMATE.CSS
 
+/**************************************************/
 2016/01/20 
 
 增加jquery插件用于对微信浏览器环境及微信身份、权限进行验证
@@ -28,6 +30,7 @@ $.webchatCongfig.regInformation({
 	}
 });
 
+/**************************************************/
 2016/02/13
 
 底部导航栏滑动切换效果
@@ -50,7 +53,7 @@ $.secendPage.to('secend page id');
 
 建立模块view按需加载（json格式方便后台修改 html格式方便加载构建）
 
-
+/**************************************************/
 2016/02/14
 
 二级页面之间切换 
@@ -61,3 +64,13 @@ $.secendPage.to('secend page id');
 */
 新方式
 $.secendPage.next('new secend page id');
+
+/**************************************************/
+2016/02/15
+
+二级页面加载未完成防止点击返回按钮导致页面数组出错(需要手动调用)
+开始加载：$.loading.load();
+加载完成：$.loading.loaded(function(){
+			$.secendPage.next('new secend page id');
+		});
+							
