@@ -92,6 +92,9 @@ hr{
 .active .btnDown{
 	display: inline;
 }
+#returnToMain:active{
+	opacity: 0.5;
+}
 
 /***********************二级页面************************/
 .secend-page{
