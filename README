@@ -73,4 +73,11 @@ $.secendPage.next('new secend page id');
 加载完成：$.loading.loaded(function(){
 			$.secendPage.next('new secend page id');
 		});
-							
+				
+				
+/**************************************************/
+2016/02/15	
+
+修改部分css类定义
+
+测试		

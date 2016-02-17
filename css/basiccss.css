@@ -93,7 +93,11 @@ hr{
 	display: inline;
 }
 #returnToMain:active{
+<<<<<<< HEAD
 	opacity: 0.75;
+=======
+	opacity: 0.5;
+>>>>>>> cb2b907a5dcde0e49dad51312084cc7905be8a31
 }
 
 /***********************二级页面************************/
