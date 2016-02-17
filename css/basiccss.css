@@ -40,14 +40,14 @@ hr{
 	display: block;
 	clear: both;
 }
-#messageBtn{
+.head-right-btn{
 	width: 50px;
 	height: 50px;
 	float: right;
 	border-left: 1px solid #cccccc;
 	padding: 3px;
 }
-#messageBtn img{
+.head-right-btn img{
 	width: 100%;
 }
 .msg{
@@ -92,6 +92,9 @@ hr{
 .active .btnDown{
 	display: inline;
 }
+#returnToMain:active{
+	opacity: 0.75;
+}
 
 /***********************二级页面************************/
 .secend-page{
@@ -124,7 +127,7 @@ p{
 	.header{
 		height: 60px;
 	}
-	#messageBtn{
+	.head-right-btn{
 		width: 60px;
 		height: 60px;
 	}

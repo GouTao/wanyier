@@ -11,16 +11,26 @@ function getUrlParam(name) {
 function initRegist(){
 	openid=getUrlParam('openid');
 	levelUp=getUrlParam('levelup');
+	
 	if(levelUp!=null){
+		$('#registLogo').attr('src','FlatUI/img/icons/png/Book.png')
 		$("#tip").html('完成手机绑定升级成为玩艺儿服务提供者')
 		$('.userType').css('display','none');
 		$('#formTitle').css('display','none');
 		$('#reChoose').css('display','none');
-		$("#regist").css("display","block");
-		$("#regist").addClass("animated fadeIn");
+		setTimeout(function(){
+			$("#regist").css("display","block");
+			$("#regist").addClass("animated fadeIn");
+		},750);
 		userType="teacher";
 	}
 	else{
+		setTimeout(function(){
+			$(".userType").css("display","block");
+			$(".userType").addClass("animated fadeIn");
+		},750);
+		
+		
 		$('#student').on('click',function(){
 			userType='student';
 			toSecendStep();

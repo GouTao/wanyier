@@ -168,6 +168,7 @@ var pageRoute=[],tempSecendPage;
 			$('#secend-navBar').css('display','table');
 			$('#secend-navBar').removeClass('animated fadeInUp');
 			$('#secend-navBar').addClass('animated fadeInUp');
+			$('body,html').animate({scrollTop:0},0); 
 			pageRoute.push($('#'+pageID));
 			$('#returnToMain').bind('click',function(){
 				$('#'+pageID).css('display','none');
@@ -180,6 +181,7 @@ var pageRoute=[],tempSecendPage;
 				$('#navBar').removeClass('animated fadeInUp');
 				$('#navBar').addClass('animated fadeInUp');
 				$('#returnToMain').unbind('click');
+				$('body,html').animate({scrollTop:0},0); 
 			});
 		}
 		this.next=function(pageID){
@@ -190,6 +192,7 @@ var pageRoute=[],tempSecendPage;
 			$('#'+pageID).css('display','block');
 			$('#'+pageID).removeClass('animated fadeIn');
 			$('#'+pageID).addClass('animated fadeIn');
+			$('body,html').animate({scrollTop:0},0); 
 			$('#returnToMain').bind('click',function(){
 				pageRoute[pageRoute.length-1].css('display','none');
 				pageRoute[pageRoute.length-2].css('display','block');
@@ -203,6 +206,7 @@ var pageRoute=[],tempSecendPage;
 					$('#navBar').removeClass('animated fadeInUp');
 					$('#navBar').addClass('animated fadeInUp');
 					$('#returnToMain').unbind('click');
+					$('body,html').animate({scrollTop:0},0); 
 				}
 			});
 		}
