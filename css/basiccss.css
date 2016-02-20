@@ -9,6 +9,9 @@ body{
 	height: 50px;
 	display: block;
 }
+.gap-bottom{
+	display: none;
+}
 .container{
 	width: 100%;
 }
@@ -41,6 +44,7 @@ hr{
 	clear: both;
 }
 .head-right-btn{
+	display: none;
 	width: 50px;
 	height: 50px;
 	float: right;

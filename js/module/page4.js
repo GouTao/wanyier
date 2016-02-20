@@ -1,0 +1,22 @@
+$('#page4').on('pageInit',function(){
+	$('#addAddress').on('click',function(){
+		$.secendPage.to('addAddressPage');
+	});
+	$('#modifyUserInfo').on('click',function(){
+		$.secendPage.to('modifyUserInfoPage');
+	});
+	$('#addShopAddress').on('click',function(){
+		$.secendPage.to('addShopAddressPage');
+	});
+	$('.modifyShop').each(function(){
+		$(this).on('click',function(){
+			$.secendPage.to('modifyShopPage');
+		});
+	});
+	$('#addShop').on('click',function(){
+		$.secendPage.to('addShopPage');
+	});
+	$('#addCourse').on('click',function(){
+		$.secendPage.to('addCoursePage');
+	})
+})
