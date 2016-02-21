@@ -1,25 +1,38 @@
 function initMainPage(){
 	$("#returnToMainBtn").on("click",function(){
+		$(".tag").each(function(){
+			if($(this).hasClass('tag-selected')){
+				$(this).removeClass("tag-selected");
+			}
+		})
+		tags=[];
 		$.toMainPage.show();
 	})
+	
+	var tags=[]
+	
 	$("#tags").createTags({
 		source:"views/tags_page1.json",
-		style:'tag',
-		created:function(res){
-			console.log(res);
+		created:function(res,state){
+			if(state=="remove"){
+				tags.splice(tags.indexOf(res),1);
+			}
+			else{
+				tags.push(res);
+			}
+			console.log(tags);
+			
 		}
 	})
 	$("#imgLinks_mainPage").createdImgLinks({
 		source:"views/imgLinks_mainPage.json",
 		style:'link',
 		created:function(res){
-			console.log(res);
 			$("#mainPage").css("display","none");
 			$(".footer").css("display","block");
 			$(".navBtn").each(function(){
 				if($(this).attr("target")==res){
 					$("#returnToMainBtn").css("display","block");
-					$(".gap-bottom").css('display',"block");
 					$(this).trigger('click');
 				}
 			})

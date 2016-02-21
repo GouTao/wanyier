@@ -8,7 +8,6 @@
 	text-align: left;
 }
 .tag{
-
 	border-radius: 50px;
 	background-color: rgb(240,240,240);
 	border: 1px solid #999999;
@@ -19,19 +18,15 @@
 	display: inline-block;
 	font-weight: 500;
 }
-
-.imgBtnContent{
-	padding: 0;
+.tag img{
+	display:none;
 }
-.imgBtnContent h4{
-	padding-left: 15px;
-}
-.link{
-	width: 100%;
-	margin-bottom:10px
+.tag-selected img{
+	display: inline;
 }
 #iwannapaly{
 	margin-top: 10px;
+	margin-bottom: 10px;
 	width: 50%;
 }
 

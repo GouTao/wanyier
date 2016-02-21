@@ -22,10 +22,9 @@
         	描述：顶部
         -->
 		<div class="header">
-			<h3>玩艺儿<small>—艺术玩家圈子</small></h3>
+			<h3>玩艺儿<small>—</small><small id="modeName">艺术玩家圈子</small></h3>
 			<div id="returnToMainBtn" class="head-right-btn">
-				<img src="img/message.png" class="nomsg"/>
-				<img src="img/message_new.png" class="msg"/>
+				<img src="img/ui/btn_homepage.png" />
 			</div>
 		</div>
 		<div class="gap gap-top"></div>
@@ -61,7 +60,14 @@
         	描述：第一页
         -->
         <div class="page" id="page1" display: none;>
-	        	
+	        	<div class="container">
+	        		<div class="row">
+	        			<div class=" col-sm-6 col-sm-offset-4 col-lg-4 col-lg-offset-5 imgBtnContent">
+		        			<div id="imgLinks_page1"><!--生成url图片并放置-->
+		        			</div>
+		        		</div>
+	        		</div>
+	        	</div>
         </div>
         
         <!--
@@ -70,47 +76,32 @@
         	描述：第二页
         -->
         <div class="page" id="page2" style="display: none;">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3">
-						<h4><img src="img/icons-png/search-black.png"/>搜寻课程</h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3 searchCourseContent">
-						<div role="form">
-							<div class="form-group">
-								<label>按大类搜寻</label>
-								<select class="form-control">
-									<option>11</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label>按细分类别搜索</label>
-								<input type="text" class="form-control"/>
-							</div>
-							<div class="form-group">
-								<button class="btn btn-block btn-wide btn-success">搜索</button>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
+			 <div class="container">
+	        		<div class="row">
+	        			<div class=" col-sm-6 col-sm-offset-4 col-lg-4 col-lg-offset-5 imgBtnContent">
+		        			<div id="imgLinks_page2"><!--生成url图片并放置-->
+		        			</div>
+		        		</div>
+		        		<div class=" col-sm-6 col-sm-offset-4 col-lg-4 col-lg-offset-5 noRight">
+		        			<div>
+		        				<b><img src="img/icons-png/info-black.png"/>提示:</b>
+		        				<p>您还没有成为玩艺儿的服务提供者，没有此模块权限。您可以申请成为玩意服务的提供者。</p>
+		        				<button class="btn btn-wide btn-block btn-success" id="tobeteacher">现在就成为服务提供者</button>
+		        			</div>
+		        		</div>
+	        		</div>
+	        	</div>
         </div>        
         
         <div class="page" id="page3" style="display: none;">
-			<div class="container">
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3">
-						<h4><img src="img/icons-png/location-black.png"/>搜寻地址&nbsp;&nbsp;<button class="btn btn-sm btn-success">查询离我最近的课程活动</button></h4>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3">
-			
-					</div>
-				</div>
-			</div>
+		  	<div class="container">
+	        		<div class="row">
+	        			<div class=" col-sm-6 col-sm-offset-4 col-lg-4 col-lg-offset-5 imgBtnContent">
+		        			<div id="imgLinks_page3"><!--生成url图片并放置-->
+		        			</div>
+		        		</div>
+	        		</div>
+	        	</div>
         </div>   
         
         <div class="page" id="page4" style="display: none;">
@@ -470,15 +461,15 @@
         	时间：2016-01-23
         	描述：底部工具栏
         -->
-        <div class="gap gap-bottom"></div>
+        <div class="gap"></div>
 		<div class="footer" style="display: none;">
 			<table class="nav" id="navBar">	
 			</table>
 			<table class="nav" id="secend-navBar">
 				<tr>
 					<td class="navBtn" >
-						<img src="img/btn_return.png" class="imgBtn btnUp" id="returnToMain"/>
-						<img src="img/load.png" class="imgBtn btnDown" id="loading"/>
+						<img src="img/ui/btn_return.png" class="imgBtn btnUp" id="returnToMain"/>
+						<img src="img/ui/load.png" class="imgBtn btnDown" id="loading"/>
 					</td>
 				</tr>
 			</table>
@@ -503,6 +494,9 @@
 		<script type="text/javascript" src="js/webchatConfig.js" ></script>
 		<script type="text/javascript" src="js/surport.js" ></script>
 		<script type="text/javascript" src="js/module/mainPage.js" ></script>
+		<script type="text/javascript" src="js/module/page1.js" ></script>
+		<script type="text/javascript" src="js/module/page2.js" ></script>
+		<script type="text/javascript" src="js/module/page3.js" ></script>
 		<script type="text/javascript" src="js/module/page4.js" ></script>
 		<script type="text/javascript" src="js/app.js" ></script>
 		

@@ -9,9 +9,6 @@ body{
 	height: 50px;
 	display: block;
 }
-.gap-bottom{
-	display: none;
-}
 .container{
 	width: 100%;
 }
@@ -80,12 +77,12 @@ hr{
 	height: auto;
 }
 .nav tr td{
-	padding: 5px;
+	padding: 2px;
 }
 .imgBtn{
 	width: 60%;
 	height: auto;
-	max-width: 40px;
+	max-width: 50px;
 }
 .btnDown{
 	display: none;
@@ -96,14 +93,20 @@ hr{
 .active .btnDown{
 	display: inline;
 }
-#returnToMain:active{
-<<<<<<< HEAD
-	opacity: 0.75;
-=======
-	opacity: 0.5;
->>>>>>> cb2b907a5dcde0e49dad51312084cc7905be8a31
+/***********************图片链接************************/
+.imgBtnContent{
+	padding: 0;
 }
-
+.imgBtnContent h4{
+	padding-left: 15px;
+}
+.link{
+	width: 100%;
+	margin-bottom:10px
+}
+.link:first-child{
+	margin-top:10px
+}
 /***********************二级页面************************/
 .secend-page{
 	display: none;
@@ -130,7 +133,7 @@ p{
 		height: 60px;
 	}
 	.nav tr td{
-		padding: 10px;
+		padding: 5px;
 	}
 	.header{
 		height: 60px;

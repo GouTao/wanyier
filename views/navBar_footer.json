@@ -1,6 +1,6 @@
 [
-	{"target":"page1","upimg":"img/icon.png","downimg":"img/iconActive.png"},
-	{"target":"page2","upimg":"img/icon.png","downimg":"img/iconActive.png"},
-	{"target":"page3","upimg":"img/icon.png","downimg":"img/iconActive.png"},
-	{"target":"page4","upimg":"img/icon.png","downimg":"img/iconActive.png"}
+	{"target":"page1","upimg":"img/ui/btn_page1_normal.png","downimg":"img/ui/btn_page1_active.png"},
+	{"target":"page2","upimg":"img/ui/btn_page2_normal.png","downimg":"img/ui/btn_page2_active.png"},
+	{"target":"page3","upimg":"img/ui/btn_page3_normal.png","downimg":"img/ui/btn_page3_active.png"},
+	{"target":"page4","upimg":"img/ui/btn_page4_normal.png","downimg":"img/ui/btn_page4_active.png"}
 ]

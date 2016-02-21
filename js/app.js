@@ -7,7 +7,7 @@ $(document).ready(function(){
 		setTimeout(function(){
 			$('#userLogPage').css('display','none');
 			$('#mainPage').css("display","block");
-			
+			$(".footer").css('display','block');
 		},500);
 		
 	},2000);

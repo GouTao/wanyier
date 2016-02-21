@@ -40,7 +40,6 @@ $.fn.createdImgLinks=function(options){
 $.fn.createTags=function(options){
 	this.options={
 		source:"",
-		style:"",
 		created:null
 	};
 	if (typeof options === 'object') {
@@ -61,12 +60,19 @@ $.fn.createTags=function(options){
 		success:function(res){
 			parent.empty();
 			for(var i=0;i<res.length;i++){
-				var $tag=$("<p>"+res[i].name+"</p>");
+				var $tag=$("<p><img src='img/icons-png/check-black.png' style='opacity:0.5' />"+res[i].name+"</p>");
 				$tag.attr("target",res[i].target);
 				parent.append($tag);
-				$tag.addClass(options.style);
+				$tag.addClass('tag');
 				$tag.on('click',function(e){
-					_callBack($tag.attr('target'));
+					if($(e.currentTarget).hasClass("tag-selected")){
+						$(e.currentTarget).removeClass("tag-selected");
+						_callBack($(e.currentTarget).attr('target'),"remove");
+					}
+					else{
+						$(e.currentTarget).addClass("tag-selected");
+						_callBack($(e.currentTarget).attr('target'),"add");
+					}
 				})
 			} 
 		}
@@ -110,9 +116,7 @@ $.fn.nav_footer=function(_callBack){
 					_callBack($(e.currentTarget).attr('target'));
 				}
 			});
-			nav.find(".navBtn:first").addClass('active');
-			$(".page:first").trigger("pageInit");
-			$(".page:first").attr("inited","inited");
+			//nav.find(".navBtn:first").addClass('active');
 			
 		}
 	});
@@ -137,6 +141,12 @@ $(document).ready(function(){
 					$(this).css('display','none');
 				}
 			})
+			$('#navBar .navBtn').each(function(){
+				if($(this).hasClass('active')){
+					$(this).removeClass('active');
+				}
+			})
+			
 			pageRoute=[];
 			tempSecendPage=null;
 			$('#secend-navBar').css('display','none');
@@ -149,8 +159,7 @@ $(document).ready(function(){
 			$('#mainPage').css('display','block');
 			$('#mainPage').removeClass('animated fadeIn');
 			$('#mainPage').addClass('animated fadeIn');
-			$(".gap-bottom").css('display',"none");
-			$(".footer").css("display","none");
+			$("#modeName").html('艺术玩家圈子')
 		}
 		return this;
 	})()
@@ -159,6 +168,10 @@ $(document).ready(function(){
 //主页面切换
 $(document).ready(function(){
 	$("#navBar").nav_footer(function(targetPage){
+		if($('#mainPage').css('display')=="block"){
+			$('#mainPage').css('display',"none");
+			$("#returnToMainBtn").css('display','block');
+		}
 		if($("#"+targetPage).attr("inited")=="inited"){
 			$("#"+targetPage).trigger('pageShow');		
 		}

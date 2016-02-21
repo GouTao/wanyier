@@ -1,0 +1,12 @@
+$('#page3').on('pageInit',function(){
+	$("#modeName").html('活动玩乐');
+	$("#imgLinks_page3").createdImgLinks({
+		source:"views/imgLinks_page3.json",
+		style:'link',
+		created:function(res){
+		}
+	})
+})
+$('#page3').on('pageShow',function(){
+	$("#modeName").html('活动玩乐');
+})

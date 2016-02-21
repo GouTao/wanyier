@@ -1,4 +1,5 @@
 $('#page4').on('pageInit',function(){
+	$("#modeName").html('个人信息');
 	$('#addAddress').on('click',function(){
 		$.secendPage.to('addAddressPage');
 	});
@@ -19,4 +20,7 @@ $('#page4').on('pageInit',function(){
 	$('#addCourse').on('click',function(){
 		$.secendPage.to('addCoursePage');
 	})
+})
+$("#apge4").on('pageShow',function(){
+	$("#modeName").html('个人信息');
 })
