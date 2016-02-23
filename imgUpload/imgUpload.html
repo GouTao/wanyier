@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			body{
+				margin: 0;
+				padding: 0;	
+				font-family: "微软雅黑";
+			}
+			#upLoadArea{
+				margin: 0;
+				width: 250px;
+				display: inline-block;
+				border: 1px solid #cccccc;
+				padding: 4px;
+				padding-right: 0px;
+			}
+			#fileSelect_hidden{
+				width: 180px;
+				display: block;
+				float: left;
+				position: absolute;
+				opacity: 0;
+			}
+			#fileSelect_hidden:hover{
+				cursor: pointer;
+			}
+			#fileBtn{
+				pointer-events:none;
+				cursor: pointer ;
+			}
+			#fileSelect{
+				width: 120px;
+			}
+			span{
+				font-size: 14px;
+			}
+			#subBtn{
+				width: 50px;
+				border-radius: 2px;
+				padding: 1px;
+				font-size: 14px;
+				display: inline-block;
+				margin: auto;
+				text-align: center;
+				background-color: #0088BB;
+				color: whitesmoke;
+				cursor: pointer ;
+			}
+			#subBtn:hover{
+				background-color:#22AADD
+			}
+			#progressBar{
+				width: 70%;
+			}
+			#progressArea{
+				margin: 0;
+				width: 250px;
+				border: 1px solid #cccccc;
+				padding: 4px;
+				padding-right: 0px;
+				display: none;
+			}
+		</style>
+		<script>
+			
+			var ifUpload=false;
+		
+			function choseFile(){
+				var file = document.getElementById('fileSelect_hidden').files[0];
+				if (file) {
+					console.log(file.type);
+					document.getElementById('fileSelect').value = file.name;
+					var test=document.getElementById("fileSelect_hidden").value;
+					var reg=/([^\s]+(?=\.(jpg|bmp|png))\.\2)/gi;
+					reg.test(test)?ifUpload=true:ifUpload=false;
+	                return true;
+				}
+			}
+			
+			function upLoad(){
+				if(document.getElementById('fileSelect').value!=""){
+					if(ifUpload){
+						document.getElementById('progressArea').style.display="block";
+						document.getElementById('upLoadArea').style.display="none";
+						excUpload();
+					}
+					else{
+						alert("仅能上传jpg|bmp|png格式图片！");
+					}
+				}
+				else{
+					alert("请选择上传文件！");
+				}
+			}
+			var xhr;
+
+			function excUpload(){
+        		var fileController = "/upload";                    
+	            var fd = new FormData(document.getElementById("form1"));   
+	            var file = document.getElementById('fileSelect_hidden').files[0];
+	            fd.append("fileName",fileName);
+	            xhr = new XMLHttpRequest();
+	            xhr.open("POST", fileController);		
+	            xhr.onload = function (e) {		
+	                alert("上传完成!");
+	                console.log(e.target.response);
+	            };
+				xhr.upload.addEventListener("progress", progressFunction);
+	            xhr.send(fd);
+			}
+			function progressFunction(event) {
+	            var progressBar = document.getElementById("progressBar");	
+	            if (event.lengthComputable) {	
+	                progressBar.max = event.total;      	
+	                progressBar.value = event.loaded;	
+	                if(progressBar.max==progressBar.value){
+	                	document.getElementById('progressArea').style.display="none";
+						document.getElementById('upLoadArea').style.display="block";
+						xhr.removeEventListener("progress", progressFunction, false);
+	                }
+	            }	
+	        }
+			function showAlert(){
+				document.getElementById("fileBtn").style.color="brown";
+			}
+			
+			function hideAlert(){
+				document.getElementById("fileBtn").style.color="black";
+			}
+		</script>
+	</head>
+	<body>
+		<div>
+			<div id="localImag">
+			        <img id="preview" src="" style="display: block;"/>
+			</div>
+			<div id="upLoadArea">
+				<form id="form1">
+					<input type="file" id="fileSelect_hidden" name="upload" onchange="choseFile()" onmouseover="showAlert()" onmouseout="hideAlert()"/>	
+				</form>
+				<span id="fileBtn">选择文件</span>
+				<input id="fileSelect" readonly="readonly"></input>
+				<div id="subBtn" onclick="upLoad()">上传</div>
+			</div>
+			<div id="progressArea">
+				<span>上传进度</span> <progress id="progressBar" value="1" max="100"></progress>
+			</div>
+		</div>
+	</body>
+</html>
