@@ -38,7 +38,7 @@ jQuery.UtrialAvatarCutter = function(config){
 	 */
 	this.reload = function(img_url){
 		if(img_url!=null && img_url != ""){
-			os = img_url+"?"+Math.random();
+			os = img_url;
 			$("#"+img_content_id).html("<img id='"+img_id+"' src='"+os+"'/>");
 			$("#"+img_id).bind("load",
 				function(){
@@ -70,6 +70,12 @@ jQuery.UtrialAvatarCutter = function(config){
 				marginLeft: '-' + Math.round(rx * x) + 'px',
 				marginTop: '-' + Math.round(ry * y) + 'px'
 			});
+		}
+	}
+
+	this.del=function(){
+		if(api!=null){
+			api.destroy();
 		}
 	}
 
