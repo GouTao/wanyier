@@ -1,5 +1,4 @@
 $('#page2').on('pageInit',function(){
-	$("#modeName").html('我要教');
 	$("#imgLinks_page2").createdImgLinks({
 		source:"views/imgLinks_page2.json",
 		style:'link',
@@ -11,5 +10,4 @@ $('#page2').on('pageInit',function(){
 	})
 })
 $('#page2').on('pageShow',function(){
-	$("#modeName").html('我要教');
 })

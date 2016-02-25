@@ -8,7 +8,11 @@ function initMainPage(){
 		tags=[];
 		$.toMainPage.show();
 	})
-	
+
+	$("#iwannapaly").on("click",function(){
+		$.secendPage.to("teacherList_main");
+	})
+
 	var tags=[]
 	
 	$("#tags").createTags({
@@ -21,9 +25,13 @@ function initMainPage(){
 				tags.push(res);
 			}
 			console.log(tags);
-			
 		}
 	})
+	
+	$("#test").on('click',function(){
+		$.secendPage.next("modifyUserInfoPage");
+	})
+	
 	$("#imgLinks_mainPage").createdImgLinks({
 		source:"views/imgLinks_mainPage.json",
 		style:'link',

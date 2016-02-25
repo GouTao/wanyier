@@ -33,21 +33,21 @@
         	时间：2016-01-23
     	 	描述：初始页面
 		-->
-		<div id="mainPage" style="display: none;">
+		<div id="mainPage" style="display: none;" modeName="艺术玩家圈子">
 			<div class="container">
-	        		<div class="row">
-	        			<div class=" col-sm-3 col-sm-offset-1 col-lg-2 col-lg-offset-3 tagContent">
-	       				<h4><img src="img/icons-png/tag-black.png"/>我的兴趣爱好</h4>
-	       				<div id="tags"><!--生成tag并放置-->
-		       			</div>
-		       			<button class="btn btn-wide btn-success" id="iwannapaly">我要玩</button>
+        		<div class="row">
+        			<div class=" col-sm-3 col-sm-offset-1 col-lg-2 col-lg-offset-3 tagContent">
+       				<h4><img src="img/icons-png/tag-black.png"/>我的兴趣爱好</h4>
+       				<div id="tags"><!--生成tag并放置-->
 	       			</div>
-		        		<div class=" col-sm-6 col-sm-offset-4 col-lg-4 col-lg-offset-5 imgBtnContent">
-		        			<div id="imgLinks_mainPage"><!--生成url图片并放置-->
-		        			</div>
-		        		</div>
+	       			<button class="btn btn-wide btn-success" id="iwannapaly">我要玩</button>
+       			</div>
+	        		<div class=" col-sm-6 col-sm-offset-4 col-lg-4 col-lg-offset-5 imgBtnContent">
+	        			<div id="imgLinks_mainPage"><!--生成url图片并放置-->
+	        			</div>
 	        		</div>
-	        	</div>
+        		</div>
+        	</div>
 		</div>
 		<!--
         	作者：457754603@qq.com
@@ -59,15 +59,15 @@
         	时间：2016-02-05
         	描述：第一页
         -->
-        <div class="page" id="page1" display: none;>
-	        	<div class="container">
-	        		<div class="row">
-	        			<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 imgBtnContent">
-		        			<div id="imgLinks_page1"><!--生成url图片并放置-->
-		        			</div>
-		        		</div>
+        <div class="page" id="page1" style="display: none;" modeName="学艺术">
+        	<div class="container">
+        		<div class="row">
+        			<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 imgBtnContent">
+	        			<div id="imgLinks_page1"><!--生成url图片并放置-->
+	        			</div>
 	        		</div>
-	        	</div>
+        		</div>
+        	</div>
         </div>
         
         <!--
@@ -75,36 +75,36 @@
         	时间：2016-02-09
         	描述：第二页
         -->
-        <div class="page" id="page2" style="display: none;">
+        <div class="page" id="page2" style="display: none;" modeName="我要教">
 			 <div class="container">
-	        		<div class="row">
-	        			<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 imgBtnContent">
-		        			<div id="imgLinks_page2"><!--生成url图片并放置-->
-		        			</div>
-		        		</div>
-		        		<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 noRight">
-		        			<div>
-		        				<b><img src="img/icons-png/info-black.png"/>提示:</b>
-		        				<p>您还没有成为玩艺儿的服务提供者，没有此模块权限。您可以申请成为玩意服务的提供者。</p>
-		        				<button class="btn btn-wide btn-block btn-success" id="tobeteacher">现在就成为服务提供者</button>
-		        			</div>
-		        		</div>
+        		<div class="row">
+        			<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 imgBtnContent">
+	        			<div id="imgLinks_page2"><!--生成url图片并放置-->
+	        			</div>
 	        		</div>
-	        	</div>
+	        		<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 noRight">
+	        			<div>
+	        				<b><img src="img/icons-png/info-black.png"/>提示:</b>
+	        				<p>您还没有成为玩艺儿的服务提供者，没有此模块权限。您可以申请成为玩意服务的提供者。</p>
+	        				<button class="btn btn-wide btn-block btn-success" id="tobeteacher">现在就成为服务提供者</button>
+	        			</div>
+	        		</div>
+        		</div>
+        	</div>
         </div>        
         
-        <div class="page" id="page3" style="display: none;">
+        <div class="page" id="page3" style="display: none;" modeName="活动玩乐">
 		  	<div class="container">
-	        		<div class="row">
-	        			<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 imgBtnContent">
-		        			<div id="imgLinks_page3"><!--生成url图片并放置-->
-		        			</div>
-		        		</div>
+        		<div class="row">
+        			<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 imgBtnContent">
+	        			<div id="imgLinks_page3"><!--生成url图片并放置-->
+	        			</div>
 	        		</div>
-	        	</div>
+        		</div>
+        	</div>
         </div>   
         
-        <div class="page" id="page4" style="display: none;">
+        <div class="page" id="page4" style="display: none;" modeName="个人信息">
 			<div class="container" >
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3" id="wxInfo">
@@ -181,7 +181,7 @@
 			<p>下面是学生显示</p>
 			<hr />
 			
-			<div class="container infoModule">
+			<div class="container infoModule" >
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3 userInfo">
 						<div class="infoHeader">
@@ -229,43 +229,53 @@
         	时间：2016-02-12
         	描述：二级页面
         -->
+        
+        <!--
+        	作者：457754603@qq.com
+        	时间：2016-02-25
+        	描述：教师列表页面
+        -->
+        <div class="secend-page" id="teacherList_main" modeName="test">
+        	<button id="test">test</button>
+        </div>
+        
         <!--
         	作者：457754603@qq.com
         	时间：2016-02-13
         	描述：修改教师个人信息
         -->
-        <div class="secend-page" id="modifyUserInfoPage">
-        		<div class="container ">
-        			<div class="row">
-        				<div class="col-sm-6 col-sm-offset-3">
-        					<h4><img src="img/icons-png/recycle-black.png" />修改个人信息</h4>
-        					<div role="form" class="secendPage-form" id="modifyUserInfoForm">
-							<div class="form-group">
-								<label for="userName">填写姓名</label>
-								<input type="text" class="form-control" id="userName"/>
-							</div>
-							<div class="form-group">
-								<label for="desShort">填写简介</label>
-								<input type="text" class="form-control" id="desShort"/>
-							</div>
-							<div class="form-group">
-								<label for="desLong">填写详情</label>
-								<textarea type="text" class="form-control" id="desLong"></textarea>
-							</div>
-							<div class="form-group">
-								<label>选择您的住址</label>
-								<select class="form-control">
-									<option>1</option>
-									<option>1</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
-							</div>
+        <div class="secend-page" id="modifyUserInfoPage" modeName="test2">
+    		<div class="container ">
+    			<div class="row">
+    				<div class="col-sm-6 col-sm-offset-3">
+    					<h4><img src="img/icons-png/recycle-black.png" />修改个人信息</h4>
+    					<div role="form" class="secendPage-form" id="modifyUserInfoForm">
+						<div class="form-group">
+							<label for="userName">填写姓名</label>
+							<input type="text" class="form-control" id="userName"/>
 						</div>
-        				</div>
-        			</div>
-        		</div>
+						<div class="form-group">
+							<label for="desShort">填写简介</label>
+							<input type="text" class="form-control" id="desShort"/>
+						</div>
+						<div class="form-group">
+							<label for="desLong">填写详情</label>
+							<textarea type="text" class="form-control" id="desLong"></textarea>
+						</div>
+						<div class="form-group">
+							<label>选择您的住址</label>
+							<select class="form-control">
+								<option>1</option>
+								<option>1</option>
+							</select>
+						</div>
+						<div class="form-group">
+							<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
+						</div>
+					</div>
+    				</div>
+    			</div>
+    		</div>
         </div>
         
         <!--
@@ -273,7 +283,7 @@
         	时间：2016-02-13
         	描述：增加老师地址
         -->
-        <div class="secend-page" id="addAddressPage">
+        <div class="secend-page" id="addAddressPage" modeName="">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">
@@ -305,7 +315,7 @@
         	时间：2016-02-13
         	描述：添加新的商铺
         -->
-        <div class="secend-page" id="addShopPage">
+        <div class="secend-page" id="addShopPage" modeName="个人信息">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">
@@ -328,7 +338,7 @@
         	时间：2016-02-13
         	描述：修改商铺信息
         -->
-        <div class="secend-page" id="modifyShopPage">
+        <div class="secend-page" id="modifyShopPage" modeName="个人信息">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">
@@ -367,7 +377,7 @@
         	时间：2016-02-13
         	描述：增加商铺地址
         -->
-        <div class="secend-page" id="addShopAddressPage">
+        <div class="secend-page" id="addShopAddressPage" modeName="个人信息">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">
@@ -397,7 +407,7 @@
         	时间：2016-02-13
         	描述：添加课程
         -->
-         <div class="secend-page" id="addCoursePage">
+         <div class="secend-page" id="addCoursePage" modeName="个人信息">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">

@@ -1,5 +1,4 @@
 $('#page1').on('pageInit',function(){
-	$("#modeName").html('学艺术');
 	$("#imgLinks_page1").createdImgLinks({
 		source:"views/imgLinks_page1.json",
 		style:'link',
@@ -8,6 +7,5 @@ $('#page1').on('pageInit',function(){
 	})
 })
 $('#page1').on('pageShow',function(){
-	$("#modeName").html('学艺术');
 	
 })

@@ -159,7 +159,7 @@ $(document).ready(function(){
 			$('#mainPage').css('display','block');
 			$('#mainPage').removeClass('animated fadeIn');
 			$('#mainPage').addClass('animated fadeIn');
-			$("#modeName").html('艺术玩家圈子')
+			$("#modeName").html($("#mainPage").attr("modeName"));
 		}
 		return this;
 	})()
@@ -180,6 +180,7 @@ $(document).ready(function(){
 			$("#"+targetPage).attr("inited","inited");
 		}
 		$("#"+targetPage).css("display","block");	
+		$('#modeName').html($("#"+targetPage).attr("modeName"));
 		if($("#"+targetPage).hasClass("animated")){
 			$("#"+targetPage).removeClass('animated fadeIn');
 			$("#"+targetPage).addClass('animated fadeIn');
@@ -191,13 +192,18 @@ $(document).ready(function(){
 	});
 });
 
-var pageRoute=[],tempSecendPage;
+var pageRoute=[],tempSecendPages,tempModeName;
 //次级页面切换
 (function($){
 	$.secendPage=(function(){
 		this.to=function(pageID){
 			$('#returnToMain').unbind('click');
 			pageRoute=[];
+			if($("#mainPage").css("display")=="block"){
+				$("#mainPage").css("display","none");
+				pageRoute.push($("#mainPage"));
+				$("#returnToMainBtn").css("display","block");
+			}
 			var tempMainPage;
 			$('.page').each(function(){
 				if($(this).css("display")=='block'){
@@ -205,10 +211,14 @@ var pageRoute=[],tempSecendPage;
 					pageRoute.push(tempMainPage);
 				}
 			})
-			pageRoute[pageRoute.length-1].css('display','none');
+			tempModeName=$("#modeName").html();
+			if(pageRoute.length>0){
+				pageRoute[pageRoute.length-1].css('display','none');
+			}
 			$('#'+pageID).css('display','block');
 			$('#'+pageID).removeClass('animated fadeIn');
 			$('#'+pageID).addClass('animated fadeIn');
+			$('#modeName').html($('#'+pageID).attr("modeName"));
 			$("#navBar").css('display','none');
 			$('#secend-navBar').css('display','table');
 			$('#secend-navBar').removeClass('animated fadeInUp');
@@ -218,10 +228,15 @@ var pageRoute=[],tempSecendPage;
 			$('#returnToMain').bind('click',function(){
 				$('#'+pageID).css('display','none');
 				$('#secend-navBar').css('display','none');
+				if(pageRoute[0].attr("id")=="mainPage"){
+					$("#returnToMainBtn").css("display","none");
+				}
 				pageRoute[pageRoute.length-2].css('display','block');
 				pageRoute[pageRoute.length-2].removeClass('animated fadeIn');
 				pageRoute[pageRoute.length-2].addClass('animated fadeIn');
+				$('#modeName').html(pageRoute[pageRoute.length-2].attr("modeName"));
 				pageRoute.splice(0);
+				$("#modeName").html(tempModeName);
 				$('#navBar').css('display','table');
 				$('#navBar').removeClass('animated fadeInUp');
 				$('#navBar').addClass('animated fadeInUp');
@@ -237,15 +252,21 @@ var pageRoute=[],tempSecendPage;
 			$('#'+pageID).css('display','block');
 			$('#'+pageID).removeClass('animated fadeIn');
 			$('#'+pageID).addClass('animated fadeIn');
+			$('#modeName').html($('#'+pageID).attr("modeName"));
 			$('body,html').animate({scrollTop:0},0); 
 			$('#returnToMain').bind('click',function(){
 				pageRoute[pageRoute.length-1].css('display','none');
 				pageRoute[pageRoute.length-2].css('display','block');
 				pageRoute[pageRoute.length-2].removeClass('animated fadeIn');
 				pageRoute[pageRoute.length-2].addClass('animated fadeIn');
+				$('#modeName').html(pageRoute[pageRoute.length-2].attr("modeName"));
 				pageRoute.splice(pageRoute.length-1,1);
 				if(pageRoute.length==1){
+					if(pageRoute[0].attr("id")=="mainPage"){
+						$("#returnToMainBtn").css("display","none");
+					}
 					pageRoute=[];
+					$("#modeName").html(tempModeName);
 					$('#secend-navBar').css('display','none');
 					$('#navBar').css('display','table');
 					$('#navBar').removeClass('animated fadeInUp');
