@@ -112,3 +112,4 @@ $.secendPage.next('new secend page id');
 完善页面路由功能，增加对开始页面的路由判断
 调整上传页面file标签位置大小
 增加自动切换页面名称，为页面增加modeName属性
+删除部分调试用内容

@@ -13,8 +13,6 @@ $(document).ready(function(){
 	},2000);
 })
 
-
-
 $('#page1').on('pageInit',function(){
 	
 })

@@ -247,7 +247,6 @@ var pageRoute=[],tempSecendPages,tempModeName;
 		this.next=function(pageID){
 			$('#returnToMain').unbind('click');
 			pageRoute.push($('#'+pageID));
-			console.log(pageRoute.length)
 			pageRoute[pageRoute.length-2].css('display','none');
 			$('#'+pageID).css('display','block');
 			$('#'+pageID).removeClass('animated fadeIn');
