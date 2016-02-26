@@ -1,6 +1,9 @@
 body{
 	background-color: rgb(245,245,245);
 }
+*{
+	font-family: font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 .mid{
 	margin: auto;
 	max-width: 400px;

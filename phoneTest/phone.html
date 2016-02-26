@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<title>打电话</title>
+		<style>
+			body{
+				background-color: rgb(240,240,240);
+				padding-top: 100px;
+			}
+			*{
+				font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+				color: #999999;
+			}
+			.content{
+				margin: auto;
+				max-width: 320px;
+			}
+			h2{
+				text-align: center;
+			}
+			.info{
+				text-align: left;
+				width: 90%;
+				margin: auto;
+				padding:7px 10px;
+				border: 1px solid rgb(230,230,230);
+				border-radius: 3px;
+				background-color: white;
+			}
+			a{
+				display: block;
+				padding: 10px;
+				margin: auto;
+				width: 30%;
+				border-radius: 5px;
+				color: white;
+				background-color: rgb(26,179,148);
+				text-align: center;
+				text-decoration: none;
+			}
+			a:active{
+				background-color: rgba(26,179,148,0.7);
+			}
+		</style>
+	</head>
+	<body>
+		<div class="content">
+			<h2>电话联系</h2>
+			<div class="info">
+				<label>电话号码：</label>
+				<span id="phoneNum"></span>
+			</div>
+			<br />
+			<a id="makeCall">拨打电话</a>
+		</div>
+		
+		<script src="http://libs.baidu.com/jquery/1.10.2/jquery.min.js" ></script>
+		<script>
+			function getUrlParam(name) {
+				var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); 
+				var r = window.location.search.substr(1).match(reg);  
+				if (r != null) return unescape(r[2]); return null; 
+			}
+			var phoneNum
+			$(document).ready(function(){
+				phoneNum=getUrlParam('phoneNum');
+				$("#phoneNum").html(phoneNum);
+				$("#makeCall").attr("href","tel:"+phoneNum);
+			})
+		</script>
+	</body>
+</html>
