@@ -113,3 +113,22 @@ $.secendPage.next('new secend page id');
 调整上传页面file标签位置大小
 增加自动切换页面名称，为页面增加modeName属性
 删除部分调试用内容
+
+/**************************************************/
+2016/03/11
+
+调整注册界面，完成注册功能
+完成验证浏览器环境功能
+完成验证身份功能
+完成学生身份信息显示修改功能
+新建类用于处理secondpage工作流程
+修改secondpage的加载函数，简化调用方法数量
+加载静态的dom表
+$.secendPage.staticLoad(pageid);
+加载动态的dom表
+$.secendPage.bindload(function(){
+	//do sht
+	$.secendPage.bindOver);
+});
+
+

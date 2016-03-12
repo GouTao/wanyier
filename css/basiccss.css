@@ -96,6 +96,26 @@ hr{
 .active .btnDown{
 	display: inline;
 }
+
+/***********************搜索栏************************/
+.searchArea{
+	padding:0;
+	position: fixed;
+	z-index: 100;
+}
+.searchArea-input{
+	width: 85%;
+	float: left;
+}
+.searchArea-input input{
+	border-radius:0;
+}
+.searchArea-button{
+	width: 15%;
+	text-align: center;
+	border-bottom-left-radius: 0;
+	border-top-left-radius: 0;
+}
 /***********************图片链接************************/
 .imgBtnContent{
 	padding: 0;

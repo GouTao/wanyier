@@ -16,7 +16,7 @@
 	margin-top: 20px;
 	background-color: white;
 }
-.infoModule:last-child{
+.forStudent .infoModule:last-child{
 	margin-bottom: 20px;
 }
 .userInfo h5{

@@ -1,3 +1,36 @@
+//身份信息
+(function($){
+	$.theData=(function(){
+		this.isLog=false;
+		this.isTeacher=false;
+		this.student=null;
+		this.teacher=null;
+		this.uploadStudent=function(sucFunction){
+			var studentObj=new Object;
+			studentObj.command="loginStudent";
+			studentObj.openid=$.wxData().openid;
+			$.theAjax.post(studentObj,function(res){
+				if(res.result=="success"){
+					$.theData.student=res.data[0];	
+					sucFunction();
+				}
+			},null)
+		};
+		this.uploadTeacher=function(sucFunction){
+			var teacherObj=new Object;
+			teacherObj.command="loginTeacher";
+			teacherObj.openid=$.wxData().openid;
+			$.theAjax.post(teacherObj,function(res){
+				if(res.result=="success"){
+					$.theData.teacher=res.data[0];
+					sucFunction();
+				}
+			},null)
+		}
+		return this;
+	})()
+})(jQuery);
+
 //图片导航元素
 $.fn.createdImgLinks=function(options){
 	this.options={
@@ -218,6 +251,7 @@ var pageRoute=[],tempSecendPages,tempModeName;
 			$('#'+pageID).css('display','block');
 			$('#'+pageID).removeClass('animated fadeIn');
 			$('#'+pageID).addClass('animated fadeIn');
+			$("#"+pageID).sencondPageControl(pageID);
 			$('#modeName').html($('#'+pageID).attr("modeName"));
 			$("#navBar").css('display','none');
 			$('#secend-navBar').css('display','table');
@@ -251,6 +285,7 @@ var pageRoute=[],tempSecendPages,tempModeName;
 			$('#'+pageID).css('display','block');
 			$('#'+pageID).removeClass('animated fadeIn');
 			$('#'+pageID).addClass('animated fadeIn');
+			$("#"+pageID).sencondPageControl(pageID);
 			$('#modeName').html($('#'+pageID).attr("modeName"));
 			$('body,html').animate({scrollTop:0},0); 
 			$('#returnToMain').bind('click',function(){
@@ -281,12 +316,37 @@ var pageRoute=[],tempSecendPages,tempModeName;
 
 (function($){
 	$.loadSecondPage=(function(){
-		this.load=function(){
+		this.staticLoad=function(pageid){
 			$('#secend-navBar tr td').addClass('active');
+			if($("#"+pageid).attr("loaded")==undefined){
+				$.ajax({
+					type:"get",
+					url:"views/secondPages/"+pageid+".html",
+					async:false,
+					dataType:"html",
+					success:function(res){
+						$('#secend-navBar tr td').removeClass('active');
+						$("#"+pageid).append(res);
+						$("#"+pageid).attr("loaded","loaded");
+						$.secendPage.to(pageid);
+					},
+					error:function(){
+						$('#secend-navBar tr td').removeClass('active');
+						alert("wrong pageurl: views/secondPages/"+pageid+".html")
+					}
+				});	
+			}
+			else{
+				$.secendPage.to(pageid);
+			}
+			
 		};
-		this.loaded=function(_callback){
+		this.bindLoad=function(loading){
+			$('#secend-navBar tr td').addClass('active');
+			loading();
+		}
+		this.bindOver=function(){
 			$('#secend-navBar tr td').removeClass('active');
-			_callback();
 		}
 		return this;
 	})()

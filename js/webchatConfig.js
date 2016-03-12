@@ -11,6 +11,7 @@
 			sendObj.code=code;
 			var sendMsg=JSON.stringify(sendObj)
 			$.ajax({
+				type:"post",
 				url:"http://119.29.92.190:23017",
 				async:true,
 				dataType:"json",
@@ -31,6 +32,7 @@
 			sendObj.pathname=pathname
 			var sendMsg=JSON.stringify(sendObj);
 			$.ajax({
+				type:"post",
 				url:"http://119.29.92.190:23017",
 				async:true,
 				dataType:"json",
@@ -86,6 +88,14 @@
 			}
 		}
 		
+		var wxData=new Object;
+		wxData.openid="o3Eplsy6g8mIq0yJJTo0HgEmhKWU";
+		//wxData.openid="o3Epls2TMaiah_iI-GLwi9CxVKeQ";
+		
+		$.wxData=function(){
+			return wxData;
+		}
+		
 		this.regInformation = function(options){
 			this.options={
 				regSuccess:null,
@@ -114,7 +124,9 @@
 			}
 			
 			getOpenid(code,function(userInfo){
-				regCallback(userInfo.openid,userInfo.userInfo);
+				wxData.openid=userInfo.openid;
+				wxData.userInfo=userInfo.userInfo
+				regCallback();
 				//获取wx权限
 				getSignPackage(pathname,function(sp){
 					appId = sp.appId;

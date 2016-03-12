@@ -3,6 +3,7 @@ $('#page1').on('pageInit',function(){
 		source:"views/imgLinks_page1.json",
 		style:'link',
 		created:function(res){
+			
 		}
 	})
 })

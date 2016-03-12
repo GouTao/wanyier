@@ -1,4 +1,4 @@
-$(document).ready(initRegist);
+$(document).ready(checkRegist);
 
 var waitTime,timeNum=120,isGetting=false,userType="student",phoneNum="",openid="",levelUp;
 
@@ -6,6 +6,19 @@ function getUrlParam(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); 
 	var r = window.location.search.substr(1).match(reg);  
 	if (r != null) return unescape(r[2]); return null; 
+}
+
+function checkRegist(){
+	$.webchatCongfig.checkWXBrowser({
+		default:false,
+		sucFunction:function(){
+			$(".regist").css("display","block");
+			initRegist();
+		},
+		errFunction:function(){
+			open("nowx.html","_self");
+		}
+	})
 }
 
 function initRegist(){
@@ -75,7 +88,7 @@ function initRegist(){
 	})
 	
 	$("#teacher").on("click",function(){
-		open("regist.html?levelup=true","_self");
+		open("regist.html?levelup=true&openid="+openid,"_self");
 	})
 	$("#normalFini").on("click",function(){
 		//跳转回登录界面
@@ -83,47 +96,43 @@ function initRegist(){
 	})
 	
 	$('#registBtn').on('click',function(){
-		$("#regist").css('display',"none");
-		$(".userType").css("display","block");
-		$(".userType").addClass("animated fadeIn");
 		resetThis();
-		userType="teacher";
-//		if(phoneNum!=""){
-//			if($("#regCode").val()!=""){
-//				var sendObj=new Object;
-//				if(userType=="teacher"){
-//					sendObj.command='addTeacher';
-//				}
-//				else{
-//					sendObj.command='addStudent';
-//				}
-//				sendObj.phoneNum=phoneNum;
-//				sendObj.openid=openid;
-//				sendObj.authCode=$("#regCode").val();
-//				$.theAjax.post(sendObj,function(res){
-//					if(res.result=='success'){
-//						if(userType=='teacher'){
-//							alert('操作成功，请等待审核。页面即将跳转。');
-//						}
-//						else{
-//							$("#regist").css('display',"none");
-//							$(".userType").css("display","block");
-//							$(".userType").addClass("animated fadeIn");
-//							resetThis();
-//						}
-//					}
-//					else{
-//						alert(res.msg)
-//					}
-//				},function(){})
-//			}
-//			else{
-//				alert('请填写验证码!');
-//			}
-//		}
-//		else{
-//			alert('请先填写手机号码并获取最新的手机验证码!')
-//		}
+		if(phoneNum!=""){
+			if($("#regCode").val()!=""){
+				var sendObj=new Object;
+				if(userType=="teacher"){
+					sendObj.command='addTeacher';
+				}
+				else{
+					sendObj.command='addStudent';
+				}
+				sendObj.phoneNum=phoneNum;
+				sendObj.openid=openid;
+				sendObj.authCode=$("#regCode").val();
+				$.theAjax.post(sendObj,function(res){
+					if(res.result=='success'){
+						if(userType=='teacher'){
+							alert('操作成功，请等待审核。页面即将跳转。');
+						}
+						else{
+							$("#regist").css('display',"none");
+							$(".userType").css("display","block");
+							$(".userType").addClass("animated fadeIn");
+							resetThis();
+						}
+					}
+					else{
+						alert(res.msg)
+					}
+				},function(){})
+			}
+			else{
+				alert('请填写验证码!');
+			}
+		}
+		else{
+			alert('请先填写手机号码并获取最新的手机验证码!')
+		}
 	})
 }
 function resetThis(){

@@ -15,7 +15,7 @@
 		<link rel="stylesheet" href="css/module/page2.css"/>
 		<link rel="stylesheet" href="css/module/page4.css" />
 	</head>
-	<body>
+	<body style="display: none;">
 		<!--
         	作者：457754603@qq.com
         	时间：2016-02-05
@@ -62,7 +62,16 @@
         <div class="page" id="page1" style="display: none;" modeName="学艺术">
         	<div class="container">
         		<div class="row">
-        			<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 imgBtnContent">
+        			<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 searchArea" >
+        				<div class="input-group searchArea-input">
+			        		<span class="input-group-addon">搜课</span>
+			          	<input type="text" class="form-control" placeholder="填写课程名称" id="searchKey-course" >
+			        </div>
+			        <button class="btn btn-success searchArea-button" id="searchBtn-course">
+			        		<span class="glyphicon glyphicon-search"></span>
+			        </button>
+        			</div>
+        			<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 imgBtnContent" style="margin-top: 34px;">
 	        			<div id="imgLinks_page1"><!--生成url图片并放置-->
 	        			</div>
 	        		</div>
@@ -118,107 +127,105 @@
 				<div class="row">
 					<div class="col-sm-6 col-sm-offset-3 userInfo">
 						<div class="infoHeader">
-							<h5 style="float: left;"><img src="img/icons-png/user-black.png"/>&nbsp;<span id="name">这里是真真实姓名</span>-个人信息</h5>
+							<h5 style="float: left;"><img src="img/icons-png/user-black.png"/>&nbsp;<span id="name">请完善真实姓名</span>-个人信息</h5>
 							<h5 style="float: right;"><a id="modifyUserInfo">[修改]</a></h5>
 						</div>
 						<hr />
 						<p><img src="img/icons-png/bullets-black.png" />&nbsp;简介:</p>
-						<p class="infoContent" id="shortDes">测试 测试 测试 测试 测试</p>
-						<p><img src="img/icons-png/grid-black.png"/>&nbsp;详情:</p>
-						<p class="infoContent" id="longDes">这是一段测试信息，这是一段测试信息，这是一段测试信息，这是一段测试信息，这是一段测试信息</p>
+						<p class="infoContent" id="shortDes">请完善您的简介</p>
+						<p><img src="img/icons-png/grid-black.png"/>&nbsp;个人详情:</p>
+						<p class="infoContent" id="longDes">请完善您的详细介绍</p>
 						<p><img src="img/icons-png/home-black.png"/>&nbsp;地址:&nbsp;<a id="addAddress">[增加]</a></p>
-						<p class="infoContent" id="address">四川省XX市XX路XXX号XX大厦XX栋XX号</p>
+						<p class="infoContent" id="homeAddress">请完善您的家庭住址</p>
+					</div>
+				</div>
+			</div>
+			<div class="forTeacher">
+				<div class="container infoModule">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3 userInfo">
+							<div class="infoHeader">
+								<h5 style="float: left;"><img src="img/icons-png/shop-black.png"/>&nbsp;我的商铺</h5>
+								<h5 style="float: left;"><a id="addShopAddress">[增加商铺地址]</a></h5>
+								<h5 style="float: right;"><a id="addShop">[增加商铺]</a></h5>
+							</div>
+							
+							<ul class="list-group" id="shopList">
+								<li class="list-group-item">
+									<p style="float: left;">aaa</p>
+									<a style="float: right;" class="modifyShop">[修改]</a>
+								</li>
+								<li class="list-group-item">
+									<p style="float: left;">aaa</p>
+									<a style="float: right;" class="modifyShop">[修改]</a
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="container infoModule">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3 userInfo">
+							<div class="infoHeader">
+								<h5 style="float: left;"><img src="img/icons-png/bars-black.png"/>&nbsp;我的授课</h5>
+								<h5 style="float: right;"><a id="addCourse">[增加]</a></h5>
+							</div>
+							
+							<ul class="list-group" id="shopList">
+								<li class="list-group-item">
+									<p class="courseName">aaa</p>
+								</li>
+								<li class="list-group-item">
+									<p class="courseName">aaafdsjkljflkjkljfklsjklfjkl</p>
+									<span class="badge" >试听课程</span>
+								</li>
+							</ul>
+						</div>
 					</div>
 				</div>
 			</div>
 			
-			<div class="container infoModule">
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3 userInfo">
-						<div class="infoHeader">
-							<h5 style="float: left;"><img src="img/icons-png/shop-black.png"/>&nbsp;我的商铺</h5>
-							<h5 style="float: left;"><a id="addShopAddress">[增加商铺地址]</a></h5>
-							<h5 style="float: right;"><a id="addShop">[增加商铺]</a></h5>
+			<div class="forStudent">
+				<div class="container infoModule" >
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3 userInfo">
+							<div class="infoHeader">
+								<h5 style="float: left;"><img src="img/icons-png/clock-black.png"/>&nbsp;我的课程</h5>
+							</div>
+							
+							<ul class="list-group" id="shopList">
+								<li class="list-group-item">
+									<p style="float: left;">aaa</p>
+									<a style="float: right;" >[查询详情]</a>
+								</li>
+								<li class="list-group-item">
+									<p style="float: left;">aaa</p>
+									<a style="float: right;" >[查询详情]</a
+								</li>
+							</ul>
 						</div>
-						
-						<ul class="list-group" id="shopList">
-							<li class="list-group-item">
-								<p style="float: left;">aaa</p>
-								<a style="float: right;" class="modifyShop">[修改]</a>
-							</li>
-							<li class="list-group-item">
-								<p style="float: left;">aaa</p>
-								<a style="float: right;" class="modifyShop">[修改]</a
-							</li>
-						</ul>
 					</div>
 				</div>
-			</div>
-			
-			<div class="container infoModule">
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3 userInfo">
-						<div class="infoHeader">
-							<h5 style="float: left;"><img src="img/icons-png/bars-black.png"/>&nbsp;我的授课</h5>
-							<h5 style="float: right;"><a id="addCourse">[增加]</a></h5>
+				
+				<div class="container infoModule">
+					<div class="row">
+						<div class="col-sm-6 col-sm-offset-3 userInfo">
+							<div class="infoHeader">
+								<h5 style="float: left;"><img src="img/icons-png/bars-black.png"/>&nbsp;我的订单</h5>
+							</div>
+							
+							<ul class="list-group" id="shopList">
+								<li class="list-group-item">
+									<p style="float: left;">aaa</p>
+									<a style="float: right;" >[查询详情]</a>
+								</li>
+								<li class="list-group-item">
+									<p style="float: left;">aaa</p>
+									<a style="float: right;" >[查询详情]</a
+								</li>
+							</ul>
 						</div>
-						
-						<ul class="list-group" id="shopList">
-							<li class="list-group-item">
-								<p class="courseName">aaa</p>
-							</li>
-							<li class="list-group-item">
-								<p class="courseName">aaafdsjkljflkjkljfklsjklfjkl</p>
-								<span class="badge" >试听课程</span>
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			
-			<br />
-			<hr />
-			<p>下面是学生显示</p>
-			<hr />
-			
-			<div class="container infoModule" >
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3 userInfo">
-						<div class="infoHeader">
-							<h5 style="float: left;"><img src="img/icons-png/clock-black.png"/>&nbsp;我的课程</h5>
-						</div>
-						
-						<ul class="list-group" id="shopList">
-							<li class="list-group-item">
-								<p style="float: left;">aaa</p>
-								<a style="float: right;" >[查询详情]</a>
-							</li>
-							<li class="list-group-item">
-								<p style="float: left;">aaa</p>
-								<a style="float: right;" >[查询详情]</a
-							</li>
-						</ul>
-					</div>
-				</div>
-			</div>
-			
-			<div class="container infoModule">
-				<div class="row">
-					<div class="col-sm-6 col-sm-offset-3 userInfo">
-						<div class="infoHeader">
-							<h5 style="float: left;"><img src="img/icons-png/bars-black.png"/>&nbsp;我的订单</h5>
-						</div>
-						
-						<ul class="list-group" id="shopList">
-							<li class="list-group-item">
-								<p style="float: left;">aaa</p>
-								<a style="float: right;" >[查询详情]</a>
-							</li>
-							<li class="list-group-item">
-								<p style="float: left;">aaa</p>
-								<a style="float: right;" >[查询详情]</a
-							</li>
-						</ul>
 					</div>
 				</div>
 			</div>
@@ -244,38 +251,38 @@
         	时间：2016-02-13
         	描述：修改教师个人信息
         -->
-        <div class="secend-page" id="modifyUserInfoPage" modeName="test2">
-    		<div class="container ">
-    			<div class="row">
-    				<div class="col-sm-6 col-sm-offset-3">
-    					<h4><img src="img/icons-png/recycle-black.png" />修改个人信息</h4>
-    					<div role="form" class="secendPage-form" id="modifyUserInfoForm">
-						<div class="form-group">
-							<label for="userName">填写姓名</label>
-							<input type="text" class="form-control" id="userName"/>
+        <div class="secend-page" id="modifyUserInfoPage-teacher" modeName="test2">
+	    		<div class="container ">
+	    			<div class="row">
+	    				<div class="col-sm-6 col-sm-offset-3">
+	    					<h4><img src="img/icons-png/recycle-black.png" />修改个人信息</h4>
+	    					<div role="form" class="secendPage-form" id="modifyUserInfoForm">
+							<div class="form-group">
+								<label for="userName">填写姓名</label>
+								<input type="text" class="form-control" id="userName"/>
+							</div>
+							<div class="form-group">
+								<label for="desShort">填写简介</label>
+								<input type="text" class="form-control" id="desShort"/>
+							</div>
+							<div class="form-group">
+								<label for="desLong">填写详情</label>
+								<textarea type="text" class="form-control" id="desLong"></textarea>
+							</div>
+							<div class="form-group">
+								<label>选择您的住址</label>
+								<select class="form-control">
+									<option>1</option>
+									<option>1</option>
+								</select>
+							</div>
+							<div class="form-group">
+								<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
+							</div>
 						</div>
-						<div class="form-group">
-							<label for="desShort">填写简介</label>
-							<input type="text" class="form-control" id="desShort"/>
-						</div>
-						<div class="form-group">
-							<label for="desLong">填写详情</label>
-							<textarea type="text" class="form-control" id="desLong"></textarea>
-						</div>
-						<div class="form-group">
-							<label>选择您的住址</label>
-							<select class="form-control">
-								<option>1</option>
-								<option>1</option>
-							</select>
-						</div>
-						<div class="form-group">
-							<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
-						</div>
-					</div>
-    				</div>
-    			</div>
-    		</div>
+	    				</div>
+	    			</div>
+	    		</div>
         </div>
         
         <!--
@@ -468,6 +475,14 @@
         
         <!--
         	作者：457754603@qq.com
+        	时间：2016-03-12
+        	描述：修改学生个人信息
+        -->
+        <div class="secend-page" id="modifyUserInfoPage-student" modeName="个人信息">
+        </div>
+        
+        <!--
+        	作者：457754603@qq.com
         	时间：2016-01-23
         	描述：底部工具栏
         -->
@@ -501,8 +516,10 @@
 		<!-- main js -->
 		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery.min.js" ></script>
 		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/theAjax.js" ></script>
 		<script type="text/javascript" src="js/webchatConfig.js" ></script>
 		<script type="text/javascript" src="js/surport.js" ></script>
+		<script type="text/javascript" src="js/module/secondPages.js" ></script>
 		<script type="text/javascript" src="js/module/mainPage.js" ></script>
 		<script type="text/javascript" src="js/module/page1.js" ></script>
 		<script type="text/javascript" src="js/module/page2.js" ></script>
