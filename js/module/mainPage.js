@@ -10,7 +10,17 @@ function initMainPage(){
 	})
 
 	$("#iwannapaly").on("click",function(){
-		$.secendPage.to("teacherList_main");
+		if(tags.length==0){
+			alert("请选择您的兴趣爱好！")
+		}
+		else{
+			var intrest=new Object;
+			intrest.command="findInterestCourse";
+			intrest.courseName=tags;
+			$.theAjax.post(intrest,function(res){
+				console.log(res)
+			},null)
+		}
 	})
 
 	var tags=[]
@@ -24,12 +34,13 @@ function initMainPage(){
 			else{
 				tags.push(res);
 			}
-			console.log(tags);
+			//console.log(tags);
 		}
 	})
 	
 	$("#test").on('click',function(){
-		$.secendPage.next("modifyUserInfoPage");
+		//$.secendPage.next("modifyUserInfoPage");
+		
 	})
 	
 	$("#imgLinks_mainPage").createdImgLinks({

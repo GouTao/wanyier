@@ -1,12 +1,12 @@
 [
-	{"name":"测试asd","target":"0"},
-	{"name":"测试asd","target":"1"},
-	{"name":"测试dsa","target":"2"},
-	{"name":"测试agfh","target":"3"},
-	{"name":"测试asdfafa","target":"4"},
-	{"name":"测试a","target":"5"},
-	{"name":"测试1","target":"6"},
-	{"name":"测试asdfsaf","target":"7"},
-	{"name":"测试asd","target":"8"},
-	{"name":"测试56","target":"9"}
+	{"name":"小提琴","target":"小提琴"},
+	{"name":"大提琴","target":"大提琴"},
+	{"name":"钢琴","target":"钢琴"},
+	{"name":"油画","target":"油画"},
+	{"name":"水彩画","target":"水彩画"},
+	{"name":"书法","target":"书法"},
+	{"name":"陶艺","target":"陶艺"},
+	{"name":"茶艺","target":"茶艺"},
+	{"name":"素描","target":"素描"},
+	{"name":"摄影","target":"摄影"}
 ]
