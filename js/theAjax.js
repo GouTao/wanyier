@@ -1,6 +1,6 @@
 (function($){
-	$.theAjax=(function(){
-		this.post=function(sendObj,sucFunction,errFunction){
+	$.theAjax=(function post(){
+		post.post=function(sendObj,sucFunction,errFunction){
 			var sendMsg=JSON.stringify(sendObj);
 			$.ajax({
 				type:"post",
@@ -18,14 +18,14 @@
 				}
 			});
 		}
-		return this;
+		return post;
 	})();
-	$.regExp=(function(){
-		this.regTel=function(str){
+	$.regExp=(function reg(){
+		reg.regTel=function(str){
 			var reg=/^1\d{10}$/;
 			return reg.test(str);
 		}
-		return this;
+		return reg;
 	})()
 })(jQuery);
 

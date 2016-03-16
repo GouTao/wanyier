@@ -1,11 +1,11 @@
 //身份信息
 (function($){
-	$.theData=(function(){
-		this.isLog=false;
-		this.isTeacher=false;
-		this.student=null;
-		this.teacher=null;
-		this.uploadStudent=function(sucFunction){
+	$.theData=(function thedata(){
+		thedata.isLog=false;
+		thedata.isTeacher=false;
+		thedata.student=null;
+		thedata.teacher=null;
+		thedata.uploadStudent=function(sucFunction){
 			var studentObj=new Object;
 			studentObj.command="loginStudent";
 			studentObj.openid=$.wxData().openid;
@@ -16,7 +16,7 @@
 				}
 			},null)
 		};
-		this.uploadTeacher=function(sucFunction){
+		thedata.uploadTeacher=function(sucFunction){
 			var teacherObj=new Object;
 			teacherObj.command="loginTeacher";
 			teacherObj.openid=$.wxData().openid;
@@ -27,7 +27,7 @@
 				}
 			},null)
 		}
-		return this;
+		return thedata;
 	})()
 })(jQuery);
 
@@ -162,14 +162,14 @@ $(document).ready(function(){
 
 //回到主页
 (function($){
-	$.toMainPage=(function(){
-		this.show=function(){
+	$.toMainPage=(function tomainpage(){
+		tomainpage.show=function(){
 			$('.page').each(function(){
 				if($(this).css('display')=="block"){
 					$(this).css('display','none');
 				}
 			})
-			$('.secend-page').each(function(){
+			$('.second-page').each(function(){
 				if($(this).css('display')=="block"){
 					$(this).css('display','none');
 				}
@@ -181,8 +181,8 @@ $(document).ready(function(){
 			})
 			
 			pageRoute=[];
-			tempSecendPage=null;
-			$('#secend-navBar').css('display','none');
+			tempsecondPage=null;
+			$('#second-navBar').css('display','none');
 			$('#navBar').css('display','table');
 			$('#navBar').removeClass('animated fadeInUp');
 			$('#navBar').addClass('animated fadeInUp');
@@ -194,7 +194,7 @@ $(document).ready(function(){
 			$('#mainPage').addClass('animated fadeIn');
 			$("#modeName").html($("#mainPage").attr("modeName"));
 		}
-		return this;
+		return tomainpage;
 	})()
 })(jQuery);
 
@@ -225,11 +225,11 @@ $(document).ready(function(){
 	});
 });
 
-var pageRoute=[],tempSecendPages,tempModeName;
+var pageRoute=[],tempsecondPages,tempModeName;
 //次级页面切换
 (function($){
-	$.secendPage=(function(){
-		this.to=function(pageID){
+	$.secondPage=(function secondpage(){
+		secondpage.to=function(pageID){
 			$('#returnToMain').unbind('click');
 			pageRoute=[];
 			if($("#mainPage").css("display")=="block"){
@@ -254,14 +254,14 @@ var pageRoute=[],tempSecendPages,tempModeName;
 			$("#"+pageID).sencondPageControl(pageID);
 			$('#modeName').html($('#'+pageID).attr("modeName"));
 			$("#navBar").css('display','none');
-			$('#secend-navBar').css('display','table');
-			$('#secend-navBar').removeClass('animated fadeInUp');
-			$('#secend-navBar').addClass('animated fadeInUp');
+			$('#second-navBar').css('display','table');
+			$('#second-navBar').removeClass('animated fadeInUp');
+			$('#second-navBar').addClass('animated fadeInUp');
 			$('body,html').animate({scrollTop:0},0); 
 			pageRoute.push($('#'+pageID));
 			$('#returnToMain').bind('click',function(){
 				$('#'+pageID).css('display','none');
-				$('#secend-navBar').css('display','none');
+				$('#second-navBar').css('display','none');
 				if(pageRoute[0].attr("id")=="mainPage"){
 					$("#returnToMainBtn").css("display","none");
 				}
@@ -278,7 +278,7 @@ var pageRoute=[],tempSecendPages,tempModeName;
 				$('body,html').animate({scrollTop:0},0); 
 			});
 		}
-		this.next=function(pageID){
+		secondpage.next=function(pageID){
 			$('#returnToMain').unbind('click');
 			pageRoute.push($('#'+pageID));
 			pageRoute[pageRoute.length-2].css('display','none');
@@ -301,7 +301,7 @@ var pageRoute=[],tempSecendPages,tempModeName;
 					}
 					pageRoute=[];
 					$("#modeName").html(tempModeName);
-					$('#secend-navBar').css('display','none');
+					$('#second-navBar').css('display','none');
 					$('#navBar').css('display','table');
 					$('#navBar').removeClass('animated fadeInUp');
 					$('#navBar').addClass('animated fadeInUp');
@@ -310,14 +310,14 @@ var pageRoute=[],tempSecendPages,tempModeName;
 				}
 			});
 		}
-		return this;
+		return secondpage;
 	})()
 })(jQuery);
 
 (function($){
-	$.loadSecondPage=(function(){
-		this.staticLoad=function(pageid){
-			$('#secend-navBar tr td').addClass('active');
+	$.loadSecondPage=(function loadsecondpage(){
+		loadsecondpage.staticLoad=function(pageid){
+			$('#second-navBar tr td').addClass('active');
 			if($("#"+pageid).attr("loaded")==undefined){
 				$.ajax({
 					type:"get",
@@ -325,29 +325,29 @@ var pageRoute=[],tempSecendPages,tempModeName;
 					async:false,
 					dataType:"html",
 					success:function(res){
-						$('#secend-navBar tr td').removeClass('active');
+						$('#second-navBar tr td').removeClass('active');
 						$("#"+pageid).append(res);
 						$("#"+pageid).attr("loaded","loaded");
-						$.secendPage.to(pageid);
+						$.secondPage.to(pageid);
 					},
 					error:function(){
-						$('#secend-navBar tr td').removeClass('active');
+						$('#second-navBar tr td').removeClass('active');
 						alert("wrong pageurl: views/secondPages/"+pageid+".html")
 					}
 				});	
 			}
 			else{
-				$.secendPage.to(pageid);
+				$.secondPage.to(pageid);
 			}
 			
 		};
-		this.bindLoad=function(loading){
-			$('#secend-navBar tr td').addClass('active');
+		loadsecondpage.bindLoad=function(loading){
+			$('#second-navBar tr td').addClass('active');
 			loading();
 		}
-		this.bindOver=function(){
-			$('#secend-navBar tr td').removeClass('active');
+		loadsecondpage.bindOver=function(){
+			$('#second-navBar tr td').removeClass('active');
 		}
-		return this;
+		return loadsecondpage;
 	})()
 })(jQuery);

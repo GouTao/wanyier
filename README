@@ -124,11 +124,15 @@ $.secendPage.next('new secend page id');
 新建类用于处理secondpage工作流程
 修改secondpage的加载函数，简化调用方法数量
 加载静态的dom表
-$.secendPage.staticLoad(pageid);
+$.loadSecondPage.staticLoad(pageid);
 加载动态的dom表
-$.secendPage.bindload(function(){
+$.loadSecondPage.bindload(function(){
 	//do sht
 	$.secendPage.bindOver);
 });
 
+/**************************************************/
+2016/03/16
 
+修改了surport thAjax  webchatConfig中函数变量作用域bug;
+把尼玛的secend该称成为了second  我C！
