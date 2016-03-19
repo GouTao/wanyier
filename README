@@ -127,7 +127,7 @@ $.secendPage.next('new secend page id');
 $.secendPage.staticLoad(pageid);
 加载动态的dom表
 $.secendPage.bindload(function(){
-	//do sht
+	//do sth
 	$.secendPage.bindOver);
 });
 
