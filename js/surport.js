@@ -229,7 +229,7 @@ var pageRoute=[],tempsecondPages,tempModeName;
 //次级页面切换
 (function($){
 	$.secondPage=(function secondpage(){
-		secondpage.to=function(pageID){
+		secondpage.to=function(pageID,data){
 			$('#returnToMain').unbind('click');
 			pageRoute=[];
 			if($("#mainPage").css("display")=="block"){
@@ -251,7 +251,7 @@ var pageRoute=[],tempsecondPages,tempModeName;
 			$('#'+pageID).css('display','block');
 			$('#'+pageID).removeClass('animated fadeIn');
 			$('#'+pageID).addClass('animated fadeIn');
-			$("#"+pageID).sencondPageControl(pageID);
+			$("#"+pageID).sencondPageControl(pageID,data);
 			$('#modeName').html($('#'+pageID).attr("modeName"));
 			$("#navBar").css('display','none');
 			$('#second-navBar').css('display','table');
@@ -278,14 +278,14 @@ var pageRoute=[],tempsecondPages,tempModeName;
 				$('body,html').animate({scrollTop:0},0); 
 			});
 		}
-		secondpage.next=function(pageID){
+		secondpage.next=function(pageID,data){
 			$('#returnToMain').unbind('click');
 			pageRoute.push($('#'+pageID));
 			pageRoute[pageRoute.length-2].css('display','none');
 			$('#'+pageID).css('display','block');
 			$('#'+pageID).removeClass('animated fadeIn');
 			$('#'+pageID).addClass('animated fadeIn');
-			$("#"+pageID).sencondPageControl(pageID);
+			$("#"+pageID).sencondPageControl(pageID,data);
 			$('#modeName').html($('#'+pageID).attr("modeName"));
 			$('body,html').animate({scrollTop:0},0); 
 			$('#returnToMain').bind('click',function(){
@@ -316,7 +316,7 @@ var pageRoute=[],tempsecondPages,tempModeName;
 
 (function($){
 	$.loadSecondPage=(function loadsecondpage(){
-		loadsecondpage.staticLoad=function(pageid){
+		loadsecondpage.staticLoad=function(pageid,callBack){
 			$('#second-navBar tr td').addClass('active');
 			if($("#"+pageid).attr("loaded")==undefined){
 				$.ajax({
@@ -328,7 +328,8 @@ var pageRoute=[],tempsecondPages,tempModeName;
 						$('#second-navBar tr td').removeClass('active');
 						$("#"+pageid).append(res);
 						$("#"+pageid).attr("loaded","loaded");
-						$.secondPage.to(pageid);
+						//$.secondPage.to(pageid);
+						callBack();
 					},
 					error:function(){
 						$('#second-navBar tr td').removeClass('active');
@@ -337,7 +338,9 @@ var pageRoute=[],tempsecondPages,tempModeName;
 				});	
 			}
 			else{
-				$.secondPage.to(pageid);
+				$('#second-navBar tr td').removeClass('active');
+				callBack();
+				//callBack$.secondPage.to(pageid);
 			}
 			
 		};

@@ -128,7 +128,7 @@ $.loadSecondPage.staticLoad(pageid);
 加载动态的dom表
 $.loadSecondPage.bindload(function(){
 	//do sht
-	$.secendPage.bindOver);
+	$.secendPage.bindOver();
 });
 
 /**************************************************/

@@ -1,8 +1,8 @@
 [
-	{"src":"img/study.png","target":"index.html"},
-	{"src":"img/study.png","target":"index.html"},
-	{"src":"img/study.png","target":"index.html"},
-	{"src":"img/study.png","target":"index.html"},
-	{"src":"img/study.png","target":"index.html"},
-	{"src":"img/study.png","target":"index.html"}
+	{"src":"img/study.png","target":"编程"},
+	{"src":"img/study.png","target":"计算机"},
+	{"src":"img/study.png","target":"音乐"},
+	{"src":"img/study.png","target":"美术"},
+	{"src":"img/study.png","target":"舞蹈"},
+	{"src":"img/study.png","target":"武术"}
 ]

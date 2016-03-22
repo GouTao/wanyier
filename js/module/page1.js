@@ -3,7 +3,29 @@ $('#page1').on('pageInit',function(){
 		source:"views/imgLinks_page1.json",
 		style:'link',
 		created:function(res){
-			
+			var findCourseByType=new Object;
+			findCourseByType.command="findCourseByType";
+			findCourseByType.courseType=res;
+			findCourseByType.courseName="";
+			$.theAjax.post(findCourseByType,function(res){
+				if(res.result=="success"){
+					if(res.data.length>0){
+						$.loadSecondPage.bindLoad(function(){
+							$.courseControl.coursecontrol(res.data,function(data){
+								console.log(data);
+								$.secondPage.to("courseList",data);
+							});
+							$.loadSecondPage.bindOver();
+						});
+					}
+					else{
+						alert("没有相关的课程！");
+					}
+				}
+				else{
+					alert("查询失败！"+res.msg);
+				}
+			},null);
 		}
 	})
 })

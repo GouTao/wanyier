@@ -18,7 +18,22 @@ function initMainPage(){
 			intrest.command="findInterestCourse";
 			intrest.courseName=JSON.stringify(tags);
 			$.theAjax.post(intrest,function(res){
-				console.log(res)
+				if(res.result=="success"){
+					if(res.data.length>0){
+						$.loadSecondPage.bindLoad(function(){
+							$.courseControl.coursecontrol(res.data,function(data){
+								$.secondPage.to("courseList",data);
+							});
+							$.loadSecondPage.bindOver();
+						});
+					}
+					else{
+						alert("没有相关的课程！");
+					}
+				}
+				else{
+					alert("查询失败！");
+				}
 			},null)
 		}
 	})
