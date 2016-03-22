@@ -16,7 +16,7 @@ function initMainPage(){
 		else{
 			var intrest=new Object;
 			intrest.command="findInterestCourse";
-			intrest.courseName=tags;
+			intrest.courseName=JSON.stringify(tags);
 			$.theAjax.post(intrest,function(res){
 				console.log(res)
 			},null)
@@ -39,7 +39,7 @@ function initMainPage(){
 	})
 	
 	$("#test").on('click',function(){
-		//$.secendPage.next("modifyUserInfoPage");
+		//$.secondPage.next("modifyUserInfoPage");
 		
 	})
 	

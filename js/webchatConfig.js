@@ -1,5 +1,5 @@
 (function($){
-	$.webchatCongfig=(function(){
+	$.webchatCongfig=(function webchatcongfig(){
 		var appId = "",timestamp = "",nonceStr = "",signature = "";
 		var regCallback,signCallback;
 		var code=getUrlParam('code');
@@ -52,7 +52,7 @@
 			var r = window.location.search.substr(1).match(reg);  
 			if (r != null) return unescape(r[2]); return null; 
 		}
-		this.checkWXBrowser = function(options){
+		webchatcongfig.checkWXBrowser = function(options){
 			this.options={
 				default:false,
 				sucFunction:null,
@@ -96,7 +96,7 @@
 			return wxData;
 		}
 		
-		this.regInformation = function(options){
+		webchatcongfig.regInformation = function(options){
 			this.options={
 				regSuccess:null,
 				signSuccess:null
@@ -152,6 +152,6 @@
 				});
 			});
 		};
-		return this;
+		return webchatcongfig;
 	})()
 })(jQuery);

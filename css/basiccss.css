@@ -72,7 +72,6 @@ hr{
 	border-top: 1px solid #cccccc;
 	background-color: rgb(235,235,235);
 	z-index: 10000;
-	/*display: none;*/
 }
 .nav{
 	width: 100%;
@@ -131,7 +130,7 @@ hr{
 	margin-top:10px
 }
 /***********************二级页面************************/
-.secend-page{
+.second-page{
 	display: none;
 	padding-bottom: 20px;
 }
@@ -139,10 +138,10 @@ hr{
 	display: inline;
 	width: 100%;
 }
-#secend-navBar{
+#second-navBar{
 	display: none;
 }
-.secendPage-form{
+.secondPage-form{
 	background-color: white;
 	padding: 15px;
 	border-radius: 5px;

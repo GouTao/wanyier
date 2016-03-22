@@ -14,6 +14,12 @@
 		<link rel="stylesheet" href="css/module/mainPage.css"/>
 		<link rel="stylesheet" href="css/module/page2.css"/>
 		<link rel="stylesheet" href="css/module/page4.css" />
+		<!-- main js-->
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery.min.js" ></script>
+		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
+		<script type="text/javascript" src="js/theAjax.js" ></script>
+		<script type="text/javascript" src="js/webchatConfig.js" ></script>
+		<script type="text/javascript" src="js/surport.js" ></script>
 	</head>
 	<body style="display: none;">
 		<!--
@@ -242,7 +248,7 @@
         	时间：2016-02-25
         	描述：教师列表页面
         -->
-        <div class="secend-page" id="teacherList_main" modeName="test">
+        <div class="second-page" id="teacherList_main" modeName="test">
         	<button id="test">test</button>
         </div>
         
@@ -251,12 +257,12 @@
         	时间：2016-02-13
         	描述：修改教师个人信息
         -->
-        <div class="secend-page" id="modifyUserInfoPage-teacher" modeName="test2">
+        <div class="second-page" id="modifyUserInfoPage-teacher" modeName="test2">
 	    		<div class="container ">
 	    			<div class="row">
 	    				<div class="col-sm-6 col-sm-offset-3">
 	    					<h4><img src="img/icons-png/recycle-black.png" />修改个人信息</h4>
-	    					<div role="form" class="secendPage-form" id="modifyUserInfoForm">
+	    					<div role="form" class="secondPage-form" id="modifyUserInfoForm">
 							<div class="form-group">
 								<label for="userName">填写姓名</label>
 								<input type="text" class="form-control" id="userName"/>
@@ -290,7 +296,7 @@
         	时间：2016-02-13
         	描述：增加老师地址
         -->
-        <div class="secend-page" id="addAddressPage" modeName="">
+        <div class="second-page" id="addAddressPage" modeName="">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">
@@ -298,7 +304,7 @@
         					<hr />
         					<p>*最多能添加5个地址</p>
         					<p>*通过微信接口获取经纬度坐标，请在地址真实地点完成操作</p>
-        					<div role="form" class="secendPage-form" id="addAddressForm">
+        					<div role="form" class="secondPage-form" id="addAddressForm">
         						<label>已有地址</label>
         						<ul class="list-group">
         							<li class="list-group-item">1</li>
@@ -322,12 +328,12 @@
         	时间：2016-02-13
         	描述：添加新的商铺
         -->
-        <div class="secend-page" id="addShopPage" modeName="个人信息">
+        <div class="second-page" id="addShopPage" modeName="个人信息">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">
         					<h4><img src="img/icons-png/plus-black.png"/>增加商铺</h4>
-        					<div role="form" class="secendPage-form" id="addShopForm">
+        					<div role="form" class="secondPage-form" id="addShopForm">
 							<div class="form-group">
 								<label for="newShop">填写商铺名称</label>
 								<input type="text" class="form-control" id="newShop"/>
@@ -345,12 +351,12 @@
         	时间：2016-02-13
         	描述：修改商铺信息
         -->
-        <div class="secend-page" id="modifyShopPage" modeName="个人信息">
+        <div class="second-page" id="modifyShopPage" modeName="个人信息">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">
         					<h4><img src="img/icons-png/recycle-black.png" />修改商铺信息</h4>
-        					<div role="form" class="secendPage-form" id="modifyUserInfoForm">
+        					<div role="form" class="secondPage-form" id="modifyUserInfoForm">
 							<div class="form-group">
 								<label for="shopName">填写商铺名称</label>
 								<input type="text" class="form-control" id="shopName"/>
@@ -384,14 +390,14 @@
         	时间：2016-02-13
         	描述：增加商铺地址
         -->
-        <div class="secend-page" id="addShopAddressPage" modeName="个人信息">
+        <div class="second-page" id="addShopAddressPage" modeName="个人信息">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">
         					<h4><img src="img/icons-png/plus-black.png"/>增加商铺地址</h4>
         					<hr />
         					<p>*通过微信接口获取经纬度坐标，请在地址真实地点完成操作</p>
-        					<div role="form" class="secendPage-form" id="addShopAddressForm">
+        					<div role="form" class="secondPage-form" id="addShopAddressForm">
         						<label>已有地址</label>
         						<ul class="list-group">
         							<li class="list-group-item">1</li>
@@ -414,12 +420,12 @@
         	时间：2016-02-13
         	描述：添加课程
         -->
-         <div class="secend-page" id="addCoursePage" modeName="个人信息">
+         <div class="second-page" id="addCoursePage" modeName="个人信息">
         		<div class="container ">
         			<div class="row">
         				<div class="col-sm-6 col-sm-offset-3">
         					<h4><img src="img/icons-png/plus-black.png"/>添加课程</h4>
-        					<div role="form" class="secendPage-form" id="addCourseForm">
+        					<div role="form" class="secondPage-form" id="addCourseForm">
         						<div class="form-group">
 								<label>选择课程大类</label>
 								<select class="form-control">
@@ -478,7 +484,7 @@
         	时间：2016-03-12
         	描述：修改学生个人信息
         -->
-        <div class="secend-page" id="modifyUserInfoPage-student" modeName="个人信息">
+        <div class="second-page" id="modifyUserInfoPage-student" modeName="个人信息">
         </div>
         
         <!--
@@ -490,7 +496,7 @@
 		<div class="footer" style="display: none;">
 			<table class="nav" id="navBar">	
 			</table>
-			<table class="nav" id="secend-navBar">
+			<table class="nav" id="second-navBar">
 				<tr>
 					<td class="navBtn" >
 						<img src="img/ui/btn_return.png" class="imgBtn btnUp" id="returnToMain"/>
@@ -513,12 +519,8 @@
 			<img src="FlatUI/img/icons/png/Pensils.png" class="animated infinite  rotate"/>
 		</div><!-- /身份验证 --> 
 		
-		<!-- main js -->
-		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery.min.js" ></script>
-		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
-		<script type="text/javascript" src="js/theAjax.js" ></script>
-		<script type="text/javascript" src="js/webchatConfig.js" ></script>
-		<script type="text/javascript" src="js/surport.js" ></script>
+		<!-- page js -->
+		<script type="text/javascript" src="js/secondPages/modi.js" ></script>
 		<script type="text/javascript" src="js/module/secondPages.js" ></script>
 		<script type="text/javascript" src="js/module/mainPage.js" ></script>
 		<script type="text/javascript" src="js/module/page1.js" ></script>
@@ -551,17 +553,17 @@
 //				})
 //				
 //				$("#messageBtn").bind('click',function(){
-//					$.secendPage.to('addAddressPage');
+//					$.secondPage.to('addAddressPage');
 //					$("#addAddressBtn").unbind('click').bind('click',function(){
 //						$.loading.load();
 //						setTimeout(function(){
 //							$.loading.loaded(function(){
-//								$.secendPage.next('addCoursePage');
+//								$.secondPage.next('addCoursePage');
 //							});
 //							
 //						},1000);
 //						$("#addCourseBtn").unbind('click').bind('click',function(){
-//							$.secendPage.next('addShopAddressPage');
+//							$.secondPage.next('addShopAddressPage');
 //						})
 //					})
 //				})

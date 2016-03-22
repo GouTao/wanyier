@@ -33,7 +33,7 @@
 		}
 		
 		$("#modifyUserInfo").bind("click",function(){
-			$.secendPage.staticLoad("modifyUserInfoPage-student");
+			$.loadSecondPage.staticLoad("modifyUserInfoPage-student");
 		})
 		
 	})
