@@ -109,11 +109,13 @@ hr{
 .searchArea-input input{
 	border-radius:0;
 }
+.searchArea-input span{
+	border-radius:0;
+}
 .searchArea-button{
 	width: 15%;
 	text-align: center;
-	border-bottom-left-radius: 0;
-	border-top-left-radius: 0;
+	border-radius: 0;
 }
 /***********************图片链接************************/
 .imgBtnContent{
@@ -148,6 +150,47 @@ hr{
 }
 p{
 	color: #999999;
+}
+
+
+.courseList_infoShow{
+	padding: 5px;
+}
+.courseList_infoShow p{
+	margin: 0;
+}
+.courseList_infoShow:after{
+	content: "";
+	height: 0;
+	display: block;
+	clear: both;
+}
+.courseList_img{
+	float: left;
+	width: 15%;
+	text-align: left;
+}
+.courseList_info{
+	float: left;
+	width: 70%;
+	text-align: left;
+	word-break:keep-all;           
+	white-space:nowrap;          
+	overflow:hidden;               
+	text-overflow:ellipsis;
+}
+.courseList_sign{
+	width: 15%;
+	max-width: 50px;
+}
+.courseList_teacher_head{
+	height: 40px;
+}
+
+.courseDetail_infoShow p{
+	text-align: left;
+	word-break: break-all;
+	display: inline-block;
 }
 
 @media only screen and (min-height: 600px) {

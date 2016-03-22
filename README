@@ -132,8 +132,12 @@ $.secendPage.bindload(function(){
 =======
 $.loadSecondPage.bindload(function(){
 	//do sht
+<<<<<<< HEAD
 >>>>>>> 2cf300df17706e276c4bc7390c0f8f162d530a8b
 	$.secendPage.bindOver);
+=======
+	$.secendPage.bindOver();
+>>>>>>> e94b5f3d453c52c5d62bf76d2181b051c4797a63
 });
 
 /**************************************************/

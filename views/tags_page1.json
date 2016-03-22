@@ -1,9 +1,8 @@
 [
-	{"name":"小提琴","target":"小提琴"},
-	{"name":"大提琴","target":"大提琴"},
-	{"name":"钢琴","target":"钢琴"},
-	{"name":"油画","target":"油画"},
-	{"name":"水彩画","target":"水彩画"},
+	{"name":"微信开发","target":"微信"},
+	{"name":"C语言","target":"C语言"},
+	{"name":"算法","target":"算法"},
+	{"name":"系统","target":"操作系统"},
 	{"name":"书法","target":"书法"},
 	{"name":"陶艺","target":"陶艺"},
 	{"name":"茶艺","target":"茶艺"},

@@ -1,4 +1,4 @@
-function modifyUserInfoPage_student(){
+function modifyUserInfoPage_student(data){
 	$("#modifyUserInfoPage-student").find("input").val("")
 	$("#modifyUserInfoBtn-student").unbind("click").bind("click",function(){ 
 		if($("#userName-student").val()!=""){

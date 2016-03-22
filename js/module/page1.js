@@ -3,10 +3,62 @@ $('#page1').on('pageInit',function(){
 		source:"views/imgLinks_page1.json",
 		style:'link',
 		created:function(res){
-			
+			var findCourseByType=new Object;
+			findCourseByType.command="findCourseByType";
+			findCourseByType.courseType=res;
+			findCourseByType.courseName="";
+			$.theAjax.post(findCourseByType,function(res){
+				if(res.result=="success"){
+					if(res.data.length>0){
+						$.loadSecondPage.bindLoad(function(){
+							$.courseControl.coursecontrol(res.data,function(data){
+								$.secondPage.to("courseList",data);
+							});
+							$.loadSecondPage.bindOver();
+						});
+					}
+					else{
+						alert("没有相关的课程！");
+					}
+				}
+				else{
+					alert("查询失败！"+res.msg);
+				}
+			},null);
+		}
+	})
+	$("#searchBtn-course").bind("click",function(){
+		if($("#searchKey-course").val()!=""){
+			var thekey=new Array;
+			thekey[0]=$("#searchKey-course").val();
+			var findCourseByName=new Object;
+			findCourseByName.command="findInterestCourse";
+			findCourseByName.courseName=JSON.stringify(thekey);
+			$.theAjax.post(findCourseByName,function(res){
+				if(res.result=="success"){
+					if(res.data.length>0){
+						$.loadSecondPage.bindLoad(function(){
+							$.courseControl.coursecontrol(res.data,function(data){
+								$.secondPage.to("courseList",data);
+							});
+							$("#searchKey-course").val("");
+							$.loadSecondPage.bindOver();
+						});
+					}
+					else{
+						alert("没有相关的课程！");
+					}
+				}
+				else{
+					alert("查询失败！");	
+				}
+			},null);
+		}
+		else{
+			alert("请输入查询关键字！");
 		}
 	})
 })
 $('#page1').on('pageShow',function(){
-	
+
 })
