@@ -1,5 +1,4 @@
 function courseDetail(data){
-	//console.log(data);
 	$("#courseDetail_courseName").html(data.courseName);
 	$("#courseDetail_courseType").html(data.courseType);
 	$("#courseDetail_courseLength").html(data.courseLength+"学时");
@@ -15,11 +14,15 @@ function courseDetail(data){
 	}
 	$('#courseDetail_buyBtn').unbind("click").bind("click",function(){
 		var buyInfo=new Object;
-		buyInfo.command="addCourseOrder";
-		buyInfo.courseId=data._id;
-		buyInfo.openid=$.wxData().openid;
+		buyInfo.command="createPrepayLink";
+		buyInfo.id=data._id;
 		$.theAjax.post(buyInfo,function(res){
-			console.log(res);
+			if(res.result=="success"){
+				open(res.data.code_url,"_blank");
+			}
+			else{
+				alert("获取支付链接失败，请重新尝试!");
+			}
 		},null);
 	})
 }

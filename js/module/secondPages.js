@@ -10,6 +10,9 @@ $.fn.sencondPageControl=function(pageid,data){
 		case "courseDetail":
 			courseDetail(data);
 			break;
+		case "paidCourseDetail":
+			paidCourseDetail(data);
+			break;
 		default:
 			break;
 	}

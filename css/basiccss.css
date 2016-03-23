@@ -193,6 +193,12 @@ p{
 	display: inline-block;
 }
 
+.paidCourseDetail_infoShow p{
+	text-align: left;
+	word-break: break-all;
+	display: inline-block;
+}
+
 @media only screen and (min-height: 600px) {
 	.footer{
 		height: 60px;

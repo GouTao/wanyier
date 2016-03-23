@@ -42,10 +42,10 @@
 	margin-bottom: 5px;
 	color: #999999;
 }
-#shopList{
+#student_courseList{
 	margin-bottom: 0px;
 }
-#shopList li:after{
+#student_courseList li:after{
 	content: "";
 	height: 0;
 	display: block;
