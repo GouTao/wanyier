@@ -32,30 +32,6 @@
 			else{
 				setTimeout(function(){alert("您的基本信息还未完善，\n点击个人信息一栏的修改按钮进入基本信息填写页面")},750);
 			}
-			
-			var courseInfo=new Object;
-			courseInfo.command="getMyPaidCourse";
-			courseInfo.openid=$.wxData().openid;
-			$.theAjax.post(courseInfo,function(res){
-				if(res.result=="success"){
-					studentCourseData=res.data
-					for(var i=0;i<res.data.length;i++){
-						var $item=$("<li class='list-group-item'>"+
-							"<p style='float: left;'>"+res.data[i].courseName+"</p>"+
-							"<a style='float: right;' courseID='"+res.data[i]._id+"'>[查询详情]</a>"+
-							"</li>"
-						);
-						$("#student_courseList").append($item);		
-						$item.find("a").on("click",function(e){
-							var keyID=$(e.target).attr("courseID");
-							//console.log();
-							$.loadSecondPage.staticLoad("paidCourseDetail",function(){
-								$.secondPage.to("paidCourseDetail",findStudentCourseData(keyID));
-							});
-						})
-					}
-				}
-			},null)
 		}
 		
 		$("#modifyUserInfo").bind("click",function(){
@@ -76,6 +52,56 @@
 				}
 			}
 		}
+		
+		var courseInfo=new Object;
+		courseInfo.command="getMyPaidCourse";
+		courseInfo.openid=$.wxData().openid;
+		$.theAjax.post(courseInfo,function(res){
+			if(res.result=="success"){
+				studentCourseData=res.data
+				if(res.data.length>0){
+					for(var i=0;i<res.data.length;i++){
+						var $item=$("<li class='list-group-item'>"+
+							"<p style='float: left;' class='cn' state='"+res.data[i].state+"'>"+res.data[i].courseName+"</p>"+
+							"<a style='float: right;' courseID='"+res.data[i]._id+"'>[查询详情]</a>"+
+							"</li>"
+						);
+						$("#student_courseList").append($item);		
+						$item.find("a").on("click",function(e){
+							var keyID=$(e.target).attr("courseID");
+							$.loadSecondPage.staticLoad("paidCourseDetail",function(){
+								$.secondPage.to("paidCourseDetail",findStudentCourseData(keyID));
+							});
+						})
+					}
+				}
+				else{
+					$("#student_courseList").append($("<li class='list-group-item'>无</li>"))
+				}
+			}
+		},null)
+		
+		$("#student_courseList_check").bind("click",function(e){
+			if($(e.target).attr('state')=="normal"){
+				$("#student_courseList").children('li').each(function(){
+					if($(this).children('.cn').state=="3"){
+						$(this).css("display","block");
+					}
+					else{
+						$(this).css("display","none");
+					}
+				})
+				$(e.target).attr('state',"show");
+				$(e.target).html("[显示全部]");
+			}
+			else{
+				$("#student_courseList").children('li').each(function(){
+					$(this).css("display","block");
+				})
+				$(e.target).attr('state',"normal");
+				$(e.target).html("[只显示未学完课程]");
+			}
+		})
 		
 	})
 	$("#apge4").on('pageShow',function(){
