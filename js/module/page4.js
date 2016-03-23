@@ -84,7 +84,8 @@
 		$("#student_courseList_check").bind("click",function(e){
 			if($(e.target).attr('state')=="normal"){
 				$("#student_courseList").children('li').each(function(){
-					if($(this).children('.cn').state=="3"){
+					//console.log($(this).children('.cn').);
+					if($(this).children('.cn').attr("state")=="3"){
 						$(this).css("display","block");
 					}
 					else{

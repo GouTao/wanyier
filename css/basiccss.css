@@ -4,6 +4,9 @@ body{
 *{
 	font-family: font-family: "open sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
+a:hover{
+	text-decoration: none;
+}
 .mid{
 	margin: auto;
 	max-width: 400px;
