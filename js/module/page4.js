@@ -7,7 +7,13 @@
 		$("#head").attr("src","img/qr.jpg");
 		$("#nickName").html("某科学的超坦克炮");
 		if($.theData.isTeacher==true){
-			$("#name").html($.theData.teacher.userName);
+			if($.theData.isCheck==false){
+				$("#name").html($.theData.teacher.userName+"(未审核)");
+			}
+			else{
+				$("#name").html($.theData.teacher.userName);
+			}
+			
 			$("#shortDes").html($.theData.teacher.desShort);
 			$("#longDes").html($.theData.teacher.desLong);
 			
@@ -116,7 +122,12 @@
 	})
 	$("#apge4").on('pageShow',function(){
 		if($.theData.isTeacher==true){
-			$("#name").html($.theData.teacher.userName);
+			if($.theData.isCheck==false){
+				$("#name").html($.theData.teacher.userName+"(未审核)");
+			}
+			else{
+				$("#name").html($.theData.teacher.userName);
+			}
 			$("#shortDes").html($.theData.teacher.desShort);
 			$("#longDes").html($.theData.teacher.desLong);
 			$("#homeAddress").html($.theData.teacher.homeAddressNum)

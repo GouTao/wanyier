@@ -21,6 +21,13 @@ $(document).ready(function(){
 						if(res.result=="success"){
 							$.theData.teacher=res.data[0];
 							$.theData.isTeacher=true;
+							//console.log(res.data[0].state)
+							if(res.data[0].state==0){
+								$.theData.isCheck=false;
+							}
+							else{
+								$.theData.isCheck=true;
+							}
 						}
 						else{
 							$.theData.isTeacher=false;

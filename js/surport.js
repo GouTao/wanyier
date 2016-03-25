@@ -5,6 +5,7 @@
 		thedata.isTeacher=false;
 		thedata.student=null;
 		thedata.teacher=null;
+		thedata.isCheck=true;
 		thedata.uploadStudent=function(sucFunction){
 			var studentObj=new Object;
 			studentObj.command="loginStudent";
@@ -26,6 +27,12 @@
 			$.theAjax.post(teacherObj,function(res){
 				if(res.result=="success"){
 					$.theData.teacher=res.data[0];
+					if(res.data[0].state==0){
+						$.theData.isCheck=false;
+					}
+					else{
+						$.theData.isCheck=true;
+					}
 					sucFunction();
 				}
 				else{

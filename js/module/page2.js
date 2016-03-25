@@ -5,10 +5,18 @@ $('#page2').on('pageInit',function(){
 			source:"views/imgLinks_page2.json",
 			style:'link',
 			created:function(res){
-				if(res=="addCourse"){
-					$.loadSecondPage.staticLoad("addCourse",function(){
-						$.secondPage.to("addCourse",null);
-					})
+				if($.theData.isCheck==true){
+					if(res=="addCourse"){
+						$.loadSecondPage.staticLoad("addCourse",function(){
+							$.secondPage.to("addCourse",null);
+						})
+					}
+					else{
+						//
+					}
+				}
+				else{
+					alert("您的信息尚未通过审核，请稍后尝试该功能。")
 				}
 			}
 		})	

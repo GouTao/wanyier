@@ -18,19 +18,9 @@
 			sendObj.openid=data[len].openid;
 			$.theAjax.post(sendObj,function(res){
 				if(res.result="success"){
-					if(res.data.length==0){
-						data[len].teacherInfo=defaultTeacherInfo;
-					}
-					else if(res.data.length==1){
-						if(res.data[0].userType!="teacher"){
-							data[len].teacherInfo=defaultTeacherInfo;
-						}
-					}
-					else{
-						for(var j=0;j<res.data.length;j++){
-							if(res.data[j].userType=="teacher"){
-								data[len].teacherInfo=res.data[j];
-							}
+					for(var j=0;j<res.data.length;j++){
+						if(res.data[j].userType=="teacher"){
+							data[len].teacherInfo=res.data[j];
 						}
 					}
 					len++;
