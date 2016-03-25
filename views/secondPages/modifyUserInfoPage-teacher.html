@@ -67,7 +67,12 @@
 					if(res.result=="success"){
 						alert("更新资料成功，请等待管理员审核");
 						$.theData.uploadTeacher(function(){
-							$("#name").html($.theData.teacher.userName);
+							if($.theData.isCheck==false){
+								$("#name").html($.theData.teacher.userName+"(未审核)");
+							}
+							else{
+								$("#name").html($.theData.teacher.userName+"(已审核)");
+							}
 							$("#shortDes").html($.theData.teacher.desShort);
 							$("#longDes").html($.theData.teacher.desLong);
 							var teacherHome=new Object();

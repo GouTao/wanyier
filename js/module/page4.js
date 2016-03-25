@@ -11,7 +11,7 @@
 				$("#name").html($.theData.teacher.userName+"(未审核)");
 			}
 			else{
-				$("#name").html($.theData.teacher.userName);
+				$("#name").html($.theData.teacher.userName+"(已审核)");
 			}
 			
 			$("#shortDes").html($.theData.teacher.desShort);
@@ -126,7 +126,7 @@
 				$("#name").html($.theData.teacher.userName+"(未审核)");
 			}
 			else{
-				$("#name").html($.theData.teacher.userName);
+				$("#name").html($.theData.teacher.userName+"(已审核)");
 			}
 			$("#shortDes").html($.theData.teacher.desShort);
 			$("#longDes").html($.theData.teacher.desLong);
