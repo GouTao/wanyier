@@ -56,8 +56,8 @@
 					<label>老师详情：</label>
 					<p id="paidCourseDetail_teacherLong">资料更新审核中</p>
 				</div>
-				<br />
-				<a id="paidCourseDetail_callBtn" class="btn btn-block btn-success btn-wide" style="margin: auto;max-width: 200px;">联系任课老师
+				
+				<a id="paidCourseDetail_callBtn" class="btn btn-block btn-success btn-wide" style="margin: auto;margin-top: 5px;max-width: 200px;">联系任课老师
 					<span class="glyphicon glyphicon-phone"></span>
 				</a>
 			</div>
@@ -75,7 +75,7 @@ function paidCourseDetail(data){
 	$("#paidCourseDetail_price").html(Number(data.price)/100+" 元");
 	$("#paidCourseDetail_time").html(data.time);
 	$("#paidCourseDetail_note").html(data.note);
-	console.log(data.trail)
+	$("#paidCourseDetail_callBtn").css("display","none");
 	if(data.trail=="none"){
 		isTrail=false;
 		$("#paidCourseDetail_trail").html("否");
@@ -89,15 +89,11 @@ function paidCourseDetail(data){
 	}
 	else if(data.state==4){
 		$("#paidCourseDetail_status").html("已退款");
-		$("#paidCourseDetail_callBtn").css("display","none");
+		//$("#paidCourseDetail_callBtn").css("display","none");
 	}
 	else if(data.state==9){
 		$("#paidCourseDetail_status").html("已完结");
-		$("#paidCourseDetail_callBtn").css("display","none");
-	}
-	
-	else{
-		$("#paidCourseDetail_callBtn").css("display","none");
+		//$("#paidCourseDetail_callBtn").css("display","none");
 	}
 	
 	var sendObj=new Object;
