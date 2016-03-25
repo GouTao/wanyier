@@ -2,6 +2,12 @@
 	$.courseControl=(function cc(){
 		var len=0;
 		var data;
+		
+		var defaultTeacherInfo=new Object;
+		defaultTeacherInfo.userName="";
+		defaultTeacherInfo.desLong="";
+		defaultTeacherInfo.desShort="";
+		
 		cc.coursecontrol=function(courseData,callBack){
 			data=courseData;
 			getTeacherInfo(callBack);
@@ -12,10 +18,19 @@
 			sendObj.openid=data[len].openid;
 			$.theAjax.post(sendObj,function(res){
 				if(res.result="success"){
-					for(var j=0;j<res.data.length;j++){
-						if(res.data[j].userType=="teacher"){
-							data[len].teacherInfo=res.data[j];
-							//console.log(j+":"+res.data[j])
+					if(res.data.length==0){
+						data[len].teacherInfo=defaultTeacherInfo;
+					}
+					else if(res.data.length==1){
+						if(res.data[0].userType!="teacher"){
+							data[len].teacherInfo=defaultTeacherInfo;
+						}
+					}
+					else{
+						for(var j=0;j<res.data.length;j++){
+							if(res.data[j].userType=="teacher"){
+								data[len].teacherInfo=res.data[j];
+							}
 						}
 					}
 					len++;
@@ -24,7 +39,13 @@
 					}
 					else{
 						len=0;
-						callBack(data);
+						if(data.teacherInfo!=undefined)
+						{
+							callBack(data);
+						}
+						else{
+							callBack(data);
+						}
 					}
 				}
 				else{

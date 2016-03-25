@@ -10,12 +10,21 @@
 			$("#name").html($.theData.teacher.userName);
 			$("#shortDes").html($.theData.teacher.desShort);
 			$("#longDes").html($.theData.teacher.desLong);
-			$("#homeAddress").html($.theData.teacher.homeAddressNum);
+			
 			if($.theData.teacher.userName!=undefined&&$.theData.teacher.desShort!=undefined&&$.theData.teacher.desLong!=undefined&&$.theData.teacher.homeAddressNum!=undefined){
+				var teacherHome=new Object();
+				teacherHome.command="getAddressById";
+				teacherHome.addressId=$.theData.teacher.homeAddressId;
+				$.theAjax.post(teacherHome,function(res){
+					if(res.result=="success"){
+						$("#homeAddress").html(res.data[0].address);
+					}
+				},null)
 			}
 			else{
 				setTimeout(function(){alert("您的基本信息还未完善，\n点击个人信息一栏的修改按钮进入基本信息填写页面")},750);
 			}
+			teacherConttol();
 		}
 		else{
 			$(".forTeacher").css("display","none");
@@ -26,9 +35,7 @@
 			
 			$("#name").html($.theData.student.userName);
 			$("#longDes").html($.theData.student.desLong);
-			if($.theData.student.userName!=undefined&&$.theData.student.desLong!=undefined){
-				
-			}
+			if($.theData.student.userName!=undefined&&$.theData.student.desLong!=undefined){}
 			else{
 				setTimeout(function(){alert("您的基本信息还未完善，\n点击个人信息一栏的修改按钮进入基本信息填写页面")},750);
 			}
@@ -37,11 +44,13 @@
 		$("#modifyUserInfo").bind("click",function(){
 			if($.theData.isTeacher==false){
 				$.loadSecondPage.staticLoad("modifyUserInfoPage-student",function(){
-					$.secondPage.to('modifyUserInfoPage-student',null);
+					$.secondPage.to('modifyUserInfoPage-student',$.theData.student);
 				});
 			}
 			else{
-				
+				$.loadSecondPage.staticLoad("modifyUserInfoPage-teacher",function(){
+					$.secondPage.to('modifyUserInfoPage-teacher',$.theData.teacher);
+				});
 			}
 		})
 		
@@ -117,4 +126,13 @@
 			$("#longDes").html($.theData.student.desLong);
 		}
 	})
+	
+	function teacherConttol(){
+		$("#AddresManagerBtn").bind("click",function(){
+			$.loadSecondPage.staticLoad("addressManager",function(){
+				$.secondPage.to("addressManager",null);
+			})
+			
+		})
+	}
 })()

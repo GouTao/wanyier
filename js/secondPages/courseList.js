@@ -1,5 +1,6 @@
-function courseList(data){
+function courseListShow(data){
 	$(".courseList_ul").empty();
+	console.log(data[0]);
 	for(var i=0;i<data.length;i++){
 		var $item=$("<li class='list-group-item courseList_infoShow'>"+
 						"<div class='courseList_img'>"+

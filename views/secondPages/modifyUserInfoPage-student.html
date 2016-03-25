@@ -3,18 +3,54 @@
 		<div class="col-sm-6 col-sm-offset-3">
 			<h4><img src="img/icons-png/recycle-black.png" />修改个人信息</h4>
 			<div role="form" class="secendPage-form" id="modifyUserInfoForm-student">
-			<div class="form-group">
-				<label for="userName-student">填写姓名</label>
-				<input type="text" class="form-control" id="userName-student"/>
+				<div class="form-group">
+					<label for="userName-student">填写姓名</label>
+					<input type="text" class="form-control" id="userName-student"/>
+				</div>
+				<div class="form-group">
+					<label for="desShort-student">填写简介</label>
+					<input type="text" class="form-control" id="desShort-student"/>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success btn-block" id="modifyUserInfoBtn-student">确认提交</button>
+				</div>
 			</div>
-			<div class="form-group">
-				<label for="desShort-student">填写简介</label>
-				<input type="text" class="form-control" id="desShort-student"/>
-			</div>
-			<div class="form-group">
-				<button class="btn btn-success btn-block" id="modifyUserInfoBtn-student">确认提交</button>
-			</div>
-		</div>
 		</div>
 	</div>
 </div>
+<script>
+	function modifyUserInfoPage_student(data){
+		$("#userName-student").val(data.userName);
+		$("#desShort-student").val(data.desLong);
+		//$("#modifyUserInfoPage-student").find("input").val("")
+		$("#modifyUserInfoBtn-student").unbind("click").bind("click",function(){ 
+			if($("#userName-student").val()!=""){
+				if($("#desShort-student").val()!=""){
+					var studentInfo=new Object;
+					studentInfo.command="modStudentProfile";
+					studentInfo.openid=$.wxData().openid;
+					studentInfo.userName=$("#userName-student").val();
+					studentInfo.desLong=$("#desShort-student").val();
+					$.theAjax.post(studentInfo,function(res){
+						if(res.result=="success"){
+							alert("更新学生信息成功！");
+							$.theData.uploadStudent(function(){
+								$("#name").html($.theData.student.userName);
+								$("#longDes").html($.theData.student.desLong);
+							});
+						}
+						else{
+							alert("更新学生信息失败！请重新尝试");
+						}
+					},null)
+				}
+				else{
+					alert("请填写您的简介！")
+				}
+			}
+			else{
+				alert("请填写您的姓名！")
+			}
+		})
+	}
+</script>

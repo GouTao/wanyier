@@ -45,7 +45,7 @@
 #student_courseList{
 	margin-bottom: 0px;
 }
-#student_courseList li:after{
+ul li:after{
 	content: "";
 	height: 0;
 	display: block;

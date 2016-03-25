@@ -1,0 +1,75 @@
+<div class="container ">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h4><img src="img/icons-png/plus-black.png"/>增加个人地址</h4>
+			<hr />
+			<p>*最多能添加5个地址</p>
+			<p>*通过微信接口获取经纬度坐标，请在地址真实地点完成操作</p>
+			<div role="form" class="secondPage-form" id="addAddressForm">
+				<label>已有地址</label>
+				<ul class="list-group" id="addAddressForm_list">
+					<li class="list-group-item">1</li>
+					<li class="list-group-item">2</li>
+				</ul>
+				<div class="form-group">
+					<label for="addAddressForm_newAddress">填写新的地址</label>
+					<input type="text" class="form-control" id="addAddressForm_newAddress"/>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success btn-block" id="addAddressForm_addAddressBtn">确认提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function addressManager(){
+		getAddressList();
+		$("#addAddressForm_addAddressBtn").unbind("click").bind("click",function(){
+			if($("#addAddressForm_newAddress").val()!=''){
+				wx.getLocation({
+				    type: 'wgs84', // 默认为wgs84的gps坐标，如果要返回直接给openLocation用的火星坐标，可传入'gcj02'
+				    success: function (res) {
+				        var latitude = res.latitude; // 纬度，浮点数，范围为90 ~ -90
+				        var longitude = res.longitude; // 经度，浮点数，范围为180 ~ -180。
+				       	var newAdd=new Object;
+				       	newAdd.command="addHomeAddress";
+				       	newAdd.openid=$.wxData().openid;
+				       	newAdd.address=$("#addAddressForm_newAddress").val();
+				       	newAdd.lat=latitude;
+				       	newAdd.lnt=longitude;
+				       	$.theAjax.post(newAdd,function(res){
+				       		if(res.result=="success"){
+				       			getAddressList();
+				       		}
+				       		else{
+				       			alert("添加地址失败,请重新尝试！\n失败原因:\n"+res.msg);
+				       		}
+				       	},null);
+				    }
+				})
+			}
+			else{
+				alert("请输入您的地址!");
+			}
+		})
+	}
+	
+	function getAddressList(){
+		$("#addAddressForm_list").empty();
+		var getlist=new Object;
+		getlist.command="getMyHomeAddress";
+		getlist.openid=$.wxData().openid;
+		$.theAjax.post(getlist,function(res){
+			if(res.result=="success"){
+				for(var i=0;i<res.data.length;i++){
+					var $addItem=$("<li class='list-group-item'>"+
+						res.data[i].address+
+					"</li>"
+					);
+					$("#addAddressForm_list").append($addItem);
+				}
+			}
+		},null)
+	}
+</script>

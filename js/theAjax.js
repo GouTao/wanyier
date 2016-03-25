@@ -25,6 +25,12 @@
 			var reg=/^1\d{10}$/;
 			return reg.test(str);
 		}
+		reg.regNum=function(str){
+			var reg=/^\d{1,5}(\.\d{1,2})?$/;
+			//console.log(reg);
+			//console.log(str);
+			return reg.test(str);
+		}
 		return reg;
 	})()
 })(jQuery);

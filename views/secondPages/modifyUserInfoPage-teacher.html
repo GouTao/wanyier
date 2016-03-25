@@ -1,0 +1,92 @@
+<div class="container ">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h4><img src="img/icons-png/recycle-black.png" />修改个人信息</h4>
+			<div role="form" class="secondPage-form" id="modifyUserInfoForm-teacher">
+				<div class="form-group">
+					<label for="userName-teacher">填写姓名</label>
+					<input type="text" class="form-control" id="userName-teacher"/>
+				</div>
+				<div class="form-group">
+					<label for="desShort-teacher">填写简介</label>
+					<input type="text" class="form-control" id="desShort-teacher"/>
+				</div>
+				<div class="form-group">
+					<label for="desLong-teacher">填写详情</label>
+					<textarea type="text" class="form-control" id="desLong-teacher"></textarea>
+				</div>
+				<div class="form-group">
+					<label>选择您的住址</label>
+					<select class="form-control" id="address-teacher">
+					</select>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success btn-block" id="modifyUserInfoBtn-teacher">确认提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function modifyUserInfoPage_teacher(data){
+		var td=data;
+		$("#userName-teacher").val(data.userName);
+		$("#desShort-teacher").val(data.desShort);
+		$("#desLong-teacher").val(data.desLong);
+		$("#address-teacher").empty();		
+		var address=new Object();
+		address.command="getMyHomeAddress";
+		address.openid=$.wxData().openid;
+		$.theAjax.post(address,function(res){
+			if(res.result=="success"){
+				for(var i=0;i<res.data.length;i++){
+					var $opt=$("<option value='"+res.data[i]._id+"'>"+
+						res.data[i].address+
+					"</option>"
+					)
+					if(res.data[i]._id==td.homeAddressId){
+						$opt.attr("selected","selected")
+					}
+					$("#address-teacher").append($opt);
+				}
+			}
+		},null)
+		$("#modifyUserInfoBtn-teacher").unbind("click").bind("click",function(){
+			if($("#userName-teacher").val()==""){
+				alert("请填写您的姓名");
+			}
+			else{
+				var modi=new Object();
+				modi.command="modTeacherProfile";
+				modi.openid=$.wxData().openid;
+				modi.userName=$("#userName-teacher").val();
+				modi.desShort=$("#desShort-teacher").val();
+				modi.desLong=$("#desLong-teacher").val();
+				modi.homeAddressId=$("#address-teacher option:selected").attr("value");
+				$.theAjax.post(modi,function(res){
+					if(res.result=="success"){
+						alert("更新资料成功");
+						$.theData.uploadTeacher(function(){
+							$("#name").html($.theData.teacher.userName);
+							$("#shortDes").html($.theData.teacher.desShort);
+							$("#longDes").html($.theData.teacher.desLong);
+							var teacherHome=new Object();
+							teacherHome.command="getAddressById";
+							teacherHome.addressId=$.theData.teacher.homeAddressId;
+							$.theAjax.post(teacherHome,function(res){
+								if(res.result=="success"){
+									$("#homeAddress").html(res.data[0].address);
+								}
+							},null)
+							
+						})
+					}
+					else{
+						alert("更新资料失败");
+					}
+				},null);
+			}
+			//console.log($("#address-teacher option:selected").attr("value"));
+		})
+	}
+</script>

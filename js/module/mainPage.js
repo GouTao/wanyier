@@ -32,7 +32,7 @@ function initMainPage(){
 					}
 				}
 				else{
-					alert("查询失败！");
+					alert("没有相关的课程！");
 				}
 			},null)
 		}

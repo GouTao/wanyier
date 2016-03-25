@@ -5,7 +5,11 @@ $('#page2').on('pageInit',function(){
 			source:"views/imgLinks_page2.json",
 			style:'link',
 			created:function(res){
-				
+				if(res=="addCourse"){
+					$.loadSecondPage.staticLoad("addCourse",function(){
+						$.secondPage.to("addCourse",null);
+					})
+				}
 			}
 		})	
 	}

@@ -4,14 +4,23 @@ $.fn.sencondPageControl=function(pageid,data){
 		case "modifyUserInfoPage-student":
 			modifyUserInfoPage_student(data);
 			break;
+		case "modifyUserInfoPage-teacher":
+			modifyUserInfoPage_teacher(data);
+			break;
 		case "courseList":
-			courseList(data);
+			courseListShow(data);
 			break;
 		case "courseDetail":
 			courseDetail(data);
 			break;
 		case "paidCourseDetail":
 			paidCourseDetail(data);
+			break;
+		case "addressManager":
+			addressManager();
+			break;
+		case "addCourse":
+			addCourse();
 			break;
 		default:
 			break;

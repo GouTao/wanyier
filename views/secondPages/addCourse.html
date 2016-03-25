@@ -1,0 +1,214 @@
+<div class="container ">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h4><img src="img/icons-png/plus-black.png"/>添加课程</h4>
+			<div role="form" class="secondPage-form" id="addCourseForm">
+				<div class="form-group">
+					<label>选择课程大类</label>
+					<select class="form-control" id="addCourseForm-courseType">
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="addCourseForm-courseName">填写课程名称</label>
+					<input type="text" class="form-control" id="addCourseForm-courseName"/>
+				</div>
+				<div class="form-group">
+					<label for="addCourseForm-courseLength">填写课程时长(单位:分钟)</label>
+					<input type="number" class="form-control" id="addCourseForm-courseLength" placeholder="例如：45"/>
+				</div>
+				<div class="form-group">
+					<label for="addCourseForm-totalCourse">填写课程节数</label>
+					<input type="number" class="form-control" id="addCourseForm-totalCourse" placeholder="例如：8"/>
+				</div>
+				<div class="form-group">
+					<label for="addCourseForm-day">上课时间(星期)</label>
+					<input type="text" class="form-control" id="addCourseForm-day" placeholder="例如：星期一  星期天..."/>
+				</div>
+				<div class="form-group">
+					<label for="addCourseForm-time">上课时间(时段)</label>
+					<!--<input type="text" class="form-control" id="addCourseForm-time" placeholder=""/>-->
+					<div class="clearfix" style="padding: 5px;border: 1px solid #cccccc;border-radius: 5px;">
+						<div style="text-align: center;width: 50%;float: left;">
+							<span>从</span>
+							<select id="sHour">
+							</select>
+							<select id="sMin"></select>
+						</div>
+						<div style="text-align: center;width: 50%;float: right;">
+							<span>到</span>
+							<select id="eHour"></select>
+							<select id="eMin"></select>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label for="addCourseForm-price">填写课程价格(单位：元)</label>
+					<input type="number" class="form-control" id="addCourseForm-price" placeholder="例如：998.99"/>
+				</div>
+				<div class="form-group">
+					<label for="addCourseForm-trail">是否提供试听</label>
+					<select class="form-control" id="addCourseForm-trail">
+						<option value="none">不提供试听</option>
+						<option value="可试听">提供试听</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label>选择授课地址1(个人住址)</label>
+					<select class="form-control" id="addCourseForm-address1">
+					</select>
+				</div>
+				<div class="form-group">
+					<label>选择授课地址2(认证商铺地址)</label>
+					<select class="form-control" id="addCourseForm-address2">
+						<option value="none">无</option>
+					</select>
+				</div>
+				<div class="form-group">
+					<label for="addCourseForm-note">备注信息</label>
+					<textarea class="form-control" id="addCourseForm-note"></textarea>
+				</div>
+				<div class="form-group">
+					<button class="btn btn-success btn-block" id="addCourseForm-addCourseBtn">确认提交</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<script>
+	function addCourse(){
+		$("#sHour").empty();
+		$("#sMin").empty();
+		$("#eHour").empty();
+		$("#eMin").empty();
+		$("#addCourseForm-courseName").val("");
+		$("#addCourseForm-courseLength").val("");
+		$("#addCourseForm-totalCourse").val("");
+		$("#addCourseForm-day").val("");
+		$("#addCourseForm-price").val("");
+		$("#addCourseForm-note").val("");
+		
+		
+		$("#addCourseForm-courseType").empty();
+		$("#addCourseForm-address1").empty();
+		$("#addCourseForm-address1").append($("<option value='none'>无</option>"))
+		$("#addCourseForm-address2").empty();
+		$("#addCourseForm-address2").append($("<option value='none'>无</option>"))
+		
+		createCourseType();
+		createTime();
+		createHomeAddress();
+		
+		$("#addCourseForm-addCourseBtn").unbind("click").bind("click",function(){			
+			if($("#addCourseForm-courseName").val()==""){
+				alert("课程名称未填写");
+				return;
+			}
+			if(!$.regExp.regNum($("#addCourseForm-courseLength").val())){
+				alert("课程时长数据格式不正确");
+				return;
+			}
+			if(!$.regExp.regNum($("#addCourseForm-totalCourse").val())){
+				alert("课程节数数据格式不正确");
+				return;
+			}
+			if($("#addCourseForm-day").val()==""){
+				alert("上课时间(星期)未填写");
+				return;
+			}
+			var startTime=Number($("#sHour option:selected").attr("value"))*60+Number($("#sMin option:selected").attr("value"));
+			var endTime=Number($("#eHour option:selected").attr("value"))*60+Number($("#eMin option:selected").attr("value"));
+			var theTime;
+			if((endTime-startTime)<30){
+				alert("课程最小时间必须大于30分钟");
+				return 
+			}
+			else{
+				theTime=$("#sHour option:selected").attr("value")+":"+$("#sMin option:selected").attr("value")+"-"+$("#eHour option:selected").attr("value")+":"+$("#eMin option:selected").attr("value")
+			}
+			if(!$.regExp.regNum($("#addCourseForm-price").val())){
+				alert("课程价格数据格式不正确");
+				return;
+			}
+			if($("#addCourseForm-address1 option:selected").attr("value")=="none"&&$("#addCourseForm-address2 option:selected").attr("value")=="none"){
+				alert("请至少选择一个上课地点");
+				return;
+			}
+			
+			var sendInfo=new Object;
+			sendInfo.command="addCourse";
+			sendInfo.courseType=$("#addCourseForm-courseType option:selected").html();
+			if($("#addCourseForm-address1 option:selected").attr("value")=="none"){
+				sendInfo.homeService=0;
+			}
+			else{
+				sendInfo.homeService=1;
+			}
+			sendInfo.openid=$.wxData().openid;
+			sendInfo.courseName=$("#addCourseForm-courseName").val();
+			sendInfo.address1=$("#addCourseForm-address1 option:selected").attr("value");
+			sendInfo.address2=$("#addCourseForm-address2 option:selected").attr("value");
+			sendInfo.price=Number($("#addCourseForm-price").val())*100;
+			sendInfo.courseLength=Number($("#addCourseForm-courseLength").val());
+			sendInfo.totalCourse=Number($("#addCourseForm-totalCourse").val());
+			sendInfo.trail=$("#addCourseForm-trail option:selected").attr("value");
+			sendInfo.day=$("#addCourseForm-day").val();
+			sendInfo.time=theTime;
+			sendInfo.note=$("#addCourseForm-note").val();
+
+			$.theAjax.post(sendInfo,function(res){
+				if(res.result=="success"){
+					alert("申请成功，请等待审核");
+				}
+				else{
+					alert("申请失败，请重新尝试");
+				}
+			},null);
+			
+		})
+	}
+	
+	function createCourseType(){
+		var courseType=new Object;
+		courseType.command="getAllCourseType";
+		$.theAjax.post(courseType,function(res){
+			if(res.result=="success"){
+				for(var i=0;i<res.data.length;i++){
+					var $opt=$("<option>"+res.data[i].typeName+"</option>");
+					$("#addCourseForm-courseType").append($opt);
+				}
+			}
+		},null)
+	}
+	
+	function createHomeAddress(){
+		var homeAddress=new Object();
+		homeAddress.command="getMyHomeAddress";
+		homeAddress.openid=$.wxData().openid;
+		$.theAjax.post(homeAddress,function(res){
+			if(res.result=="success"){
+				for(var n=0;n<res.data.length;n++){
+					var $addItem=$("<option class='list-group-item' value='"+res.data[n]._id+"'>"+
+						res.data[n].address+
+					"</option>"
+					);
+					$("#addCourseForm-address1").append($addItem);
+				}
+			}
+		},null)
+	}
+	
+	function createTime(){
+		for(var i=0;i<24;i++){
+			var $shour=$("<option value='"+i+"'>"+i+"点</option>");
+			$("#sHour").append($shour);
+			var $ehour=$("<option value='"+i+"'>"+i+"点</option>");
+			$("#eHour").append($ehour);
+		}
+		for(var j=0;j<60;j++){
+			var $smin=$("<option value='"+j+"'>"+j+"分</option>");
+			$("#sMin").append($smin);
+			var $eminr=$("<option value='"+j+"'>"+j+"分</option>");
+			$("#eMin").append($eminr);
+		}
+	}
+</script>

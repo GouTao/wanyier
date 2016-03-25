@@ -15,6 +15,7 @@
 		<link rel="stylesheet" href="css/module/page2.css"/>
 		<link rel="stylesheet" href="css/module/page4.css" />
 		<!-- main js-->
+		<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/jquery.min.js" ></script>
 		<script type="text/javascript" src="bootstrap-3.3.5-dist/js/bootstrap.min.js" ></script>
 		<script type="text/javascript" src="js/theAjax.js" ></script>
@@ -141,13 +142,13 @@
 						<p class="infoContent" id="shortDes">请完善您的简介</p>
 						<p><img src="img/icons-png/grid-black.png"/>&nbsp;个人详情:</p>
 						<p class="infoContent" id="longDes">请完善您的详细介绍</p>
-						<p><img src="img/icons-png/home-black.png"/>&nbsp;地址:&nbsp;<a id="addAddress">[增加]</a></p>
-						<p class="infoContent" id="homeAddress">请完善您的家庭住址</p>
+						<p id="am"><img src="img/icons-png/home-black.png"/>&nbsp;地址(我的住址):&nbsp;<a id="AddresManagerBtn">[管理我的地址]</a></p>
+						<p class="infoContent" id="homeAddress">请完善您的住址</p>
 					</div>
 				</div>
 			</div>
 			<div class="forTeacher">
-				<div class="container infoModule">
+				<!--<div class="container infoModule">
 					<div class="row">
 						<div class="col-sm-6 col-sm-offset-3 userInfo">
 							<div class="infoHeader">
@@ -168,24 +169,23 @@
 							</ul>
 						</div>
 					</div>
-				</div>
+				</div>-->
 				
 				<div class="container infoModule">
 					<div class="row">
 						<div class="col-sm-6 col-sm-offset-3 userInfo">
 							<div class="infoHeader">
 								<h5 style="float: left;"><img src="img/icons-png/bars-black.png"/>&nbsp;我的授课</h5>
-								<h5 style="float: right;"><a id="addCourse">[增加]</a></h5>
 							</div>
 							
 							<ul class="list-group" id="shopList">
-								<li class="list-group-item">
+								<!--<li class="list-group-item">
 									<p class="courseName">aaa</p>
 								</li>
 								<li class="list-group-item">
 									<p class="courseName">aaafdsjkljflkjkljfklsjklfjkl</p>
 									<span class="badge" >试听课程</span>
-								</li>
+								</li>-->
 							</ul>
 						</div>
 					</div>
@@ -216,83 +216,17 @@
         
         <!--
         	作者：457754603@qq.com
-        	时间：2016-02-25
-        	描述：教师列表页面
-        -->
-        <div class="second-page" id="teacherList_main" modeName="test">
-        	<button id="test">test</button>
-        </div>
-        
-        <!--
-        	作者：457754603@qq.com
         	时间：2016-02-13
         	描述：修改教师个人信息
         -->
-        <div class="second-page" id="modifyUserInfoPage-teacher" modeName="test2">
-	    		<div class="container ">
-	    			<div class="row">
-	    				<div class="col-sm-6 col-sm-offset-3">
-	    					<h4><img src="img/icons-png/recycle-black.png" />修改个人信息</h4>
-	    					<div role="form" class="secondPage-form" id="modifyUserInfoForm">
-							<div class="form-group">
-								<label for="userName">填写姓名</label>
-								<input type="text" class="form-control" id="userName"/>
-							</div>
-							<div class="form-group">
-								<label for="desShort">填写简介</label>
-								<input type="text" class="form-control" id="desShort"/>
-							</div>
-							<div class="form-group">
-								<label for="desLong">填写详情</label>
-								<textarea type="text" class="form-control" id="desLong"></textarea>
-							</div>
-							<div class="form-group">
-								<label>选择您的住址</label>
-								<select class="form-control">
-									<option>1</option>
-									<option>1</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<button class="btn btn-success btn-block" id="modifyUserInfoBtn">确认提交</button>
-							</div>
-						</div>
-	    				</div>
-	    			</div>
-	    		</div>
-        </div>
+        <div class="second-page" id="modifyUserInfoPage-teacher" modeName="个人信息"></div>
         
         <!--
         	作者：457754603@qq.com
         	时间：2016-02-13
         	描述：增加老师地址
         -->
-        <div class="second-page" id="addAddressPage" modeName="">
-        		<div class="container ">
-        			<div class="row">
-        				<div class="col-sm-6 col-sm-offset-3">
-        					<h4><img src="img/icons-png/plus-black.png"/>增加个人地址</h4>
-        					<hr />
-        					<p>*最多能添加5个地址</p>
-        					<p>*通过微信接口获取经纬度坐标，请在地址真实地点完成操作</p>
-        					<div role="form" class="secondPage-form" id="addAddressForm">
-        						<label>已有地址</label>
-        						<ul class="list-group">
-        							<li class="list-group-item">1</li>
-        							<li class="list-group-item">2</li>
-        						</ul>
-							<div class="form-group">
-								<label for="newAddress">填写新的地址</label>
-								<input type="text" class="form-control" id="newAddress"/>
-							</div>
-							<div class="form-group">
-								<button class="btn btn-success btn-block" id="addAddressBtn">确认提交</button>
-							</div>
-						</div>
-        				</div>
-        			</div>
-        		</div>
-        </div>        
+        <div class="second-page" id="addressManager" modeName="地址管理"></div>        
         
         <!--
         	作者：457754603@qq.com
@@ -391,63 +325,8 @@
         	时间：2016-02-13
         	描述：添加课程
         -->
-         <div class="second-page" id="addCoursePage" modeName="个人信息">
-        		<div class="container ">
-        			<div class="row">
-        				<div class="col-sm-6 col-sm-offset-3">
-        					<h4><img src="img/icons-png/plus-black.png"/>添加课程</h4>
-        					<div role="form" class="secondPage-form" id="addCourseForm">
-        						<div class="form-group">
-								<label>选择课程大类</label>
-								<select class="form-control">
-									<option>1</option>
-									<option>1</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label>选择课程细分类别</label>
-								<select class="form-control">
-									<option>1</option>
-									<option>1</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label for="courseName">填写课程名称</label>
-								<input type="text" class="form-control" id="courseName"/>
-							</div>
-							<div class="form-group">
-								<label for="courseLength">填写课程时长(单位:分钟)</label>
-								<input type="text" class="form-control" id="courseLength"/>
-							</div>
-							<div class="form-group">
-								<label for="totalCourse">填写课程节数</label>
-								<input type="text" class="form-control" id="totalCourse" />
-							</div>
-							<div class="form-group">
-								<label for="price">填写课程价格</label>
-								<input type="text" class="form-control" id="price" />
-							</div>
-							<div class="form-group">
-								<label>选择授课地址1(个人住址)</label>
-								<select class="form-control">
-									<option>1</option>
-									<option>1</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label>选择授课地址2(认证商铺地址)</label>
-								<select class="form-control">
-									<option>1</option>
-									<option>1</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<button class="btn btn-success btn-block" id="addCourseBtn">确认提交</button>
-							</div>
-						</div>
-        				</div>
-        			</div>
-        		</div>
+         <div class="second-page" id="addCourse" modeName="添加课程">
+    		
         </div>
         
         <!--
@@ -455,8 +334,7 @@
         	时间：2016-03-12
         	描述：修改学生个人信息
         -->
-        <div class="second-page" id="modifyUserInfoPage-student" modeName="个人信息">
-        </div>
+        <div class="second-page" id="modifyUserInfoPage-student" modeName="个人信息"></div>
         
         <!--
         	作者：457754603@qq.com
@@ -481,18 +359,14 @@
         	时间：2016-03-22
         	描述：课程详情页面
         -->
-        <div class="second-page" id="courseDetail" modeName="课程详情">
-        	
-        </div>
+        <div class="second-page" id="courseDetail" modeName="课程详情"></div>
         
         <!--
         	作者：457754603@qq.com
         	时间：2016-03-23
         	描述：已购课程详情页面
         -->
-       <div class="second-page" id="paidCourseDetail" modeName="已购课程详情">
-        	
-        </div>
+       <div class="second-page" id="paidCourseDetail" modeName="已购课程详情"></div>
         
         <!--
         	作者：457754603@qq.com
@@ -527,11 +401,9 @@
 		</div><!-- /身份验证 --> 
 		
 		<!-- page js -->
-		<script type="text/javascript" src="js/secondPages/modifyStudent.js" ></script>
-		<script type="text/javascript" src="js/secondPages/paidCourseDetail.js" ></script>
-		<script type="text/javascript" src="js/secondPages/courseDetail.js" ></script>
-		<script type="text/javascript" src="js/secondPages/courseList.js" ></script>
 		<script type="text/javascript" src="js/courseControl.js" ></script>
+		<script type="text/javascript" src="js/secondPages/courseList.js" ></script>
+		
 		<script type="text/javascript" src="js/module/secondPages.js" ></script>
 		<script type="text/javascript" src="js/module/mainPage.js" ></script>
 		<script type="text/javascript" src="js/module/page1.js" ></script>
@@ -539,61 +411,5 @@
 		<script type="text/javascript" src="js/module/page3.js" ></script>
 		<script type="text/javascript" src="js/module/page4.js" ></script>
 		<script type="text/javascript" src="js/app.js" ></script>
-		
-		<script>
-//			$('.header').on("headerInit",function(){
-//				setTimeout(function(){
-//					$("#messageBtn").addClass('newMsg')
-//				},2000);
-//			})
-			
-//			$("#page1").on("pageInit",function(){
-//				$("#tags").createTags({
-//					source:"views/tags_page1.json",
-//					style:'tag',
-//					created:function(res){
-//						console.log(res);
-//					}
-//				})
-//				$("#imgLinks_page1").createdImgLinks({
-//					source:"views/imgLinks_page1.json",
-//					style:'link',
-//					created:function(res){
-//						console.log(res);
-//					}
-//				})
-//				
-//				$("#messageBtn").bind('click',function(){
-//					$.secondPage.to('addAddressPage');
-//					$("#addAddressBtn").unbind('click').bind('click',function(){
-//						$.loading.load();
-//						setTimeout(function(){
-//							$.loading.loaded(function(){
-//								$.secondPage.next('addCoursePage');
-//							});
-//							
-//						},1000);
-//						$("#addCourseBtn").unbind('click').bind('click',function(){
-//							$.secondPage.next('addShopAddressPage');
-//						})
-//					})
-//				})
-//			})
-//			$("#page1").on("pageShow",function(){
-//				console.log('1show')
-//			})
-//			$("#page1").on("pageHide",function(){
-//				console.log("1hide")
-//			})
-//			$("#page2").on("pageInit",function(){
-//				console.log("2init")
-//			})
-//			$("#page2").on("pageHide",function(){
-//				console.log("2hide")
-//			})
-//			$("#page2").on("pageShow",function(){
-//				console.log("2show")
-//			})
-		</script>
 	</body>
 </html>

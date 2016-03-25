@@ -25,9 +25,17 @@
 					<p id="courseDetail_time"></p>
 				</div>
 				<div>
+					<label>上课地点：</label>
+					<div id="courseDetail_address">
+						<p style="display: none;text-indent: 2em;word-break: break-word;" class="address1"></p>
+						<p style="display: none;text-indent: 2em;word-break: break-word;" class="address2">2</p>
+					</div>
+				</div>
+				<div>
 				<label>课程须知：</label>
 					<p id="courseDetail_note"></p>
-					</div>
+				</div>
+				<hr />
 				<div>
 					<label>任课老师：</label>
 					<p id="courseDetail_teacher">aaa</p>
@@ -51,3 +59,58 @@
 		</div>
 	</div>
 </div>
+
+<script>
+function courseDetail(data){
+	$("#courseDetail_courseName").html(data.courseName);
+	$("#courseDetail_courseType").html(data.courseType);
+	$("#courseDetail_courseLength").html(data.courseLength+"学时");
+	$("#courseDetail_price").html(Number(data.price)/100+" 元");
+	$("#courseDetail_time").html(data.time);
+	$("#courseDetail_note").html(data.note);
+	$("#courseDetail_teacher").html(data.teacherInfo.userName);
+	$("#courseDetail_teacherShort").html(data.teacherInfo.desShort);
+	$("#courseDetail_teacherLong").html(data.teacherInfo.desLong);
+	if(data.trail!="none"){
+		$("#courseDetail_callBtn").css("display","block");
+		$("#courseDetail_callBtn").attr("href","tel:"+data.teacherInfo.phoneNum);
+	}
+	$('#courseDetail_buyBtn').unbind("click").bind("click",function(){
+		var buyInfo=new Object;
+		buyInfo.command="createPrepayLink";
+		buyInfo.id=data._id;
+		$.theAjax.post(buyInfo,function(res){
+			if(res.result=="success"){
+				open(res.data.code_url,"_blank");
+			}
+			else{
+				alert("获取支付链接失败，请重新尝试!");
+			}
+		},null);
+	})
+	
+	if(data.address1!="none"){
+		var addres1=new Object;
+		addres1.command="getAddressById";
+		addres1.addressId=data.address1;
+		$.theAjax.post(addres1,function(res){
+			if(res.result=="success"){
+				$("#courseDetail_address").find("p.address1").css("display","block");
+				$("#courseDetail_address").find("p.address1").html("地址1："+res.data[0].address);
+			}
+		},null);
+	}
+	if(data.address2!="none"){
+		var addres2=new Object;
+		addres2.command="getAddressById";
+		addres2.addressId=data.address1;
+		$.theAjax.post(addres1,function(res){
+			if(res.result=="success"){
+				$("#courseDetail_address").find("p.address2").css("display","block");
+				$("#courseDetail_address").find("p.address2").html("地址2："+res.data[0].address);
+			}
+		},null);
+	}
+}
+
+</script>

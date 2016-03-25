@@ -14,6 +14,9 @@
 					$.theData.student=res.data[0];	
 					sucFunction();
 				}
+				else{
+					alert("刷新资料失败，请重新尝试");
+				}
 			},null)
 		};
 		thedata.uploadTeacher=function(sucFunction){
@@ -24,6 +27,9 @@
 				if(res.result=="success"){
 					$.theData.teacher=res.data[0];
 					sucFunction();
+				}
+				else{
+					alert("刷新资料失败，请重新尝试");
 				}
 			},null)
 		}
