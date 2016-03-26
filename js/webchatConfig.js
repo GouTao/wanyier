@@ -124,15 +124,15 @@
 			}
 			
 			getOpenid(code,function(userInfo){
-				wxData.openid=userInfo.openid;
-				wxData.userInfo=userInfo.userInfo
+				wxData.openid=userInfo.data.openid;
+				wxData.userInfo=userInfo.data.userInfo;
 				regCallback();
 				//获取wx权限
 				getSignPackage(pathname,function(sp){
-					appId = sp.appId;
-					timestamp = sp.timestamp;
-					nonceStr = sp.nonceStr;
-					signature = sp.signature;
+					appId = sp.data.appId;
+					timestamp = sp.data.timestamp;
+					nonceStr = sp.data.nonceStr;
+					signature = sp.data.signature;
 					// 在这里调用 API
 					wx.config({
 						appId:appId,
