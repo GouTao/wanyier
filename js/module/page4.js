@@ -2,10 +2,10 @@
 	var studentCourseData;
 	
 	$('#page4').on('pageInit',function(){
-		//$("#head").attr("src",$.wxData().userInfo.headimgurl);
-		//$("#nickName").html($.wxData().userInfo.nickname);
-		$("#head").attr("src","img/qr.jpg");
-		$("#nickName").html("某科学的超坦克炮");
+		try{$("#head").attr("src",$.wxData().userInfo.headimgurl);}catch(e){};
+		try{$("#nickName").html($.wxData().userInfo.nickname);}catch(e){}
+		//$("#head").attr("src","img/qr.jpg");
+		//$("#nickName").html("某科学的超坦克炮");
 		if($.theData.isTeacher==true){
 			if($.theData.isCheck==false){
 				$("#name").html($.theData.teacher.userName+"(未审核)");
@@ -120,22 +120,31 @@
 		})
 		
 	})
-	$("#apge4").on('pageShow',function(){
-		if($.theData.isTeacher==true){
-			if($.theData.isCheck==false){
-				$("#name").html($.theData.teacher.userName+"(未审核)");
+	$("#page4").on('pageShow',function(){
+		$.theData.uploadTeacher(function(){
+			if($.theData.isTeacher==true){
+				if($.theData.isCheck==false){
+					$("#name").html($.theData.teacher.userName+"(未审核)");
+				}
+				else{
+					$("#name").html($.theData.teacher.userName+"(已审核)");
+				}
+				$("#shortDes").html($.theData.teacher.desShort);
+				$("#longDes").html($.theData.teacher.desLong);
+				var teacherHome=new Object();
+				teacherHome.command="getAddressById";
+				teacherHome.addressId=$.theData.teacher.homeAddressId;
+				$.theAjax.post(teacherHome,function(res){
+					if(res.result=="success"){
+						$("#homeAddress").html(res.data[0].address);
+					}
+				},null)
 			}
 			else{
-				$("#name").html($.theData.teacher.userName+"(已审核)");
+				$("#name").html($.theData.student.userName);
+				$("#longDes").html($.theData.student.desLong);
 			}
-			$("#shortDes").html($.theData.teacher.desShort);
-			$("#longDes").html($.theData.teacher.desLong);
-			$("#homeAddress").html($.theData.teacher.homeAddressNum)
-		}
-		else{
-			$("#name").html($.theData.student.userName);
-			$("#longDes").html($.theData.student.desLong);
-		}
+		})
 	})
 	
 	function teacherConttol(){
@@ -143,7 +152,6 @@
 			$.loadSecondPage.staticLoad("addressManager",function(){
 				$.secondPage.to("addressManager",null);
 			})
-			
 		})
 	}
 })()

@@ -60,5 +60,5 @@ $('#page1').on('pageInit',function(){
 	})
 })
 $('#page1').on('pageShow',function(){
-
+ 	console.log("bbb")
 })
