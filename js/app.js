@@ -59,7 +59,8 @@ function logFuc(){
 		}
 		else{
 			$.theData.isLog=false;
-			alert("登录失败，请重新尝试")
+			alert("登录失败，您尚未成为玩艺儿成员，即将跳转到注册页面");
+			open("regist.html?levelup=true&openid="+$.wxData().openid,"_self");
 		}
 	},null)
 }

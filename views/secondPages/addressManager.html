@@ -48,6 +48,9 @@
 				       	},null);
 				    }
 				})
+				wx.error(function(res){
+					alert("未能成功调用微信接口，原因：\n"+res+"\n 请尝试重新登录页面");
+				})
 			}
 			else{
 				alert("请输入您的地址!");

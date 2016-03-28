@@ -42,7 +42,7 @@
 					callback.call(this,json);
 				},
 				error:function(){
-					alert('连接服务器失败，未能进行微信权限验证！')
+					//alert('连接服务器失败，未能进行微信权限验证！')
 				}
 			})		
 		}
