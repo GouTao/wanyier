@@ -93,11 +93,7 @@ function initRegist(){
 	$("#normalFini").on("click",function(){
 		//跳转回登录界面
 		alert('操作成功。页面即将跳转。');
-<<<<<<< HEAD
 		open("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6585c007ff6e5490&redirect_uri=http://www.wanyirart.cc/wy/index.html&response_type=code&scope=snsapi_userinfo","_self");
-=======
-		open('https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6585c007ff6e5490&redirect_uri=http://www.wanyirart.cc/wy/index.html&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect',"_self");
->>>>>>> dc4f2745b0a2a5e54eb157073abdb14c306365eb
 	})
 	
 	$('#registBtn').on('click',function(){
@@ -118,11 +114,7 @@ function initRegist(){
 					if(res.result=='success'){
 						if(userType=='teacher'){
 							alert('操作成功，请等待审核。页面即将跳转。');
-<<<<<<< HEAD
 							open("https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6585c007ff6e5490&redirect_uri=http://www.wanyirart.cc/wy/index.html&response_type=code&scope=snsapi_userinfo","_self");
-=======
-							open('https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx6585c007ff6e5490&redirect_uri=http://www.wanyirart.cc/wy/index.html&response_type=code&scope=snsapi_userinfo&connect_redirect=1#wechat_redirect',"_self");
->>>>>>> dc4f2745b0a2a5e54eb157073abdb14c306365eb
 						}
 						else{
 							$("#regist").css('display',"none");
