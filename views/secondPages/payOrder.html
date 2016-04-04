@@ -1,0 +1,58 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h4><img src="img/icons-png/shop-black.png"/>支付</h4>
+			<hr />
+		</div>
+		<div class=" col-sm-6 col-sm-offset-3 col-lg-4 col-lg-offset-4 noRight" >
+			<div style="margin-bottom: 10px;margin-top: 10px;border: 1px solid darkred;">
+				<b><img src="img/icons-png/info-black.png"/>提示:</b>
+				<p style="margin-bottom: 0px; color: darkred;">*请一定使用当前微信账号完成支付，否则不会产生支付记录，会造成资金损失</p>
+			</div>
+			<div style="padding: 0px;margin-bottom: 5px;margin-top: 0px;">
+				<ul class="list-group" style="border-radius: 0px;">
+					<li class="list-group-item">
+						<b><img  src="img/icons-png/bullets-black.png"/>订单信息</b>
+					</li>
+					<li class="list-group-item" style="padding-left:5px ;">
+						<p class="payInfo">课程：<span id="payCourse" style="margin-top:10px ;margin-bottom: 10px;"></span></p>
+					</li>
+					<li class="list-group-item" style="padding-left:5px ;">
+						<p>金额：<span id="payPrice" style="margin-bottom: 0px;"></span></p>
+					</li>
+				</ul>
+			</div>
+			<div style="margin-top: 0px;">
+				<p style="margin-bottom: 10px;margin-top: 10px;">长按识别支付二维码完成支付操作</p>
+				<div id="qrcontent" style="width: 100%;padding: 10px;"></div>
+			</div>
+		</div>
+	</div>
+</div>
+<style>
+	   p.payInfo{
+	   	 text-align: left;
+		word-break:keep-all;           
+		white-space:nowrap;          	
+		overflow:hidden;               
+		text-overflow:ellipsis;
+	   }
+</style>
+<script>
+	function createQR(payInfo){
+		$("#payCourse").html(payInfo.name);
+		$("#payPrice").html(payInfo.price);
+		$("#qrcontent").empty()
+		var $img=$("<img></img>");
+		$img.css({
+			'width':'70%',
+			'display':"block",
+			"margin":"auto"
+		});
+		var url="http://s.jiathis.com/qrcode.php?url=";
+		url=url+payInfo.payurl+"&uid="+Math.random();
+		$img.attr('src',url);
+		$("#qrcontent").append($img);
+		//console.log(qrurl);
+	}
+</script>

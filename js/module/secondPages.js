@@ -22,6 +22,8 @@ $.fn.sencondPageControl=function(pageid,data){
 		case "addCourse":
 			addCourse();
 			break;
+		case "payOrder":
+			createQR(data);
 		default:
 			break;
 	}

@@ -62,6 +62,7 @@
 
 <script>
 function courseDetail(data){
+	var payInfo=new Object;
 	$("#courseDetail_courseName").html(data.courseName);
 	$("#courseDetail_courseType").html(data.courseType);
 	$("#courseDetail_courseLength").html(data.courseLength+"学时");
@@ -81,7 +82,14 @@ function courseDetail(data){
 		buyInfo.id=data._id;
 		$.theAjax.post(buyInfo,function(res){
 			if(res.result=="success"){
-				open(res.data.code_url,"_blank");
+				payInfo.name=$("#courseDetail_courseName").html();
+				payInfo.price=$("#courseDetail_price").html();
+				payInfo.payurl=res.data.code_url;
+				//alert("长按支付二维码进入支付页面\n请使用当前微信支付，否则不会产生支付记录，会造成资金损失\n")
+				$.loadSecondPage.staticLoad('payOrder',function(){
+					$.secondPage.next('payOrder',payInfo);
+				})
+				
 			}
 			else{
 				alert("获取支付链接失败，请重新尝试!");

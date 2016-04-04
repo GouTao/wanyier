@@ -6,15 +6,15 @@ $(document).ready(function(){
 		//验证身份
 		sucFunction:function(){
 			$("body").css("display","block");
-//			logFuc();
-			$.webchatCongfig.regInformation({
-				regSuccess:function(){
-					logFuc();
-				},
-				signSuccess:function(res){
-					//alert(res);//signSuc  OR  signErr
-				}
-			})
+			logFuc();
+//			$.webchatCongfig.regInformation({
+//				regSuccess:function(){
+//					logFuc();
+//				},
+//				signSuccess:function(res){
+//					//alert(res);//signSuc  OR  signErr
+//				}
+//			})
 		},
 		errFunction:function(){
 			open("nowx.html","_self");
