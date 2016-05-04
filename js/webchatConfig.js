@@ -139,7 +139,7 @@
 						timestamp:timestamp,
 						nonceStr:nonceStr,
 						signature:signature,
-						jsApiList: ['scanQRCode'],
+						jsApiList: ['scanQRCode','getLocation'],
 						debug:false
 					});
 					wx.ready(function () {

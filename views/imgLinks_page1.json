@@ -1,8 +1,8 @@
 [
-	{"src":"img/study.png","target":"编程"},
-	{"src":"img/study.png","target":"计算机"},
-	{"src":"img/study.png","target":"音乐"},
-	{"src":"img/study.png","target":"美术"},
-	{"src":"img/study.png","target":"舞蹈"},
-	{"src":"img/study.png","target":"武术"}
+	{"src":"img/ui/modules/study1.jpg","target":"美术设计"},
+	{"src":"img/ui/modules/study2.jpg","target":"西洋乐器"},
+	{"src":"img/ui/modules/study3.jpg","target":"中国乐曲"},
+	{"src":"img/ui/modules/study4.jpg","target":"语言演讲表演"},
+	{"src":"img/ui/modules/study5.jpg","target":"手工文化特殊课程"},
+	{"src":"img/ui/modules/study6.jpg","target":"体育户外"}
 ]
