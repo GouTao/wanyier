@@ -17,7 +17,7 @@
 			$("#shortDes").html($.theData.teacher.desShort);
 			$("#longDes").html($.theData.teacher.desLong);
 			
-			if($.theData.teacher.userName!=undefined&&$.theData.teacher.desShort!=undefined&&$.theData.teacher.desLong!=undefined&&$.theData.teacher.homeAddressNum!=undefined){
+			if($.theData.teacher.userName!=undefined&&$.theData.teacher.desShort!=undefined&&$.theData.teacher.desLong!=undefined&&$.theData.teacher.homeAddressId!=undefined){
 				var teacherHome=new Object();
 				teacherHome.command="getAddressById";
 				teacherHome.addressId=$.theData.teacher.homeAddressId;

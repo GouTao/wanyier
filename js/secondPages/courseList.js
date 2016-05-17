@@ -12,9 +12,9 @@ function courseListShow(data){
 							"<p class='courseList_teacherName'>授课老师：<span class='courseList_teacherName_content'>"+data[i].teacherInfo.userName+"</span></p>"+
 						"</div>"+
 					"</li>"
-				);
+				);JSON.stringify()
 			if(data[i].trail!="none"){
-				var $span=$("<span class='badge'>"+试听+"</span>");
+				var $span=$("<span class='badge'>"+"试听"+"</span>");
 				$item.append($span);
 			}
 			$(".courseList_ul").append($item);	
