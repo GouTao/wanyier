@@ -14,6 +14,7 @@
 				$("#name").html($.theData.teacher.userName+"(已审核)");
 			}
 			
+			
 			$("#shortDes").html($.theData.teacher.desShort);
 			$("#longDes").html($.theData.teacher.desLong);
 			

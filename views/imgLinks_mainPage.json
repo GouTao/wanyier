@@ -1,5 +1,5 @@
 [
-	{"src":"img/mode.png","target":"page1"},
-	{"src":"img/mode.png","target":"page2"},
-	{"src":"img/mode.png","target":"page3"}
+	{"src":"img/ui/module/page1.jpg","target":"page1"},
+	{"src":"img/ui/module/page2.jpg","target":"page2"},
+	{"src":"img/ui/module/page3.jpg","target":"page3"}
 ]
