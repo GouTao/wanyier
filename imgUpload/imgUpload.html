@@ -101,14 +101,14 @@
         		var fileController = "/upload";                    
 	            var fd = new FormData(document.getElementById("form1"));   
 	            var file = document.getElementById('fileSelect_hidden').files[0];
-	            fd.append("fileName",fileName);
+	            fd.append("fileName",file.name);
 	            xhr = new XMLHttpRequest();
 	            xhr.open("POST", fileController);		
 	            xhr.onload = function (e) {		
-	                alert("上传完成!");
+	                //alert("上传完成!");
 	                console.log(e.target.response);
 	            };
-				xhr.upload.addEventListener("progress", progressFunction);
+				//xhr.upload.addEventListener("progress", progressFunction);
 	            xhr.send(fd);
 			}
 			function progressFunction(event) {
