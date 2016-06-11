@@ -4,15 +4,17 @@
 	$('#page4').on('pageInit',function(){
 		
 		$("h5.slideList").each(function(){
+			$("#"+$(this).attr("target")).addClass("animated")
 			$(this).on('click',function(e){
-				console.log("aaa")
 				if($("#"+$(e.currentTarget).attr("target")).css("display")=="block"){
 					$("#"+$(e.currentTarget).attr("target")).hide();
+					$("#"+$(e.currentTarget).attr("target")).removeClass("fadeIn");
 					$($(e.currentTarget).children("span")[0]).removeClass("glyphicon-chevron-up").addClass("glyphicon-chevron-down");
 					$($(e.currentTarget).next()[0]).hide();
 				}
 				else{
 					$("#"+$(e.currentTarget).attr("target")).show();
+					$("#"+$(e.currentTarget).attr("target")).addClass("fadeIn ")
 					$($(e.currentTarget).children("span")[0]).removeClass("glyphicon-chevron-down").addClass("glyphicon-chevron-up");
 					$($(e.currentTarget).next()[0]).show();
 				}

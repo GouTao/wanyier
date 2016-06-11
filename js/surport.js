@@ -378,16 +378,3 @@ var pageRoute=[],tempsecondPages,tempModeName;
 		return loadsecondpage;
 	})()
 })(jQuery);
-
-$("h5.slideList").each(function(){
-			$(this).on('click',function(e){
-				console.log("aaa")
-				if($("#"+$(e.currentTarget).attr("target")).css("display")=="block"){
-					$("#"+$(e.currentTarget).attr("target")).hide();
-					console.log($(e.currentTarget).next()[0]);
-				}
-				else{
-					$("#"+$(e.currentTarget).attr("target")).show();
-				}
-			})
-		})

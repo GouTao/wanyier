@@ -89,8 +89,8 @@
 		}
 		
 		var wxData=new Object;
-//		wxData.openid="o3Eplsy6g8mIq0yJJTo0HgEmhKWU";
-		wxData.openid="o3Epls2TMaiah_iI-GLwi9CxVKeQ";
+		wxData.openid="o3Eplsy6g8mIq0yJJTo0HgEmhKWU";
+//		wxData.openid="o3Epls2TMaiah_iI-GLwi9CxVKeQ";
 		
 		$.wxData=function(){
 			return wxData;
