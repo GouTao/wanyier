@@ -29,10 +29,14 @@
         	描述：顶部
         -->
 		<div class="header">
-			<h3>玩艺儿<small>—</small><small id="modeName">艺术玩家圈子</small></h3>
-			<div id="returnToMainBtn" class="head-right-btn">
-				<img src="img/ui/btn_homepage.png" />
+			<div id="returnToMainBtn" class="head-left-btn">
+				<span class="glyphicon glyphicon-home" style="color: #999999;font-size: 1.3em;"></span>
 			</div>
+			<div class="head-left-btn" id="returnToMain" >
+				<span class="glyphicon glyphicon-chevron-left" style="color: #999999;font-size: 1.3em;"></span> 
+			</div>
+			<h3 ></span><span id="modeName" style="padding-right: 2px;">艺术玩家圈子</h3>
+			
 		</div>
 		<div class="gap gap-top"></div>
 		<!--
@@ -175,10 +179,11 @@
 					<div class="row">
 						<div class="col-sm-6 col-sm-offset-3 userInfo">
 							<div class="infoHeader">
-								<h5 style="float: left;"><img src="img/icons-png/bars-black.png"/>&nbsp;我的授课</h5>
+								<h5 style="float: left;" class="slideList" target="teacher_courseList"><span class="glyphicon glyphicon-chevron-up"></span>&nbsp;我发布的课程</h5>
+								<small style="float: right;"><a id="teacher_courseList_check" state="normal">[只显示授课中课程]</a></small>
 							</div>
 							
-							<ul class="list-group" id="shopList">
+							<ul class="list-group" id="teacher_courseList">
 								<!--<li class="list-group-item">
 									<p class="courseName">aaa</p>
 								</li>
@@ -197,7 +202,7 @@
 					<div class="row">
 						<div class="col-sm-6 col-sm-offset-3 userInfo">
 							<div class="infoHeader">
-								<h5 style="float: left;"><img src="img/icons-png/bars-black.png"/>&nbsp;我的课程</h5>
+								<h5 style="float: left;" class="slideList" target="student_courseList"><span class="glyphicon glyphicon-chevron-up">&nbsp;我的课程</h5>
 								<small style="float: right;"><a id="student_courseList_check" state="normal">[只显示未学完课程]</a></small>
 							</div>
 							<ul class="list-group" id="student_courseList">
@@ -363,10 +368,24 @@
         
         <!--
         	作者：457754603@qq.com
+        	时间：2016-06-11
+        	描述：老师课程详情
+        -->
+        <div class="second-page" id="teacherCourseDetail" modeName="已发布课程详情"></div>
+        
+        <!--
+        	作者：457754603@qq.com
         	时间：2016-03-23
         	描述：已购课程详情页面
         -->
        <div class="second-page" id="paidCourseDetail" modeName="已购课程详情"></div>
+       
+         <!--
+        	作者：457754603@qq.com
+        	时间：2016-03-23
+        	描述：授课中课程详情页面
+        -->
+       <div class="second-page" id="trendCourseDetail" modeName="授课中课程详情"></div>
        
        <!--
        	作者：457754603@qq.com

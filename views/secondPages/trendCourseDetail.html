@@ -1,0 +1,68 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h4><img src="img/icons-png/eye-black.png"/>授课中课程详情</h4>
+			<hr />
+			<div class="paidCourseDetail_infoShow">
+				<div>
+					<label>课程名称：</label>
+					<p id="trendCourseDetail_courseName"></p>
+				</div>
+				<div>
+					<label>课程学生：</label>
+					<p id="trendCourseDetail_courseStudent"></p>
+				</div>
+				<div>
+					<label>课程进度：</label>
+					<p id="trendCourseDetail_process"></p>
+				</div>
+				<div>
+					<label>上课时间：</label>
+					<p id="trendCourseDetail_time"></p>
+				</div>
+				<div>
+					<label>上课地点：</label>
+					<p id="trendCourseDetail_address"></p>
+				</div>
+				<hr />
+				<div>
+					<label>课程点评：</label>
+					<textarea id="trendCourseDetail_check" class="form-control"></textarea>
+					<button class="btn btn-block btn-success btn-wide" style="margin: auto;margin-top: 5px;max-width: 200px;" id="sendCheckBtn">发送给学生</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<script>
+function trendCourseDetail(data){
+	$("#trendCourseDetail_check").val("");
+	$("#trendCourseDetail_courseName").html(data.courseName);
+	$("#trendCourseDetail_process").html(data.process);
+	$("#trendCourseDetail_time").html(data.day+"  "+data.time);
+	$("#trendCourseDetail_note").html(data.note);
+	$("#trendCourseDetail_address").html(data.address);
+	$("#trendCourseDetail_courseStudent").html(data.student);
+	$("#sendCheckBtn").unbind("click").bind("click",function(){
+		if($("#trendCourseDetail_check").val()!=""){
+			var checkObj=new Object();
+			checkObj.command="startCheckCourse";
+			checkObj.openid=$.wxData().openid;
+			checkObj.id=data.orderId;
+			checkObj.comment=$("#trendCourseDetail_check").val();
+			$.theAjax.post(checkObj,function(res){
+				if(res.result=="success"){
+					alert("评价成功！");
+				}
+				else{
+					alert("评价失败！\n失败原因：\n"+res.msg);
+				}
+			})
+		}
+		else{
+			alert("请输入您的评价！")
+		}
+	})
+}
+</script>

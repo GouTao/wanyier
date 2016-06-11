@@ -24,6 +24,13 @@ $.fn.sencondPageControl=function(pageid,data){
 			break;
 		case "payOrder":
 			createQR(data);
+			break;
+		case "teacherCourseDetail":
+			teacherCourseDetail(data);
+			break;
+		case "trendCourseDetail":
+			trendCourseDetail(data);
+			break;
 		default:
 			break;
 	}

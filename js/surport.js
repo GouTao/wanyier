@@ -266,17 +266,21 @@ var pageRoute=[],tempsecondPages,tempModeName;
 			$('#'+pageID).addClass('animated fadeIn');
 			$("#"+pageID).sencondPageControl(pageID,data);
 			$('#modeName').html($('#'+pageID).attr("modeName"));
-			$("#navBar").css('display','none');
-			$('#second-navBar').css('display','table');
-			$('#second-navBar').removeClass('animated fadeInUp');
-			$('#second-navBar').addClass('animated fadeInUp');
+//			$("#navBar").css('display','none');
+//			$('#second-navBar').css('display','table');
+//			$('#second-navBar').removeClass('animated fadeInUp');
+//			$('#second-navBar').addClass('animated fadeInUp');
+			$(".footer").hide();
+			$("#returnToMainBtn").hide();
+			$("#returnToMain").show();
 			$('body,html').animate({scrollTop:0},0); 
 			pageRoute.push($('#'+pageID));
 			$('#returnToMain').bind('click',function(){
 				$('#'+pageID).css('display','none');
-				$('#second-navBar').css('display','none');
+//				$('#second-navBar').css('display','none');
 				if(pageRoute[0].attr("id")=="mainPage"){
-					$("#returnToMainBtn").css("display","none");
+//					$("#returnToMainBtn").css("display","none");
+					$("#returnToMain").hide();
 				}
 				pageRoute[pageRoute.length-2].css('display','block');
 				pageRoute[pageRoute.length-2].removeClass('animated fadeIn');
@@ -284,10 +288,13 @@ var pageRoute=[],tempsecondPages,tempModeName;
 				$('#modeName').html(pageRoute[pageRoute.length-2].attr("modeName"));
 				pageRoute.splice(0);
 				$("#modeName").html(tempModeName);
-				$('#navBar').css('display','table');
-				$('#navBar').removeClass('animated fadeInUp');
-				$('#navBar').addClass('animated fadeInUp');
+//				$('#navBar').css('display','table');
+//				$('#navBar').removeClass('animated fadeInUp');
+//				$('#navBar').addClass('animated fadeInUp');
 				$('#returnToMain').unbind('click');
+				$(".footer").show();
+				$("#returnToMain").hide();
+				$("#returnToMainBtn").show();
 				$('body,html').animate({scrollTop:0},0); 
 			});
 		}
@@ -310,14 +317,18 @@ var pageRoute=[],tempsecondPages,tempModeName;
 				pageRoute.splice(pageRoute.length-1,1);
 				if(pageRoute.length==1){
 					if(pageRoute[0].attr("id")=="mainPage"){
-						$("#returnToMainBtn").css("display","none");
+//						$("#returnToMainBtn").css("display","none");
+						$("#returnToMain").hide();
 					}
 					pageRoute=[];
 					$("#modeName").html(tempModeName);
-					$('#second-navBar').css('display','none');
-					$('#navBar').css('display','table');
-					$('#navBar').removeClass('animated fadeInUp');
-					$('#navBar').addClass('animated fadeInUp');
+//					$('#second-navBar').css('display','none');
+//					$('#navBar').css('display','table');
+//					$('#navBar').removeClass('animated fadeInUp');
+//					$('#navBar').addClass('animated fadeInUp');
+					$(".footer").show();
+					$("#returnToMain").hide();
+					$("#returnToMainBtn").show();
 					$('#returnToMain').unbind('click');
 					$('body,html').animate({scrollTop:0},0); 
 				}
@@ -367,3 +378,16 @@ var pageRoute=[],tempsecondPages,tempModeName;
 		return loadsecondpage;
 	})()
 })(jQuery);
+
+$("h5.slideList").each(function(){
+			$(this).on('click',function(e){
+				console.log("aaa")
+				if($("#"+$(e.currentTarget).attr("target")).css("display")=="block"){
+					$("#"+$(e.currentTarget).attr("target")).hide();
+					console.log($(e.currentTarget).next()[0]);
+				}
+				else{
+					$("#"+$(e.currentTarget).attr("target")).show();
+				}
+			})
+		})

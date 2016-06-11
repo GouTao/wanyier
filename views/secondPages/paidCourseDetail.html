@@ -83,9 +83,18 @@ function paidCourseDetail(data){
 	else{
 		$("#paidCourseDetail_trail").html(data.trail);
 	}
-	if(data.state==3){
+	if(data.state==0){
+		$("#paidCourseDetail_status").html("已删除");
+	}
+	if(data.state==1){
+		$("#paidCourseDetail_status").html("为审核");
+	}
+	else if(data.state==2){
+		$("#paidCourseDetail_status").html("已审核");
+	}
+	else if(data.state==3){
 		isING=true
-		$("#paidCourseDetail_status").html("上课中");
+		$("#paidCourseDetail_status").html("已支付");
 	}
 	else if(data.state==4){
 		$("#paidCourseDetail_status").html("已退款");

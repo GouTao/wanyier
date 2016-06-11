@@ -67,10 +67,34 @@
 			if(res.result=="success"){
 				for(var i=0;i<res.data.length;i++){
 					var $addItem=$("<li class='list-group-item'>"+
-						res.data[i].address+
+						"<p style='float: left;'>"+res.data[i].address+"</p>"+
+						"<a style='float: right;' addressID='"+res.data[i]._id+"'>[删除]</a>"+
 					"</li>"
 					);
 					$("#addAddressForm_list").append($addItem);
+					$addItem.on("click",function(e){
+						//console.log($($(e.currentTarget).children('a')[0]).attr("addressID"))
+						var deleteConfirm=prompt("提示：","请确认是否删除本条信息");
+						if(deleteConfirm!=null){
+							console.log($($(e.currentTarget).children('a')[0]).attr("addressID"));
+							var obj=new Object();
+							obj.command="deleteMyAddress";
+							obj.openid=$.wxData().openid;
+							obj.id=$($(e.currentTarget).children('a')[0]).attr("addressID");
+							$.theAjax.post(obj,function(res){
+								if(res.result=="success"){
+									alert("删除地址成功！");
+									getAddressList();
+								}
+								else{
+									alert("删除地址失败！\n失败原因：\n"+res.msg)
+								}
+							},null);
+						}
+//						else{
+//							console.log("null")
+//						}
+					})
 				}
 			}
 		},null)

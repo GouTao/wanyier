@@ -8,6 +8,7 @@
 				async:false,
 				data:{'data':sendMsg},
 				dataType:'json',
+				timeout:5000,
 				success:function(res){
 					sucFunction(res);
 				},
