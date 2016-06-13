@@ -1,0 +1,78 @@
+<style>
+	#trendCourse_list li{
+		padding: 8px;
+		position: relative;
+	}
+	#trendCourse_list li p{
+		margin: 2px;
+		width: 80%;
+		word-break:keep-all;           
+		white-space:nowrap;          
+		overflow:hidden;               
+		text-overflow:ellipsis;
+	}
+	#trendCourse_list li a{
+		position: absolute;
+		right: 8px;
+		top: 20px;
+	}
+</style>
+<div class="container">
+	<div class="row">
+		<div class="col-sm-6 col-sm-offset-3">
+			<h4><img src="img/icons-png/bullets-black.png"/>正在授课中课程</h4>
+			<hr />
+			<ul class="list-group" id="trendCourse_list">
+				<!--<li class="list-group-item">
+					<p ><b>发的数据库连接疯</b></p>
+					<p >星期一 15:00-17:00</p>
+					<a >[查询详情]</a>
+				</li>-->
+			</ul>
+		</div>
+	</div>
+</div>
+
+<script>
+var trendCourseData
+function trendCourse(){
+	var trendCourseInfo=new Object();
+	trendCourseInfo.command="getTrend";
+	trendCourseInfo.openid=$.wxData().openid;
+	$.theAjax.post(trendCourseInfo,function(res){
+		if(res.result=="success"){
+			$("#trendCourse_list").empty();
+			trendCourseData=res.data;
+			if(res.data.length>0){
+				for(var ti=0;ti<res.data.length;ti++){
+					var $item=$("<li class='list-group-item'>"+
+					"<p><b>"+res.data[ti].courseName+"</b></p>"+
+					"<p>"+res.data[ti].day+" "+res.data[ti].time+"</p>"+
+					"<a style='float: right;' courseID='"+res.data[ti].orderId+"'>[查询详情]</a>"+
+					"</li>"
+					);
+					$("#trendCourse_list").append($item);		
+					$item.find("a").on("click",function(e){
+						var keyID=$(e.target).attr("courseID");
+						$.loadSecondPage.staticLoad("trendCourseDetail",function(){
+							$.secondPage.next("trendCourseDetail",findTrendCourseData(keyID));
+						});
+					})
+				}
+			}
+		}
+		else{
+			$("#teacher_courseList").append($("<li class='list-group-item'>无</li>"))
+		}
+	})
+}
+function findTrendCourseData(tri){
+	console.log(tri)
+	for(var trj in trendCourseData){
+		if(trendCourseData[trj].orderId===tri){
+			console.log(trendCourseData[trj])
+			return trendCourseData[trj];
+		}
+	}
+}
+</script>

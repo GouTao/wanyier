@@ -11,8 +11,10 @@ $('#page2').on('pageInit',function(){
 							$.secondPage.to("addCourse",null);
 						})
 					}
-					else{
-						//
+					else if(res=="trendCourse"){
+						$.loadSecondPage.staticLoad("trendCourse",function(){
+							$.secondPage.to("trendCourse",null);
+						})
 					}
 				}
 				else{

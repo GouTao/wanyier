@@ -1,4 +1,5 @@
 (function(){	
+//	var trendCourseData
 	var trendCourseData,teacherCourseData,studentCourseData;
 	
 	$('#page4').on('pageInit',function(){
@@ -87,18 +88,18 @@
 		
 		getStudentCourse();
 		
-		$("#teacher_courseList_check").bind("click",function(e){
-			if($(e.target).attr('state')=="normal"){
-				getTrendCourse();
-				$(e.target).attr('state',"show");
-				$(e.target).html("[显示全部已发布课程]");
-			}
-			else{
-				getTeacherCourse();
-				$(e.target).attr('state',"normal");
-				$(e.target).html("[只显示授课中课程]");
-			}
-		})
+//		$("#teacher_courseList_check").bind("click",function(e){
+//			if($(e.target).attr('state')=="normal"){
+//				getTrendCourse();
+//				$(e.target).attr('state',"show");
+//				$(e.target).html("[显示全部已发布课程]");
+//			}
+//			else{
+//				getTeacherCourse();
+//				$(e.target).attr('state',"normal");
+//				$(e.target).html("[只显示授课中课程]");
+//			}
+//		})
 		
 		$("#student_courseList_check").bind("click",function(e){
 			if($(e.target).attr('state')=="normal"){
@@ -199,36 +200,36 @@
 		})
 	}
 	
-	function getTrendCourse(){
-		var trendCourseInfo=new Object();
-			trendCourseInfo.command="getTrend";
-			trendCourseInfo.openid=$.wxData().openid;
-			$.theAjax.post(trendCourseInfo,function(res){
-				if(res.result=="success"){
-					$("#teacher_courseList").empty();
-					trendCourseData=res.data;
-					if(res.data.length>0){
-						for(var ti=0;ti<res.data.length;ti++){
-							var $item=$("<li class='list-group-item'>"+
-							"<p style='float: left;' class='cn'>"+res.data[ti].courseName+"</p>"+
-							"<a style='float: right;' courseID='"+res.data[ti].orderId+"'>[查询详情]</a>"+
-							"</li>"
-						);
-						$("#teacher_courseList").append($item);		
-						$item.find("a").on("click",function(e){
-							var keyID=$(e.target).attr("courseID");
-							$.loadSecondPage.staticLoad("trendCourseDetail",function(){
-								$.secondPage.to("trendCourseDetail",findTrendCourseData(keyID));
-							});
-						})
-					}
-				}
-			}
-			else{
-				$("#teacher_courseList").append($("<li class='list-group-item'>无</li>"))
-			}
-		})
-	}
+//	function getTrendCourse(){
+//		var trendCourseInfo=new Object();
+//			trendCourseInfo.command="getTrend";
+//			trendCourseInfo.openid=$.wxData().openid;
+//			$.theAjax.post(trendCourseInfo,function(res){
+//				if(res.result=="success"){
+//					$("#teacher_courseList").empty();
+//					trendCourseData=res.data;
+//					if(res.data.length>0){
+//						for(var ti=0;ti<res.data.length;ti++){
+//							var $item=$("<li class='list-group-item'>"+
+//							"<p style='float: left;' class='cn'>"+res.data[ti].courseName+"</p>"+
+//							"<a style='float: right;' courseID='"+res.data[ti].orderId+"'>[查询详情]</a>"+
+//							"</li>"
+//						);
+//						$("#teacher_courseList").append($item);		
+//						$item.find("a").on("click",function(e){
+//							var keyID=$(e.target).attr("courseID");
+//							$.loadSecondPage.staticLoad("trendCourseDetail",function(){
+//								$.secondPage.to("trendCourseDetail",findTrendCourseData(keyID));
+//							});
+//						})
+//					}
+//				}
+//			}
+//			else{
+//				$("#teacher_courseList").append($("<li class='list-group-item'>无</li>"))
+//			}
+//		})
+//	}
 	
 	function getStudentCourse(){
 		var paidCourseInfo=new Object;

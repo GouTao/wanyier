@@ -31,6 +31,9 @@ $.fn.sencondPageControl=function(pageid,data){
 		case "trendCourseDetail":
 			trendCourseDetail(data);
 			break;
+		case "trendCourse":
+			trendCourse();
+			break;
 		default:
 			break;
 	}
